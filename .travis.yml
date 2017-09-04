@@ -3,7 +3,3 @@ jdk:
   - oraclejdk8
 
 apply plugin: "java"
-
-script:
-  - ./gradlew clean publish -i --continue
-  - ./gradlew -b finalize.gradle finalize -i
