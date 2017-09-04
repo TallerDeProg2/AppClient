@@ -1,22 +1,8 @@
-// .travis.yml
 language: java
 jdk:
-  - oraclejdk8          // tells Travis to use Java 8
+  - oraclejdk8
 
-// build.gradle
 apply plugin: "java"
-
-
-sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testCompile 'junit:junit:4.11'
-    testCompile 'org.mockito:mockito-core:1.9.+'
-}
 
 script:
   - ./gradlew clean publish -i --continue
