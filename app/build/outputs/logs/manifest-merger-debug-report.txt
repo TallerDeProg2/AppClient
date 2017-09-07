@@ -1,0 +1,87 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-21:12
+	package
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:3:5-28
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+application
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.android/build-cache/78cf313a7e53c7e4733f836c24cbbc8ac5e5d2af/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.android/build-cache/03b68aa1db64bb750c46c6a5997f0782dc02213c/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.android/build-cache/461bf0b17df2f095ae077a07da38bc55eb945c02/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.android/build-cache/b79834eea69011f6983e66ed1c73feecfb3d7b42/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.android/build-cache/4ecc5da52d6eea610fa2e569be82a95a1f0981a0/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/6e49fba540cda71f1cf244cb1e7db464af9aec28/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/cf9e40c275f57176b8f89251862b6751f7bba771/output/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.android/build-cache/d450480912f0a57aaf9de99635a437f7ae5239d5/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.android/build-cache/e8c7079c594b12d1c4c003f3df3321368d718abf/output/AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:8:9-41
+	android:supportsRtl
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:10:9-35
+	android:roundIcon
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:9:9-54
+	android:allowBackup
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:11:9-40
+activity#fiuba.ubreapp.MainActivity
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:12:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.android/build-cache/78cf313a7e53c7e4733f836c24cbbc8ac5e5d2af/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.android/build-cache/03b68aa1db64bb750c46c6a5997f0782dc02213c/output/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.android/build-cache/461bf0b17df2f095ae077a07da38bc55eb945c02/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.android/build-cache/b79834eea69011f6983e66ed1c73feecfb3d7b42/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.android/build-cache/4ecc5da52d6eea610fa2e569be82a95a1f0981a0/output/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/6e49fba540cda71f1cf244cb1e7db464af9aec28/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/cf9e40c275f57176b8f89251862b6751f7bba771/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.android/build-cache/d450480912f0a57aaf9de99635a437f7ae5239d5/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.android/build-cache/e8c7079c594b12d1c4c003f3df3321368d718abf/output/AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.android/build-cache/78cf313a7e53c7e4733f836c24cbbc8ac5e5d2af/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.android/build-cache/03b68aa1db64bb750c46c6a5997f0782dc02213c/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.android/build-cache/461bf0b17df2f095ae077a07da38bc55eb945c02/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.android/build-cache/b79834eea69011f6983e66ed1c73feecfb3d7b42/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.android/build-cache/4ecc5da52d6eea610fa2e569be82a95a1f0981a0/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/6e49fba540cda71f1cf244cb1e7db464af9aec28/output/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/cf9e40c275f57176b8f89251862b6751f7bba771/output/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.android/build-cache/d450480912f0a57aaf9de99635a437f7ae5239d5/output/AndroidManifest.xml:25:5-27:41
+	android:value
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:27:9-38
+	android:name
+		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:26:9-47
