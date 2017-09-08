@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">UbreApp</string>
+    <string name="title_activity_splash_screen">Ubre</string>
+    <string name="title_activity_login_screen">LoginActivity</string>
+    <string name="facebook_app_id">140124353173468</string>
 </resources>

@@ -368,8 +368,27 @@
                     "startLine": 21,
                     "startColumn": 4,
                     "startOffset": 1999,
+                    "endColumn": 61,
+                    "endOffset": 2056
+                },
+                "from": {
+                    "file": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/values-de/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 181,
+                        "endColumn": 61,
+                        "endOffset": 238
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 2061,
                     "endColumn": 81,
-                    "endOffset": 2076
+                    "endOffset": 2138
                 },
                 "from": {
                     "file": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/values-de/values-de.xml",
@@ -384,11 +403,11 @@
             },
             {
                 "to": {
-                    "startLine": 22,
+                    "startLine": 23,
                     "startColumn": 4,
-                    "startOffset": 2081,
+                    "startOffset": 2143,
                     "endColumn": 100,
-                    "endOffset": 2177
+                    "endOffset": 2239
                 },
                 "from": {
                     "file": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/values-de/values-de.xml",

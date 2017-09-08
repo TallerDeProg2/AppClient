@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/com_facebook_button_login_silver_background.xml",
+        "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/drawable/com_facebook_button_login_silver_background.xml"
+    },
+    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable/abc_cab_background_internal_bg.xml"
     },
@@ -22,6 +26,10 @@
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_indicator_material.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable/abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/com_facebook_button_background.xml",
+        "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/drawable/com_facebook_button_background.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
@@ -48,6 +56,10 @@
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable/notification_bg_low.xml"
     },
     {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/messenger_button_white_bg_round.xml",
+        "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/drawable/messenger_button_white_bg_round.xml"
+    },
+    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable/abc_btn_check_material.xml"
     },
@@ -66,6 +78,10 @@
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_tick_mark_material.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable/abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/messenger_button_white_bg_selector.xml",
+        "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/drawable/messenger_button_white_bg_selector.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/abc_ic_go_search_api_material.xml",
@@ -112,6 +128,10 @@
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable/abc_tab_indicator_material.xml"
     },
     {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/messenger_button_blue_bg_round.xml",
+        "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/drawable/messenger_button_blue_bg_round.xml"
+    },
+    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable/abc_textfield_search_material.xml"
     },
@@ -124,8 +144,20 @@
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable/abc_ic_voice_search_api_material.xml"
     },
     {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/miltank.png",
+        "source": "/home/alan/Documents/Taller 2/ClientApp/app/src/main/res/drawable/miltank.png"
+    },
+    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/com_facebook_button_like_background.xml",
+        "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/drawable/com_facebook_button_like_background.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/com_facebook_button_send_background.xml",
+        "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/drawable/com_facebook_button_send_background.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background.xml",
@@ -138,6 +170,10 @@
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/abc_vector_test.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable/abc_vector_test.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/messenger_button_blue_bg_selector.xml",
+        "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/drawable/messenger_button_blue_bg_selector.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
