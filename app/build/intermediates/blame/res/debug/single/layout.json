@@ -184,6 +184,10 @@
         "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/layout/messenger_button_send_blue_round.xml"
     },
     {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/activity_result.xml",
+        "source": "/home/alan/Documents/Taller 2/ClientApp/app/src/main/res/layout/activity_result.xml"
+    },
+    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/layout/abc_dialog_title_material.xml"
     },

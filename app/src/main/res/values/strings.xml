@@ -2,5 +2,8 @@
     <string name="app_name">UbreApp</string>
     <string name="title_activity_splash_screen">Ubre</string>
     <string name="title_activity_login_screen">LoginActivity</string>
-    <string name="facebook_app_id">140124353173468</string>
+    <string name="facebook_app_id">872175969629975</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

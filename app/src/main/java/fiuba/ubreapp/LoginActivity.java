@@ -3,6 +3,11 @@ package fiuba.ubreapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.facebook.CallbackManager;
@@ -14,20 +19,26 @@ import com.facebook.login.widget.LoginButton;
 
 import java.util.Arrays;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
-    private TextView info;
     private LoginButton loginButton;
     private CallbackManager callbackManager;
+
+    private static final String TAG = "LoginActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        callbackManager = CallbackManager.Factory.create();
+        Button acceptButton = (Button) findViewById(R.id.button2);
+        acceptButton.setOnClickListener(this);
 
-        info = (TextView)findViewById(R.id.info);
+        TextView textView = (TextView) findViewById(R.id.textView);
+
+        textView.setOnClickListener(this);
+
+        callbackManager = CallbackManager.Factory.create();
 
         addLoginButton();
     }
@@ -43,23 +54,37 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(LoginResult loginResult) {
-                info.setText(
-                        "User ID: "
-                                + loginResult.getAccessToken().getUserId()
-                                + "\n" +
-                                "Auth Token: "
-                                + loginResult.getAccessToken().getToken()
-                );
+                Intent intent = new Intent(LoginActivity.this, ResultActivity.class);
+                String text = "User ID: "
+                        + loginResult.getAccessToken().getUserId()
+                        + "\n" +
+                        "Auth Token: "
+                        + loginResult.getAccessToken().getToken();
+
+                intent.putExtra("Result", text);
+
+                Log.i(TAG,"Success Log In");
+
+                startActivity(intent);
             }
 
             @Override
             public void onCancel() {
-                info.setText("Login attempt canceled.");
+                Intent intent = new Intent(LoginActivity.this, ResultActivity.class);
+                intent.putExtra("Result","Login attempt canceled.");
+                Log.i(TAG,"Success Cancel Log In");
+                startActivity(intent);
+
             }
 
             @Override
             public void onError(FacebookException error) {
-                info.setText("Login attempt failed.");
+
+                Intent intent = new Intent(LoginActivity.this, ResultActivity.class);
+                intent.putExtra("Result","Login attempt failed.");
+                Log.e(TAG,"Error");
+                startActivity(intent);
+
             }
         });
     }
@@ -70,4 +95,34 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
+    @Override
+    public void onClick (View v) {
+
+        Button acceptButton = (Button) findViewById(R.id.button2);
+        EditText user = (EditText) findViewById(R.id.editText);
+        EditText password = (EditText) findViewById(R.id.editText2);
+        TextView textView = (TextView) findViewById(R.id.textView);
+
+        acceptButton.setText("Log In");
+
+        if (v.getId() == R.id.button2) {
+            Intent intent = new Intent(LoginActivity.this, ResultActivity.class);
+            String text = "User ID: "
+                    + user.getText().toString()
+                    + "\n" +
+                    "Password: "
+                    + password.getText().toString();
+            intent.putExtra("Result", text);
+            Log.e(TAG,"User Email: "+ text);
+            startActivity(intent);
+        }
+
+        if (v.getId() == R.id.textView){
+            Intent intent = new Intent(LoginActivity.this, ResultActivity.class);
+            String text = textView.getText().toString();
+            intent.putExtra("Result", text);
+            Log.e(TAG,"Register");
+            startActivity(intent);
+        }
+    }
 }
