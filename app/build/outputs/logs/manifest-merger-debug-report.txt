@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-40:12
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-50:12
 	package
 		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:3:5-28
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
@@ -18,12 +18,14 @@ ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.
 	android:name
 		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:7:5-38:19
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:7:5-48:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.android/build-cache/e8c7079c594b12d1c4c003f3df3321368d718abf/output/AndroidManifest.xml:9:5-20
+MERGED from [com.facebook.android:facebook-android-sdk:4.0.0] /home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/AndroidManifest.xml:28:5-20
+MERGED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/6e49fba540cda71f1cf244cb1e7db464af9aec28/output/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/cf9e40c275f57176b8f89251862b6751f7bba771/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.android/build-cache/e8c7079c594b12d1c4c003f3df3321368d718abf/output/AndroidManifest.xml:9:5-20
-MERGED from [com.facebook.android:facebook-android-sdk:4.0.0] /home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/AndroidManifest.xml:28:5-20
+MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.android/build-cache/ac99d71699e4a29da14624c00e0a3e9084c8a7ca/output/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.android/build-cache/78cf313a7e53c7e4733f836c24cbbc8ac5e5d2af/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.android/build-cache/03b68aa1db64bb750c46c6a5997f0782dc02213c/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.android/build-cache/461bf0b17df2f095ae077a07da38bc55eb945c02/output/AndroidManifest.xml:29:5-20
@@ -85,16 +87,43 @@ ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.
 	android:name
 		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:33:13-57
 activity#fiuba.ubreapp.ResultActivity
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:37:9-61
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:37:9-52
 	android:name
 		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:37:19-49
+activity#fiuba.ubreapp.RegisterActivity
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:38:9-41:59
+	android:label
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:40:13-60
+	android:theme
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:41:13-56
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:39:13-45
+activity#fiuba.ubreapp.RegisterPaymentData
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:42:9-57
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:42:19-54
+activity#fiuba.ubreapp.ResultActivity2
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:43:9-46:59
+	android:label
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:45:13-59
+	android:theme
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:46:13-56
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:44:13-44
+activity#fiuba.ubreapp.RegisterAsDriverActivity
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:47:9-71
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:47:19-59
 uses-sdk
 INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.android/build-cache/e8c7079c594b12d1c4c003f3df3321368d718abf/output/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.0.0] /home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/6e49fba540cda71f1cf244cb1e7db464af9aec28/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/cf9e40c275f57176b8f89251862b6751f7bba771/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.android/build-cache/e8c7079c594b12d1c4c003f3df3321368d718abf/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.android:facebook-android-sdk:4.0.0] /home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /home/alan/.android/build-cache/590933f8b4790782ab85dfa56fe7c37a0f7fb359/output/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.android/build-cache/ac99d71699e4a29da14624c00e0a3e9084c8a7ca/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.android/build-cache/78cf313a7e53c7e4733f836c24cbbc8ac5e5d2af/output/AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.android/build-cache/03b68aa1db64bb750c46c6a5997f0782dc02213c/output/AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.android/build-cache/461bf0b17df2f095ae077a07da38bc55eb945c02/output/AndroidManifest.xml:21:5-23:60
@@ -102,7 +131,7 @@ MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.andr
 MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.android/build-cache/4ecc5da52d6eea610fa2e569be82a95a1f0981a0/output/AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.android/build-cache/d450480912f0a57aaf9de99635a437f7ae5239d5/output/AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
@@ -110,9 +139,12 @@ MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.andro
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:25:5-27:41
+ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:25:5-27:41
 MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/6e49fba540cda71f1cf244cb1e7db464af9aec28/output/AndroidManifest.xml:22:5-24:41
 MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/cf9e40c275f57176b8f89251862b6751f7bba771/output/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /home/alan/.android/build-cache/590933f8b4790782ab85dfa56fe7c37a0f7fb359/output/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.android/build-cache/ac99d71699e4a29da14624c00e0a3e9084c8a7ca/output/AndroidManifest.xml:22:5-24:41
 MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.android/build-cache/78cf313a7e53c7e4733f836c24cbbc8ac5e5d2af/output/AndroidManifest.xml:25:5-27:41
 MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.android/build-cache/03b68aa1db64bb750c46c6a5997f0782dc02213c/output/AndroidManifest.xml:25:5-27:41
 MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.android/build-cache/461bf0b17df2f095ae077a07da38bc55eb945c02/output/AndroidManifest.xml:25:5-27:41
@@ -120,6 +152,6 @@ MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.andr
 MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.android/build-cache/4ecc5da52d6eea610fa2e569be82a95a1f0981a0/output/AndroidManifest.xml:25:5-27:41
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.android/build-cache/d450480912f0a57aaf9de99635a437f7ae5239d5/output/AndroidManifest.xml:25:5-27:41
 	android:value
-		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:27:9-38
+		ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:27:9-38
 	android:name
-		ADDED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:26:9-47

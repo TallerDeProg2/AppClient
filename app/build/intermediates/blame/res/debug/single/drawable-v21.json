@@ -4,6 +4,14 @@
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable-v21/notification_action_background.xml"
     },
     {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable-v21/avd_hide_password.xml",
+        "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/drawable-v21/avd_hide_password.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable-v21/design_password_eye.xml",
+        "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/drawable-v21/design_password_eye.xml"
+    },
+    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable-v21/abc_edit_text_material.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable-v21/abc_edit_text_material.xml"
     },
@@ -14,5 +22,13 @@
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable-v21/abc_btn_colored_material.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable-v21/design_bottom_navigation_item_background.xml",
+        "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/drawable-v21/design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/drawable-v21/avd_show_password.xml",
+        "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/drawable-v21/avd_show_password.xml"
     }
 ]

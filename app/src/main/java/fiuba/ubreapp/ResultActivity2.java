@@ -2,11 +2,12 @@ package fiuba.ubreapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 
-public class ResultActivity extends AppCompatActivity {
+
+public class ResultActivity2 extends AppCompatActivity {
     private TextView info;
 
     @Override
@@ -14,14 +15,16 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        Log.i("ResultActivity","Prueba Result Activity");
-
         info = (TextView)findViewById(R.id.info);
 
         Bundle bundle = getIntent().getExtras();
-        String text=bundle.getString("Result");
+        String text=bundle.getString("User");
+        Gson gson = new Gson();
+        User user = gson.fromJson(text,User.class);
+
+        text = "Name: " + user.getName() + " LastName: " + user.getLastName() + " Email: " + user.getEmail() +
+                " Password: " + user.getPassword();
 
         info.setText(text);
-
     }
 }

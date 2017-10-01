@@ -10,15 +10,19 @@ import android.widget.EditText;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.Profile;
 import com.facebook.ProfileTracker;
+import com.facebook.internal.Utility;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
 import java.util.Arrays;
 
+//Pantalla de Logeo.
 public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
     private LoginButton loginButton;
@@ -43,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         addLoginButton();
     }
 
-
+    //Agrego boton Log In de Facebook
     private void addLoginButton() {
         loginButton = (LoginButton) this.findViewById(R.id.login_button);
         loginButton.setReadPermissions(Arrays.asList("email", "user_friends",
@@ -52,6 +56,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
             private ProfileTracker mProfileTracker;
 
+            //Success Log In Facebook
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Intent intent = new Intent(LoginActivity.this, ResultActivity.class);
@@ -68,6 +73,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                 startActivity(intent);
             }
 
+            //Cancel Log In Facebook
             @Override
             public void onCancel() {
                 Intent intent = new Intent(LoginActivity.this, ResultActivity.class);
@@ -77,6 +83,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
             }
 
+            //Error Log In Facebook
             @Override
             public void onError(FacebookException error) {
 
@@ -95,13 +102,13 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
+    //Acciones al cliquear boton de Log In o registro de nuevo usuario
     @Override
     public void onClick (View v) {
 
         Button acceptButton = (Button) findViewById(R.id.button2);
         EditText user = (EditText) findViewById(R.id.editText);
         EditText password = (EditText) findViewById(R.id.editText2);
-        TextView textView = (TextView) findViewById(R.id.textView);
 
         acceptButton.setText("Log In");
 
@@ -113,16 +120,15 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                     "Password: "
                     + password.getText().toString();
             intent.putExtra("Result", text);
-            Log.e(TAG,"User Email: "+ text);
+            Log.i(TAG,"User Email: "+ text);
             startActivity(intent);
         }
 
         if (v.getId() == R.id.textView){
-            Intent intent = new Intent(LoginActivity.this, ResultActivity.class);
-            String text = textView.getText().toString();
-            intent.putExtra("Result", text);
-            Log.e(TAG,"Register");
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            Log.i(TAG,"Go to Register");
             startActivity(intent);
         }
     }
+
 }

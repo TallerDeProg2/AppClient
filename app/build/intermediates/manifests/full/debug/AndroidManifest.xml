@@ -45,6 +45,16 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name="fiuba.ubreapp.ResultActivity" />
+        <activity
+            android:name="fiuba.ubreapp.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="fiuba.ubreapp.RegisterPaymentData" />
+        <activity
+            android:name="fiuba.ubreapp.ResultActivity2"
+            android:label="@string/title_activity_result2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="fiuba.ubreapp.RegisterAsDriverActivity" />
     </application>
 
 </manifest>

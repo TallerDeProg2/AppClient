@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/color/design_error.xml",
+        "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/color/design_error.xml"
+    },
+    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/color/abc_primary_text_disable_only_material_dark.xml"
     },
@@ -74,6 +78,10 @@
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/color/design_tint_password_toggle.xml",
+        "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/color/design_tint_password_toggle.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
