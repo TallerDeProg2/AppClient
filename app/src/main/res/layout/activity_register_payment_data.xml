@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +9,7 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="@string/name"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="43dp"
         android:layout_alignStart="@+id/editText8"
@@ -20,7 +19,7 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Card Number"
+        android:text="@string/cardnumber"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="127dp"
         android:layout_below="@+id/editText8"
@@ -31,7 +30,7 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Expire Date"
+        android:text="@string/expiredate"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="205dp"
         android:layout_below="@+id/editText10"
@@ -40,6 +39,7 @@
 
     <EditText
         android:id="@+id/editText8"
+        android:labelFor="@+id/editText8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -51,6 +51,7 @@
 
     <EditText
         android:id="@+id/editText10"
+        android:labelFor="@+id/editText10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -62,6 +63,7 @@
 
     <EditText
         android:id="@+id/editText11"
+        android:labelFor="@+id/editText11"
         android:layout_width="68dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -74,6 +76,7 @@
 
     <EditText
         android:id="@+id/editText12"
+        android:labelFor="@+id/editText12"
         android:layout_width="68dp"
         android:layout_height="41dp"
         android:ems="10"
@@ -87,7 +90,7 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Month"
+        android:text="@string/month"
         tools:layout_editor_absoluteY="237dp"
         tools:layout_editor_absoluteX="72dp"
         android:layout_below="@+id/textView13"
@@ -98,7 +101,7 @@
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Year"
+        android:text="@string/year"
         tools:layout_editor_absoluteY="237dp"
         tools:layout_editor_absoluteX="157dp"
         android:layout_above="@+id/editText11"
@@ -108,7 +111,7 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Accept"
+        android:text="@string/accept"
         tools:layout_editor_absoluteX="136dp"
         tools:layout_editor_absoluteY="425dp"
         android:layout_marginBottom="20dp"
@@ -128,19 +131,19 @@
             android:id="@+id/radioButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Visa" />
+            android:text="@string/visa" />
 
         <RadioButton
             android:id="@+id/radioButton5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mastercard" />
+            android:text="@string/mastercard" />
 
         <RadioButton
             android:id="@+id/radioButton6"
             android:layout_width="167dp"
             android:layout_height="wrap_content"
-            android:text="American Express" />
+            android:text="@string/mastercard" />
 
     </RadioGroup>
 
@@ -150,6 +153,6 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/radioGroup"
         android:layout_alignTop="@+id/button4"
-        android:text="Cancel" />
+        android:text="@string/cancel" />
 
 </RelativeLayout>

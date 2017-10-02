@@ -31,6 +31,7 @@
 
     <EditText
         android:id="@+id/editText"
+        android:labelFor="@id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView2"
@@ -39,10 +40,12 @@
         android:background="@android:color/white"
         android:ems="10"
         android:inputType="textPersonName"
-        android:selectAllOnFocus="false"/>
+        android:selectAllOnFocus="false"
+        android:text="@string/empty"/>
 
     <EditText
         android:id="@+id/editText2"
+        android:labelFor="@id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/editText"
@@ -50,7 +53,8 @@
         android:layout_marginTop="28dp"
         android:background="@android:color/white"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:text="" />
 
     <Button
         android:id="@+id/button2"
@@ -59,7 +63,7 @@
         android:layout_below="@+id/editText2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:text="Log In" />
+        android:text="@string/login" />
 
     <TextView
         android:id="@+id/textView"
@@ -67,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout"
         android:layout_centerHorizontal="true"
-        android:text="New Customer? Start Here"
+        android:text="@string/newcustomer"
         android:textAlignment="center"
         android:textColor="@color/com_facebook_blue"
         android:textStyle="italic" />
@@ -77,9 +81,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/editText"
-        android:layout_below="@+id/info"
         android:layout_marginTop="27dp"
-        android:text="Email:"
+        android:text="@string/email"
         android:textSize="16sp"
         android:textStyle="bold|italic" />
 
@@ -90,7 +93,7 @@
         android:layout_alignStart="@+id/editText2"
         android:layout_below="@+id/editText"
         android:layout_marginTop="9dp"
-        android:text="Password:"
+        android:text="@string/password"
         android:textSize="16sp"
         android:textStyle="bold|italic" />
 

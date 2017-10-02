@@ -66,8 +66,8 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
     @Override
     public void onClick (View v) {
 
-        Button nextButton = (Button) findViewById(R.id.button3);
-        Button cancelButton = (Button) findViewById(R.id.button5);
+//        Button nextButton = (Button) findViewById(R.id.button3);
+//        Button cancelButton = (Button) findViewById(R.id.button5);
         EditText name = (EditText) findViewById(R.id.editText3);
         EditText lastname = (EditText) findViewById(R.id.editText4);
         EditText email = (EditText) findViewById(R.id.editText5);
@@ -82,8 +82,8 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
         Gson gson;
         String userjson;
 
-        nextButton.setText("Next");
-        cancelButton.setText("Cancel");
+//        nextButton.setText("Next");
+//        cancelButton.setText("Cancel");
 
         sname = name.getText().toString();
         slastname = lastname.getText().toString();
@@ -120,7 +120,7 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
                 }
 
                 if (v.getId() == R.id.textView10) {
-                    intent = new Intent(RegisterActivity.this, ResultActivity.class);
+                    intent = new Intent(RegisterActivity.this, RegisterAsDriverActivity.class);
                     intent.putExtra("User",userjson);
                     Log.i(TAG, "Register as Driver");
                     startActivity(intent);

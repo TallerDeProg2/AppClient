@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -40,8 +39,8 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
     @Override
     public void onClick (View v) {
 
-        Button acceptButton = (Button) findViewById(R.id.button4);
-        Button cancelButton = (Button) findViewById(R.id.button6);
+//        Button acceptButton = (Button) findViewById(R.id.button4);
+//        Button cancelButton = (Button) findViewById(R.id.button6);
         EditText name = (EditText) findViewById(R.id.editText8);
         EditText cardnumber = (EditText) findViewById(R.id.editText10);
         EditText month = (EditText) findViewById(R.id.editText12);
@@ -51,9 +50,9 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
         Boolean bname,bcardnumber,bmonth,byear;
 
         String userjson;
-
-        acceptButton.setText("Accept");
-        cancelButton.setText("Cancel");
+//
+//        acceptButton.setText("Accept");
+//        cancelButton.setText("Cancel");
 
         sname = name.getText().toString();
         scardnumber = cardnumber.getText().toString();

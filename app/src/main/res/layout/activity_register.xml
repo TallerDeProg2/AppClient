@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
-        android:text="Name"
+        android:text="@string/name"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/editText3" />
 
@@ -23,14 +22,14 @@
         android:layout_alignStart="@+id/editText4"
         android:layout_below="@+id/editText3"
         android:layout_marginTop="10dp"
-        android:text="Lastname" />
+        android:text="@string/lastname" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
-        android:text="Email"
+        android:text="@string/email"
         android:layout_below="@+id/editText4"
         android:layout_alignStart="@+id/editText4" />
 
@@ -39,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Password"
+        android:text="@string/password"
         android:layout_below="@+id/editText5"
         android:layout_alignStart="@+id/textView6" />
 
@@ -50,29 +49,33 @@
         android:layout_alignStart="@+id/textView7"
         android:layout_below="@+id/textView7"
         android:layout_marginTop="55dp"
-        android:text="Repeat Password" />
+        android:text="@string/repeatpassword" />
 
     <EditText
         android:id="@+id/editText3"
+        android:labelFor="@+id/editText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="@string/empty"/>
 
     <EditText
         android:id="@+id/editText4"
+        android:labelFor="@+id/editText4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/editText3"
         android:layout_below="@+id/textView5"
         android:ems="10"
         android:inputType="textPersonName"
-        />
+        android:text="@string/empty"/>
 
     <EditText
         android:id="@+id/editText5"
+        android:labelFor="@+id/editText5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView7"
@@ -83,6 +86,7 @@
 
     <EditText
         android:id="@+id/editText6"
+        android:labelFor="@+id/editText6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/editText5"
@@ -92,6 +96,7 @@
 
     <EditText
         android:id="@+id/editText7"
+        android:labelFor="@+id/editText7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -106,7 +111,7 @@
         android:layout_below="@+id/editText7"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="Register Payment Data"
+        android:text="@string/registerpaymentdata"
         android:textColor="@color/com_facebook_blue"
         android:textStyle="italic" />
 
@@ -117,7 +122,7 @@
         android:layout_below="@+id/textView9"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="21dp"
-        android:text="Register as driver"
+        android:text="@string/registerasdriver"
         android:textColor="@color/com_facebook_blue"
         android:textStyle="italic" />
 
@@ -125,7 +130,7 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
+        android:text="@string/next"
         android:layout_below="@+id/textView10"
         android:layout_alignEnd="@+id/editText7"
         android:layout_marginTop="29dp" />
@@ -136,5 +141,5 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/editText7"
         android:layout_alignTop="@+id/button3"
-        android:text="Cancel" />
+        android:text="@string/cancel" />
 </RelativeLayout>

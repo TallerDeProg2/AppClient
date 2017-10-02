@@ -106,11 +106,11 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
     @Override
     public void onClick (View v) {
 
-        Button acceptButton = (Button) findViewById(R.id.button2);
+//        Button acceptButton = (Button) findViewById(R.id.button2);
         EditText user = (EditText) findViewById(R.id.editText);
         EditText password = (EditText) findViewById(R.id.editText2);
 
-        acceptButton.setText("Log In");
+//        acceptButton.setText("Log In");
 
         if (v.getId() == R.id.button2) {
             Intent intent = new Intent(LoginActivity.this, ResultActivity.class);

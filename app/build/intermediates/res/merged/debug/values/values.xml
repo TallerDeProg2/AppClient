@@ -715,10 +715,16 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="accept">Accept</string>
+    <string name="airconditioner">Air Conditioner</string>
+    <string name="americanexpress">American Express</string>
     <string name="app_name">UbreApp</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="cancel">Cancel</string>
+    <string name="cardnumber">Card Number:</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
+    <string name="colour">Colour:</string>
     <string name="com_facebook_image_download_unknown_error">Unexpected error while downloading an image.</string>
     <string name="com_facebook_internet_permission_error_message">WebView login requires INTERNET permission</string>
     <string name="com_facebook_internet_permission_error_title">AndroidManifest Error</string>
@@ -735,20 +741,41 @@
     <string name="com_facebook_send_button_text">Send</string>
     <string name="com_facebook_share_button_text">Share</string>
     <string name="com_facebook_tooltip_default">New! You\'re in control - choose what info you want to share with apps.</string>
+    <string name="email">Email:</string>
+    <string name="empty">" "</string>
+    <string name="expiredate">Expire Date</string>
     <string name="facebook_app_id">872175969629975</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lastname">LastName:</string>
+    <string name="login">Log In</string>
+    <string name="mastercard">Mastercard</string>
     <string name="messenger_send_button_text">Send</string>
+    <string name="modelcar">Model Car:</string>
+    <string name="month">Month:</string>
+    <string name="music">Music:</string>
+    <string name="name">Name:</string>
+    <string name="newcustomer">New Customer? Start Here</string>
+    <string name="next">Next</string>
+    <string name="no">No</string>
+    <string name="password">Password:</string>
     <string name="password_toggle_content_description">Toggle password visibility</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+    <string name="plate">Plate:</string>
+    <string name="registerasdriver">Register as Driver</string>
+    <string name="registerpaymentdata">Register Payment Data</string>
+    <string name="repeatpassword">Repeat Password:</string>
     <string name="search_menu_title">Search</string>
+    <string name="state">State:</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_login_screen">LoginActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_result2">ResultActivity2</string>
     <string name="title_activity_splash_screen">Ubre</string>
+    <string name="visa">Visa</string>
+    <string name="year">Year:</string>
+    <string name="yes">Yes</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

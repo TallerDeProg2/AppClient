@@ -1,6 +1,6 @@
 package fiuba.ubreapp;
 
-public class User {
+class User {
     private String name;
     private String lastname;
     private String email;
@@ -20,111 +20,123 @@ public class User {
     private String musiccar;
     private Boolean airconditioner;
 
-    public User(String name, String lastname, String email, String password){
+    User(String name, String lastname, String email, String password){
         this.name = name;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
+        this.namecard = "";
+        this.numbercard = "";
+        this.typecard = "";
+        this.expiremonthcard = "";
+        this.expireyearcard = "";
+        this.modelcar = "";
+        this.colourcar = "";
+        this.platecar = "";
+        this.yearcar = "";
+        this.statecar = "";
+        this.musiccar = "";
+        this.airconditioner = false;
     }
 
-    public void setNameCard(String namecard){
+    void setNameCard(String namecard){
         this.namecard = namecard;
     }
 
-    public void setNumberCard(String numbercard){
+    void setNumberCard(String numbercard){
         this.numbercard = numbercard;
     }
 
-    public void setTypeCard(String typecard){
+    void setTypeCard(String typecard){
         this.typecard = typecard;
     }
 
-    public void setExpireMonthCard(String expiremonthcard){
+    void setExpireMonthCard(String expiremonthcard){
         this.expiremonthcard = expiremonthcard;
     }
 
-    public void setExpireYearCard(String expireyearcard){
+    void setExpireYearCard(String expireyearcard){
         this.expireyearcard = expireyearcard;
     }
 
-    public void setModelCar(String modelcar){
+    void setModelCar(String modelcar){
         this.modelcar = modelcar;
     }
 
-    public void setColourCar(String colourcar){
+    void setColourCar(String colourcar){
         this.colourcar = colourcar;
     }
 
-    public void setPlateCar(String platecar){
+    void setPlateCar(String platecar){
         this.platecar = platecar;
     }
 
-    public void setYearCar(String yearcar){
+    void setYearCar(String yearcar){
         this.yearcar = yearcar;
     }
 
-    public void setStateCar(String statecar){
+    void setStateCar(String statecar){
         this.statecar = statecar;
     }
 
-    public void setMusicCar(String musiccar){
+    void setMusicCar(String musiccar){
         this.musiccar = musiccar;
     }
 
-    public void setAirConditioner(Boolean airconditioner){
+    void setAirConditioner(Boolean airconditioner){
         this.airconditioner = airconditioner;
     }
 
-    public String getName(){ return this.name;}
-    public String getLastName(){ return this.lastname;}
-    public String getEmail(){ return this.email;}
-    public String getPassword(){ return this.password;}
+    String getName(){ return this.name;}
+    String getLastName(){ return this.lastname;}
+    String getEmail(){ return this.email;}
+    String getPassword(){ return this.password;}
 
-    public String getNameCard(){
+    String getNameCard(){
         return this.namecard;
     }
 
-    public String getNumberCard(){
+    String getNumberCard(){
         return this.numbercard;
     }
 
-    public String getTypeCard(){
+    String getTypeCard(){
         return this.typecard;
     }
 
-    public String getExpireMonthCard(){
+    String getExpireMonthCard(){
         return this.expiremonthcard;
     }
 
-    public String getExpireYearCard(){
+    String getExpireYearCard(){
         return this.expireyearcard;
     }
 
-    public String getModelCar(){
+    String getModelCar(){
         return this.modelcar;
     }
 
-    public String getColourCar(){
+    String getColourCar(){
         return this.colourcar;
     }
 
-    public String getPlateCar(){
+    String getPlateCar(){
         return this.platecar;
     }
 
-    public String getYearCar(){
+    String getYearCar(){
         return this.yearcar;
     }
 
-    public String getStateCar(){
+    String getStateCar(){
         return this.statecar;
     }
 
-    public String getMusicCar(){
+    String getMusicCar(){
         return this.musiccar;
     }
 
-    public Boolean getAirConditioner(){
+    Boolean getAirConditioner(){
         return this.airconditioner;
     }
 
