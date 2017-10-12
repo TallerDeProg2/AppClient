@@ -10,6 +10,7 @@ import com.facebook.appevents.AppEventsLogger;
 
 import static com.facebook.FacebookSdk.sdkInitialize;
 
+/**Splash Screen con logo y nombre de la aplicacion*/
 public class SplashScreen extends Activity {
 
     @Override

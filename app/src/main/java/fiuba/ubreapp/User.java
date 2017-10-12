@@ -1,143 +1,60 @@
 package fiuba.ubreapp;
 
+/**Datos basicos de un usuario.*/
 class User {
-    private String name;
-    private String lastname;
-    private String email;
-    private String password;
+    protected String name;
+    protected String lastname;
+    protected String username;
+    protected String country;
+    protected String email;
+    protected String password;
+    protected String birthdate;
+    protected String images;
+    protected String id;
 
-    private String namecard;
-    private String numbercard;
-    private String typecard;
-    private String expiremonthcard;
-    private String expireyearcard;
-
-    private String modelcar;
-    private String colourcar;
-    private String platecar;
-    private String yearcar;
-    private String statecar;
-    private String musiccar;
-    private Boolean airconditioner;
-
-    User(String name, String lastname, String email, String password){
+    User(String username,String name,String lastname,String password){
+        this.username = username;
         this.name = name;
         this.lastname = lastname;
-        this.email = email;
         this.password = password;
-        this.namecard = "";
-        this.numbercard = "";
-        this.typecard = "";
-        this.expiremonthcard = "";
-        this.expireyearcard = "";
-        this.modelcar = "";
-        this.colourcar = "";
-        this.platecar = "";
-        this.yearcar = "";
-        this.statecar = "";
-        this.musiccar = "";
-        this.airconditioner = false;
+        this.email = "";
+        this.country = "";
+        this.images = "";
+        this.birthdate = "";
     }
 
-    void setNameCard(String namecard){
-        this.namecard = namecard;
+    void setName(String name) { this.name = name; }
+
+    void setLastname(String lastname) { this.lastname = lastname; }
+
+    void setEmail(String email){
+        this.email = email;
     }
 
-    void setNumberCard(String numbercard){
-        this.numbercard = numbercard;
+    void setCountry(String country){
+        this.country = country;
     }
 
-    void setTypeCard(String typecard){
-        this.typecard = typecard;
+    void setImages(String images){
+        this.images = images;
     }
 
-    void setExpireMonthCard(String expiremonthcard){
-        this.expiremonthcard = expiremonthcard;
+    void setBirthdate(String birthdate){
+        this.birthdate = birthdate;
     }
 
-    void setExpireYearCard(String expireyearcard){
-        this.expireyearcard = expireyearcard;
-    }
+    void setId(String id) { this.id = id; }
 
-    void setModelCar(String modelcar){
-        this.modelcar = modelcar;
-    }
-
-    void setColourCar(String colourcar){
-        this.colourcar = colourcar;
-    }
-
-    void setPlateCar(String platecar){
-        this.platecar = platecar;
-    }
-
-    void setYearCar(String yearcar){
-        this.yearcar = yearcar;
-    }
-
-    void setStateCar(String statecar){
-        this.statecar = statecar;
-    }
-
-    void setMusicCar(String musiccar){
-        this.musiccar = musiccar;
-    }
-
-    void setAirConditioner(Boolean airconditioner){
-        this.airconditioner = airconditioner;
-    }
-
+    String getUsername(){ return this.username;}
     String getName(){ return this.name;}
     String getLastName(){ return this.lastname;}
     String getEmail(){ return this.email;}
     String getPassword(){ return this.password;}
-
-    String getNameCard(){
-        return this.namecard;
-    }
-
-    String getNumberCard(){
-        return this.numbercard;
-    }
-
-    String getTypeCard(){
-        return this.typecard;
-    }
-
-    String getExpireMonthCard(){
-        return this.expiremonthcard;
-    }
-
-    String getExpireYearCard(){
-        return this.expireyearcard;
-    }
-
-    String getModelCar(){
-        return this.modelcar;
-    }
-
-    String getColourCar(){
-        return this.colourcar;
-    }
-
-    String getPlateCar(){
-        return this.platecar;
-    }
-
-    String getYearCar(){
-        return this.yearcar;
-    }
-
-    String getStateCar(){
-        return this.statecar;
-    }
-
-    String getMusicCar(){
-        return this.musiccar;
-    }
-
-    Boolean getAirConditioner(){
-        return this.airconditioner;
-    }
+    String getCountry(){ return this.country;}
+    String getImages(){ return this.images;}
+    String getBirthdate(){ return this.birthdate;}
+    String getId(){ return this.id; }
 
 }
+
+

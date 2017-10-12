@@ -9,7 +9,7 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/modelcar"
+        android:text="@string/brand"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="16dp"
         android:layout_marginTop="36dp"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/editText17"
         android:layout_alignStart="@+id/editText17"
-        android:text="@string/music"
+        android:text="@string/radio"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="310dp" />
 

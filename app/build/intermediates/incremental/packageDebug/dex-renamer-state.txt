@@ -1,4 +1,4 @@
-#Mon Oct 02 15:25:33 ART 2017
+#Wed Oct 11 23:29:57 ART 2017
 base.0=/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
 file.0=/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

@@ -44,17 +44,17 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name="fiuba.ubreapp.ResultActivity" />
         <activity
             android:name="fiuba.ubreapp.RegisterActivity"
-            android:label="@string/title_activity_register"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="fiuba.ubreapp.RegisterPaymentData" />
+            android:label="@string/title_activity_register" />
         <activity
-            android:name="fiuba.ubreapp.ResultActivity2"
-            android:label="@string/title_activity_result2"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="fiuba.ubreapp.RegisterAsDriverActivity" />
+            android:name="fiuba.ubreapp.RegisterPaymentData"
+            android:label="@string/title_activity_register_payment_data" />
+        <activity
+            android:name="fiuba.ubreapp.RegisterAsDriverActivity"
+            android:label="@string/title_activity_register_as_driver" />
+        <activity android:name="fiuba.ubreapp.MapActivity" />
+        <activity android:name="fiuba.ubreapp.ModifyProfile" />
     </application>
 
 </manifest>

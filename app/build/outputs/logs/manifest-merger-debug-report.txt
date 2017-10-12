@@ -86,34 +86,32 @@ ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.
 		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:36:13-72
 	android:name
 		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:33:13-57
-activity#fiuba.ubreapp.ResultActivity
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:37:9-52
-	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:37:19-49
 activity#fiuba.ubreapp.RegisterActivity
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:38:9-41:59
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:37:9-39:63
 	android:label
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:40:13-60
-	android:theme
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:41:13-56
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:39:13-60
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:39:13-45
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:38:13-45
 activity#fiuba.ubreapp.RegisterPaymentData
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:42:9-57
-	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:42:19-54
-activity#fiuba.ubreapp.ResultActivity2
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:43:9-46:59
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:40:9-42:76
 	android:label
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:45:13-59
-	android:theme
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:46:13-56
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:42:13-73
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:44:13-44
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:41:13-48
 activity#fiuba.ubreapp.RegisterAsDriverActivity
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:47:9-71
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:43:9-45:73
+	android:label
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:45:13-70
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:47:19-59
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:44:13-53
+activity#fiuba.ubreapp.MapActivity
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:46:9-49
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:46:19-46
+activity#fiuba.ubreapp.ModifyProfile
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:47:9-50
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:47:19-48
 uses-sdk
 INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.android/build-cache/e8c7079c594b12d1c4c003f3df3321368d718abf/output/AndroidManifest.xml:5:5-7:41

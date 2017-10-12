@@ -8,13 +8,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.View.OnClickListener;
+import android.widget.RadioButton;
 
 import com.google.gson.Gson;
 
+import java.util.concurrent.ExecutionException;
+
+/**Agregado de los datos del auto que maneja el conductor.*/
 public class RegisterAsDriverActivity extends AppCompatActivity implements OnClickListener{
 
     private static final String TAG = "RegisterAsDriver";
-    private User user;
+    private Driver driver;
     private Gson gson;
     private Intent intent;
     private String bundletext;
@@ -30,32 +34,39 @@ public class RegisterAsDriverActivity extends AppCompatActivity implements OnCli
         Button cancelButton = (Button) findViewById(R.id.button8);
         cancelButton.setOnClickListener(this);
 
+        RadioButton radioNo = (RadioButton) findViewById(R.id.radioButton2);
+        radioNo.toggle();
+
         Bundle bundle = getIntent().getExtras();
-        bundletext=bundle.getString("User");
+        bundletext=bundle.getString("Driver");
         gson = new Gson();
-        user = gson.fromJson(bundletext,User.class);
+        driver = gson.fromJson(bundletext,Driver.class);
     }
 
     @Override
     public void onClick (View v) {
 
-//        Button acceptButton = (Button) findViewById(R.id.button7);
-//        Button cancelButton = (Button) findViewById(R.id.button8);
         EditText modelcar = (EditText) findViewById(R.id.editText9);
         EditText colour = (EditText) findViewById(R.id.editText13);
         EditText plate = (EditText) findViewById(R.id.editText14);
         EditText year = (EditText) findViewById(R.id.editText15);
         EditText state = (EditText) findViewById(R.id.editText16);
         EditText music = (EditText) findViewById(R.id.editText17);
-
+        RadioButton radioYes = (RadioButton) findViewById(R.id.radioButton);
 
         String smodelcar,scolour,splate,syear,sstate,smusic;
         Boolean bmodelcar,bcolour,bplate,byear,bstate,bmusic;
 
         String userjson;
 
-//        acceptButton.setText("Accept");
-//        cancelButton.setText("Cancel");
+        PostRestApi post = new PostRestApi();
+        String url = "http://demo1144105.mockable.io/Driver/";
+        Info urlinfo = new Info();
+        Info userinfo = new Info();
+        Info useranswer = new Info();
+        int status;
+
+        urlinfo.setInfo(url);
 
         smodelcar = modelcar.getText().toString();
         scolour = colour.getText().toString();
@@ -75,21 +86,46 @@ public class RegisterAsDriverActivity extends AppCompatActivity implements OnCli
 
             if(!bmodelcar && !bcolour && !bplate && !byear && !bstate && !bmusic ){
 
-                user.setModelCar(smodelcar);
-                user.setColourCar(scolour);
-                user.setPlateCar(splate);
-                user.setYearCar(syear);
-                user.setStateCar(sstate);
-                user.setMusicCar(smusic);
+                driver.setModelCar(smodelcar);
+                driver.setColourCar(scolour);
+                driver.setPlateCar(splate);
+                driver.setYearCar(syear);
+                driver.setStateCar(sstate);
+                driver.setMusicCar(smusic);
+
+                if(radioYes.isChecked())
+                    driver.setAirConditioner(true);
+                else
+                    driver.setAirConditioner(false);
 
                 gson = new Gson();
-                userjson = gson.toJson(user);
+                userjson = gson.toJson(driver);
 
-                intent = new Intent(RegisterAsDriverActivity.this, ResultActivity2.class);
-                intent.putExtra("User",userjson);
-                Log.i(TAG,"User Registration As Driver");
-                startActivity(intent);
+                userinfo.setInfo(userjson);
 
+                try {
+                    post.execute(urlinfo,userinfo,useranswer).get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+
+                status = useranswer.getStatus();
+
+                switch (status) {
+                    case 200:
+                        intent = new Intent(RegisterAsDriverActivity.this, LoginActivity.class);
+                        Log.i(TAG,"driver Registration As Driver");
+                        startActivity(intent);
+                        break;
+                    case 400:
+                        break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
+                    case 401:
+                        break; //Unauthorized
+                    case 500:
+                        break; //Unexpected Error
+                }
             } else {
                 Log.e(TAG,"Error in Register As Driver");
             }
@@ -97,7 +133,7 @@ public class RegisterAsDriverActivity extends AppCompatActivity implements OnCli
 
         if (v.getId() == R.id.button8) {
             intent = new Intent(RegisterAsDriverActivity.this, RegisterActivity.class);
-            intent.putExtra("User",bundletext);
+            intent.putExtra("Driver",bundletext);
             Log.i(TAG,"Cancel Registration As Driver.");
             startActivity(intent);
         }

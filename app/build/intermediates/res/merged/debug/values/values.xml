@@ -721,8 +721,10 @@
     <string name="app_name">UbreApp</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="brand">Brand:</string>
     <string name="cancel">Cancel</string>
     <string name="cardnumber">Card Number:</string>
+    <string name="changepassword">Change Password</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="colour">Colour:</string>
     <string name="com_facebook_image_download_unknown_error">Unexpected error while downloading an image.</string>
@@ -745,13 +747,12 @@
     <string name="empty">" "</string>
     <string name="expiredate">Expire Date</string>
     <string name="facebook_app_id">872175969629975</string>
+    <string name="info">Info</string>
     <string name="lastname">LastName:</string>
     <string name="login">Log In</string>
     <string name="mastercard">Mastercard</string>
     <string name="messenger_send_button_text">Send</string>
-    <string name="modelcar">Model Car:</string>
     <string name="month">Month:</string>
-    <string name="music">Music:</string>
     <string name="name">Name:</string>
     <string name="newcustomer">New Customer? Start Here</string>
     <string name="next">Next</string>
@@ -763,6 +764,7 @@
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="plate">Plate:</string>
+    <string name="radio">Radio:</string>
     <string name="registerasdriver">Register as Driver</string>
     <string name="registerpaymentdata">Register Payment Data</string>
     <string name="repeatpassword">Repeat Password:</string>
@@ -770,7 +772,9 @@
     <string name="state">State:</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="title_activity_login_screen">LoginActivity</string>
-    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_register">New Register</string>
+    <string name="title_activity_register_as_driver">Register as Driver</string>
+    <string name="title_activity_register_payment_data">Register Payment Data</string>
     <string name="title_activity_result2">ResultActivity2</string>
     <string name="title_activity_splash_screen">Ubre</string>
     <string name="visa">Visa</string>
