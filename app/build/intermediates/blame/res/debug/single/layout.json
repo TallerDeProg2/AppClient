@@ -8,12 +8,12 @@
         "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/layout/design_navigation_item.xml"
     },
     {
-        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/messenger_button_send_white_round.xml",
-        "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/layout/messenger_button_send_white_round.xml"
-    },
-    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/messenger_button_send_white_round.xml",
+        "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/layout/messenger_button_send_white_round.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
@@ -52,6 +52,10 @@
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/layout/abc_alert_dialog_button_bar_material.xml"
     },
     {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/nav_header_main.xml",
+        "source": "/home/alan/Documents/Taller 2/ClientApp/app/src/main/res/layout/nav_header_main.xml"
+    },
+    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/layout/notification_template_lines_media.xml"
     },
@@ -74,10 +78,6 @@
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/layout/abc_list_menu_item_checkbox.xml"
-    },
-    {
-        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/notification_action.xml",
-        "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/layout/notification_action.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/activity_register.xml",
@@ -104,12 +104,16 @@
         "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/layout/design_navigation_menu.xml"
     },
     {
-        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
-        "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/layout/notification_template_icon_group.xml"
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/activity_change_password.xml",
+        "source": "/home/alan/Documents/Taller 2/ClientApp/app/src/main/res/layout/activity_change_password.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/com_facebook_login_fragment.xml",
         "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/layout/com_facebook_login_fragment.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/activity_register_car.xml",
+        "source": "/home/alan/Documents/Taller 2/ClientApp/app/src/main/res/layout/activity_register_car.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
@@ -136,6 +140,10 @@
         "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/layout/design_text_input_password_icon.xml"
     },
     {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/activity_view_profile.xml",
+        "source": "/home/alan/Documents/Taller 2/ClientApp/app/src/main/res/layout/activity_view_profile.xml"
+    },
+    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/com_facebook_activity_layout.xml",
         "source": "/home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/res/layout/com_facebook_activity_layout.xml"
     },
@@ -154,10 +162,6 @@
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/layout/abc_popup_menu_header_item_layout.xml"
-    },
-    {
-        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
-        "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/layout/notification_action_tombstone.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
@@ -196,16 +200,16 @@
         "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/layout/design_layout_snackbar.xml"
     },
     {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
+        "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/layout/design_layout_snackbar_include.xml"
+    },
+    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/layout/abc_list_menu_item_radio.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/layout/abc_popup_menu_item_layout.xml"
-    },
-    {
-        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
-        "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/layout/design_layout_snackbar_include.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
@@ -220,12 +224,12 @@
         "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/layout/design_layout_tab_icon.xml"
     },
     {
-        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/activity_register_as_driver.xml",
-        "source": "/home/alan/Documents/Taller 2/ClientApp/app/src/main/res/layout/activity_register_as_driver.xml"
-    },
-    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/activity_map.xml",
         "source": "/home/alan/Documents/Taller 2/ClientApp/app/src/main/res/layout/activity_map.xml"
+    },
+    {
+        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/activity_maps2.xml",
+        "source": "/home/alan/Documents/Taller 2/ClientApp/app/src/main/res/layout/activity_maps2.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",

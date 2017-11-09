@@ -1,5 +1,6 @@
 package fiuba.ubreapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,7 +19,8 @@ import java.util.concurrent.ExecutionException;
 public class RegisterPaymentData extends AppCompatActivity implements OnClickListener {
 
     private static final String TAG = "PaymentDataActivity";
-    private Passenger passenger;
+    private Card card;
+    private User user;
     private Gson gson;
     private Intent intent;
     private String bundletext;
@@ -31,17 +33,17 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
         Button acceptButton = (Button) findViewById(R.id.button4);
         acceptButton.setOnClickListener(this);
 
-        Button cancelButton = (Button) findViewById(R.id.button6);
-        cancelButton.setOnClickListener(this);
+        Button skipButton = (Button) findViewById(R.id.button6);
+        skipButton.setOnClickListener(this);
 
         RadioButton radioVisa = (RadioButton) findViewById(R.id.radioButton4);
 
         radioVisa.toggle();
 
         Bundle bundle = getIntent().getExtras();
-        bundletext=bundle.getString("Passenger");
+        bundletext=bundle.getString("User");
         gson = new Gson();
-        passenger = gson.fromJson(bundletext,Passenger.class);
+        user = gson.fromJson(bundletext,User.class);
     }
 
     @Override
@@ -62,7 +64,7 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
         String userjson;
 
         PostRestApi post = new PostRestApi();
-        String url = "http://demo1144105.mockable.io/Passenger/";
+        String url = "http://demo1144105.mockable.io/Card/";
         Info urlinfo = new Info();
         Info userinfo = new Info();
         Info useranswer = new Info();
@@ -84,21 +86,26 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
 
             if(!bname && !bcardnumber && !bmonth && !byear){
 
-                passenger.setNameCard(sname);
-                passenger.setNumberCard(scardnumber);
-                passenger.setExpireMonthCard(smonth);
-                passenger.setExpireYearCard(syear);
+                final ProgressDialog progressDialog = new ProgressDialog(RegisterPaymentData.this,
+                        R.style.Theme_AppCompat_DayNight_Dialog);
+                progressDialog.setIndeterminate(true);
+                progressDialog.setMessage("Registering Card...");
+                progressDialog.show();
+
+                card.setName(sname);
+                card.setNumber(scardnumber);
+                card.setExpireMonth(smonth);
+                card.setExpireYear(syear);
 
                 if(radioVisa.isChecked())
-                    passenger.setTypeCard(radioVisa.getText().toString());
+                    card.setType(radioVisa.getText().toString());
                 else
                     if(radioMastercard.isChecked())
-                        passenger.setTypeCard(radioMastercard.getText().toString());
+                        card.setType(radioMastercard.getText().toString());
                     else
-                        passenger.setTypeCard(radioAmericanExpress.getText().toString());
+                        card.setType(radioAmericanExpress.getText().toString());
 
-                gson = new Gson();
-                userjson = gson.toJson(passenger);
+                userjson = gson.toJson(card);
 
                 userinfo.setInfo(userjson);
 
@@ -112,10 +119,12 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
 
                 status = useranswer.getStatus();
 
+                progressDialog.hide();
+
                 switch (status) {
                     case 200:
                         intent = new Intent(RegisterPaymentData.this, LoginActivity.class);
-                        Log.i(TAG,"Passenger Registration with Payment Data");
+                        Log.i(TAG,"Card Registration");
                         startActivity(intent);
                         break;
                     case 400:
@@ -126,14 +135,21 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
                         break; //Unexpected Error
                 }
             } else {
-                Log.e(TAG,"Error in Register Payment Data");
+                if(bname)
+                    name.setError("Name can't be blank");
+                if(bcardnumber)
+                    cardnumber.setError("Card Number can't be blank");
+                if(bmonth)
+                    month.setError("Month can't be blank");
+                if(byear)
+                    year.setError("Year can't be blank");
+                Log.e(TAG,"Error in Register Payment Data.");
             }
         }
 
         if (v.getId() == R.id.button6) {
-            intent = new Intent(RegisterPaymentData.this, RegisterActivity.class);
-            intent.putExtra("Passenger",bundletext);
-            Log.i(TAG,"Cancel Registration Payment Data.");
+            intent = new Intent(RegisterPaymentData.this, LoginActivity.class);
+            Log.i(TAG,"Skip Card Registration.");
             startActivity(intent);
         }
 

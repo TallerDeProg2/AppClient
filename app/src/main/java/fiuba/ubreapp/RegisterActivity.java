@@ -1,12 +1,17 @@
 package fiuba.ubreapp;
 
+import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 
@@ -19,6 +24,9 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
 
     private static final String TAG = "RegisterActivity";
 
+    DatePickerDialog datePickerDialog;
+    EditText date;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,39 +37,63 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
         EditText username;
 
         Gson gson;
-        Passenger passenger;
+        User user;
         String jtext;
         Bundle bundle;
 
         Button nextButton = (Button) findViewById(R.id.button3);
         nextButton.setOnClickListener(this);
 
-        Button cancelButton = (Button) findViewById(R.id.button5);
-        cancelButton.setOnClickListener(this);
+        RadioButton radioPassenger = (RadioButton) findViewById(R.id.radioButton7);
 
-        TextView paymentData = (TextView) findViewById(R.id.textView9);
-        paymentData.setOnClickListener(this);
+        radioPassenger.toggle();
 
-        TextView asDriver = (TextView) findViewById(R.id.textView10);
-        asDriver.setOnClickListener(this);
+        name = (EditText) findViewById(R.id.editText18);
+        lastname = (EditText) findViewById(R.id.editText19);
+        username = (EditText) findViewById(R.id.editText3);
+        date = (EditText) findViewById(R.id.editText21);
 
-        name = (EditText) findViewById(R.id.editText3);
-        lastname = (EditText) findViewById(R.id.editText4);
-        username = (EditText) findViewById(R.id.editText5);
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // calender class's instance and get current date , month and year from calender
+                final Calendar c = Calendar.getInstance();
+                c.set(1990,Calendar.JANUARY,1);
+                int mYear = c.get(Calendar.YEAR); // current year
+                int mMonth = c.get(Calendar.MONTH); // current month
+                int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
+                // date picker dialog
+                datePickerDialog = new DatePickerDialog(RegisterActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
 
-        if (getIntent().hasExtra("Passenger")){
-            Log.i(TAG,"Bundle no vacio");
-            gson = new Gson();
-            bundle = getIntent().getExtras();
-            jtext = bundle.getString("Passenger");
-            passenger = gson.fromJson(jtext,Passenger.class);
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                // set day of month , month and year value in the edit text
+                                date.setText(dayOfMonth + "/"
+                                        + (monthOfYear + 1) + "/" + year);
 
-            name.setText(passenger.getName());
-            lastname.setText(passenger.getLastName());
-            username.setText(passenger.getUsername());
-        } else {
-            Log.i(TAG,"Bundle vacio");
-        }
+                            }
+                        }, mYear, mMonth, mDay);
+                datePickerDialog.show();
+            }
+        });
+
+
+
+//        if (getIntent().hasExtra("Card")){
+//            Log.i(TAG,"Bundle no vacio");
+//            gson = new Gson();
+//            bundle = getIntent().getExtras();
+//            jtext = bundle.getString("Card");
+//            passenger = gson.fromJson(jtext,Card.class);
+//
+//            name.setText(passenger.getName());
+//            lastname.setText(passenger.getLastName());
+//            username.setText(passenger.getUsername());
+//        } else {
+//            Log.i(TAG,"Bundle vacio");
+//        }
 
     }
 
@@ -77,21 +109,23 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
         EditText password = (EditText) findViewById(R.id.editText22);
         EditText password2 = (EditText) findViewById(R.id.editText23);
 
-        String sname,slastname,susername,spassword,spassword2;
-        Boolean bname,blastname,busername,bpassword,bpassword2,bequal;
+        RadioButton radioPassenger = (RadioButton) findViewById(R.id.radioButton7);
 
-        Passenger passenger;
-        Driver driver;
+        String sname,slastname,susername,spassword,spassword2,stype;
+        Boolean bname,blastname,busername,bpassword,bpassword2,bequal,bpassenger;
+
         User user;
         Intent intent;
         Gson gson;
         String userjson;
 
         PostRestApi post = new PostRestApi();
-        String url = "http://demo1144105.mockable.io/Passenger/";
+        String url = "http://demo1144105.mockable.io/Card/";
         Info urlinfo = new Info();
         Info userinfo = new Info();
         Info useranswer = new Info();
+        int status;
+
 
         urlinfo.setInfo(url);
 
@@ -108,66 +142,78 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
         bpassword2 = spassword2.isEmpty();
         bequal = spassword.equals(spassword2);
 
-        if(v.getId() == R.id.button3 || v.getId() == R.id.textView9 || v.getId() == R.id.textView10){
+        if(radioPassenger.isChecked()){
+            stype = "Passenger";
+            bpassenger = true;
+        } else {
+            stype = "Driver";
+            bpassenger = false;
+        }
+
+        if(v.getId() == R.id.button3){
 
             if(!bname && !blastname && !busername && !bpassword && !bpassword2 && bequal){
 
                 gson = new Gson();
 
-                if (v.getId() == R.id.button3){
-                    user = new User(susername,sname,slastname,spassword);
-                    user.setEmail(email.getText().toString());
-                    user.setCountry(country.getText().toString());
-//                    passenger.setBirthdate(birthdate.getText().toString());
-                    userjson = gson.toJson(user);
-                    userinfo.setInfo(userjson);
+                final ProgressDialog progressDialog = new ProgressDialog(RegisterActivity.this,
+                        R.style.Theme_AppCompat_DayNight_Dialog);
+                progressDialog.setIndeterminate(true);
+                progressDialog.setMessage("Registering User...");
+                progressDialog.show();
 
-                    try {
-                        post.execute(urlinfo,userinfo,useranswer).get();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    }
+                user = new User(susername,sname,slastname,spassword,stype);
+                user.setEmail(email.getText().toString());
+                user.setCountry(country.getText().toString());
+                user.setBirthdate(birthdate.getText().toString());
+                userjson = gson.toJson(user);
+                userinfo.setInfo(userjson);
 
-                    intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    Log.i(TAG,"Passenger Registration.");
-                    startActivity(intent);
+                try {
+                    post.execute(urlinfo,userinfo,useranswer).get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
                 }
 
-                if (v.getId() == R.id.textView9) {
-                    passenger = new Passenger(susername,sname,slastname,spassword);
-                    passenger.setEmail(email.getText().toString());
-                    passenger.setCountry(country.getText().toString());
-//                    passenger.setBirthdate(birthdate.getText().toString());
-                    userjson = gson.toJson(passenger);
-                    intent = new Intent(RegisterActivity.this, RegisterPaymentData.class);
-                    intent.putExtra("Passenger",userjson);
-                    Log.i(TAG, "Register Payment Data.");
-                    startActivity(intent);
-                }
+                status = useranswer.getStatus();
 
-                if (v.getId() == R.id.textView10) {
-                    driver = new Driver(susername,sname,slastname,spassword);
-                    driver.setEmail(email.getText().toString());
-                    driver.setCountry(country.getText().toString());
-//                    driver.setBirthdate(birthdate.getText().toString());
-                    userjson = gson.toJson(driver);
-                    intent = new Intent(RegisterActivity.this, RegisterAsDriverActivity.class);
-                    intent.putExtra("Driver",userjson);
-                    Log.i(TAG, "Register as Driver");
-                    startActivity(intent);
+                progressDialog.hide();
+
+                switch (status) {
+                    case 200:
+                        if(bpassenger)
+                            intent = new Intent(RegisterActivity.this, RegisterPaymentData.class);
+                        else
+                            intent = new Intent(RegisterActivity.this, RegisterCarActivity.class);
+
+                        Log.i(TAG,"User Registration as "+stype);
+                        startActivity(intent);
+                        break;
+                    case 400:
+                        break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
+                    case 401:
+                        break; //Unauthorized
+                    case 500:
+                        break; //Unexpected Error
                 }
 
             } else {
+                if(bname)
+                    name.setError("Name can't be blank");
+                if(blastname)
+                    lastname.setError("Lastname can't be blank");
+                if(busername)
+                    username.setError("Username can't be blank");
+                if(bpassword)
+                    password.setError("Password can't be blank");
+                if(bpassword2)
+                    password2.setError("Password can't be blank");
+                if(!bequal)
+                    password2.setError("Passwords aren't equals");
                 Log.e(TAG,"Error in Register Data");
             }
-        }
-
-        if (v.getId() == R.id.button5) {
-            intent = new Intent(RegisterActivity.this, LoginActivity.class);
-            Log.i(TAG,"Cancel Registration.");
-            startActivity(intent);
         }
 
     }

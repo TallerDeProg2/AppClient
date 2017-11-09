@@ -66,7 +66,10 @@ class PostRestApi extends AsyncTask<Info,Integer,Boolean> {
 
                 InputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());
 
-                params[2].setInfo(convertStreamToString(inputStream));
+                data = convertStreamToString(inputStream);
+                Log.i(TAG,data);
+
+                params[2].setInfo(data);
 
             } else {
                 // Status code is not 200

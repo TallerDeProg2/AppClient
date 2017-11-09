@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "fiuba.ubreapp"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -32,5 +32,6 @@ dependencies {
     compile 'com.android.support:support-v4:26.+'
     compile 'com.android.support:design:26.+'
     compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.google.android.gms:play-services-maps:11.0.4'
     testCompile 'junit:junit:4.12'
 }

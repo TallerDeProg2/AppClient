@@ -143,7 +143,7 @@
             android:id="@+id/radioButton6"
             android:layout_width="167dp"
             android:layout_height="wrap_content"
-            android:text="@string/mastercard" />
+            android:text="@string/americanexpress" />
 
     </RadioGroup>
 
@@ -153,6 +153,6 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/radioGroup"
         android:layout_alignTop="@+id/button4"
-        android:text="@string/cancel" />
+        android:text="@string/skip" />
 
 </RelativeLayout>

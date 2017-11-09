@@ -1,5 +1,6 @@
 package fiuba.ubreapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -35,11 +36,16 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
     private Intent intent;
 
     private PostRestApi post;
+    private GetRestApi get;
     private Info url,loginjson,userjson;
     private UserLogIn userlogin;
 
     private String URL = "http://demo1144105.mockable.io";
     private String parameters;
+
+    private User user;
+    private Card card;
+    private Car car;
 
     int status;
 
@@ -56,6 +62,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         textView.setOnClickListener(this);
 
         post = new PostRestApi();
+        get = new GetRestApi();
         url = new Info();
         loginjson = new Info();
         userjson = new Info();
@@ -79,19 +86,11 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
             public void onSuccess(LoginResult loginResult) {
                 intent = new Intent(LoginActivity.this, MapActivity.class);
 
-//                if (!ischecked) {
-//                    parameters = "/Passenger/";
-//                    typeuser = "Passenger";
-//                } else {
-//                    parameters = "/Driver/";
-//                    typeuser = "Driver";
-//                }
+                parameters = "/Card/";
+                typeuser = "Card";
 
-                parameters = "/Passenger/";
-                typeuser = "Passenger";
-
-                userlogin = new UserLogIn(loginResult.getAccessToken().getUserId()
-                        ,"",loginResult.getAccessToken().getToken());
+                userlogin = new UserLogIn("","",loginResult.getAccessToken().getUserId(),
+                        loginResult.getAccessToken().getToken());
 
                 loginjson.setInfo(gson.toJson(userlogin));
 
@@ -110,7 +109,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                     case 200:
                         intent.putExtra("AsDriver", false);
                         intent.putExtra(typeuser, userjson.getInfo());
-                        Log.i(TAG, "LogIn As " + typeuser + " .");
+                        Log.i(TAG, "LogIn As " + typeuser + ".");
+                        Log.i(TAG, userjson.getInfo());
                         startActivity(intent);
                         break;
                     case 400:
@@ -155,52 +155,85 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
     @Override
     public void onClick (View v) {
 
-        EditText user = (EditText) findViewById(R.id.editText);
+        EditText username = (EditText) findViewById(R.id.editText);
         EditText password = (EditText) findViewById(R.id.editText2);
-        CheckBox checkbox = (CheckBox) findViewById(R.id.checkBox);
 
-        Boolean ischecked = checkbox.isChecked();
+        String susername, spassword;
+        Boolean busername, bpassword;
 
         if (v.getId() == R.id.button2) {
 
-            intent = new Intent(LoginActivity.this, MapActivity.class);
+            final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
+                    R.style.Theme_AppCompat_DayNight_Dialog);
+            progressDialog.setIndeterminate(true);
+            progressDialog.setMessage("Authenticating...");
+            progressDialog.show();
 
-            if (!ischecked) {
-                parameters = "/Passenger/";
-                typeuser = "Passenger";
+            susername = username.getText().toString();
+            spassword = password.getText().toString();
+
+            busername = susername.isEmpty();
+            bpassword = spassword.isEmpty();
+
+            if(!busername && !bpassword){
+                intent = new Intent(LoginActivity.this, MapActivity.class);
+
+                userlogin = new UserLogIn(susername,spassword,"","");
+                loginjson.setInfo(gson.toJson(userlogin));
+
+//                url.setInfo(URL + parameters);
+//                try {
+//                    post.execute(url,loginjson, userjson).get();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                } catch (ExecutionException e) {
+//                    e.printStackTrace();
+//                }
+
+//                status = userjson.getStatus();
+
+                status = 200;
+
+                switch (status) {
+                    case 200:
+//                        user = gson.fromJson(userjson.getInfo(),User.class);
+//                        typeuser = user.getType();
+
+//                        try {
+//                            //corregir
+//                            post.execute(url,loginjson, userjson).get();
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        } catch (ExecutionException e) {
+//                            e.printStackTrace();
+//                        }
+
+//                        intent.putExtra(typeuser, user.getType());
+
+                        String data = "{'username':'alanrinaldi','password':'1234','fb':{'userID':'rinaldia118','authToken':'12345'},'firstname':'Alan','lastname':'Rinaldi','country':'Argentina','email':'alan.rinaldi@live.com','birthdate':'30/01/1992','type':'Passenger','id':'1'}";
+                        intent.putExtra("Type", "Passenger");
+                        intent.putExtra("User", data);
+//                        Log.i(TAG, "LogIn As " + typeuser + ".");
+                        progressDialog.hide();
+                        startActivity(intent);
+                        break;
+                    case 400:
+                        break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
+                    case 401:
+                        break; //Unauthorized
+                    case 500:
+                        break; //Unexpected Error
+                }
             } else {
-                parameters = "/Driver/";
-                typeuser = "Driver";
+                progressDialog.hide();
+                if(busername){
+                    username.setError("User can't be blank");
+                } else {
+                    password.setError("Password can't be blank");
+                }
             }
 
-            userlogin = new UserLogIn(user.getText().toString(),password.getText().toString(),"");
-            loginjson.setInfo(gson.toJson(userlogin));
 
-            url.setInfo(URL + parameters);
-            try {
-                post.execute(url,loginjson, userjson).get();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
-
-            status = userjson.getStatus();
-
-            switch (status) {
-                case 200:
-                    intent.putExtra("AsDriver", ischecked);
-                    intent.putExtra(typeuser, userjson.getInfo());
-                    Log.i(TAG, "LogIn As " + typeuser + " .");
-                    startActivity(intent);
-                    break;
-                case 400:
-                    break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
-                case 401:
-                    break; //Unauthorized
-                case 500:
-                    break; //Unexpected Error
-            }
         }
 
         if (v.getId() == R.id.textView){

@@ -1,155 +1,309 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-50:12
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-68:12
+INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-68:12
+INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-68:12
+INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-68:12
+MERGED from [com.android.support:design:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/design-26.0.0-alpha1.aar/3e8a2741dbdd9a8280d025b49de27633/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/6fb35d0b1442f81be1130a74970e2ba2/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/0add6f3e409a33c94b0da05f8891fe2e/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.android:facebook-android-sdk:4.0.0] /home/alan/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.0.0.aar/603b9f46f9bbbca8a57e7546e705f58c/AndroidManifest.xml:21:1-30:12
+MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/transition-26.0.0-alpha1.aar/e6b02cc3eeba8ab87722194a6ada4bdb/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:16:1-25:12
+MERGED from [com.google.android.gms:play-services-base:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.4.aar/a373f43558ae95281f31395b17f5df24/AndroidManifest.xml:16:1-21:12
+MERGED from [com.google.android.gms:play-services-tasks:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.0.4.aar/30699f55b25dabb95ac2001c16c9c6ca/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.4.aar/3448cc6284257b94944e714e1e77a757/AndroidManifest.xml:16:1-23:12
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/eec0166130ce092f1b72f8ad30634ba6/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/cdb3a45e3e368f9265c5fe54e4b81cc0/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/3f4ff6c3ec855414cc425d1cd8ff319b/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0-alpha1.aar/c814abae7f37e65076da3aa397fde4e1/AndroidManifest.xml:17:1-26:12
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/ca2546300cd9d44f16f5441a76133c76/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/dd9559dfe225645aa0064ce633e01c12/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/a4bb5d86c35c941734c8bbb4513316cc/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/0c83f2396b6c28d4cebcdfe030d7c1a9/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/b17fc41fb030e157c84aeae754f02a86/AndroidManifest.xml:17:1-31:12
+INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-68:12
+INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-68:12
+INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-68:12
 	package
 		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:3:5-28
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-68:12
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:1-68:12
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:2:11-69
-	android:versionCode
-		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
-		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.INTERNET
 ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:5:5-67
+MERGED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:20:5-66
 	android:name
 		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:6:5-79
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:6:22-76
 application
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:7:5-48:19
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.android/build-cache/e8c7079c594b12d1c4c003f3df3321368d718abf/output/AndroidManifest.xml:9:5-20
-MERGED from [com.facebook.android:facebook-android-sdk:4.0.0] /home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/AndroidManifest.xml:28:5-20
-MERGED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/6e49fba540cda71f1cf244cb1e7db464af9aec28/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/cf9e40c275f57176b8f89251862b6751f7bba771/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.android/build-cache/ac99d71699e4a29da14624c00e0a3e9084c8a7ca/output/AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.android/build-cache/78cf313a7e53c7e4733f836c24cbbc8ac5e5d2af/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.android/build-cache/03b68aa1db64bb750c46c6a5997f0782dc02213c/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.android/build-cache/461bf0b17df2f095ae077a07da38bc55eb945c02/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.android/build-cache/b79834eea69011f6983e66ed1c73feecfb3d7b42/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.android/build-cache/4ecc5da52d6eea610fa2e569be82a95a1f0981a0/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.android/build-cache/d450480912f0a57aaf9de99635a437f7ae5239d5/output/AndroidManifest.xml:29:5-20
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:8:5-66:19
+MERGED from [com.android.support:design:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/design-26.0.0-alpha1.aar/3e8a2741dbdd9a8280d025b49de27633/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:design:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/design-26.0.0-alpha1.aar/3e8a2741dbdd9a8280d025b49de27633/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/6fb35d0b1442f81be1130a74970e2ba2/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/6fb35d0b1442f81be1130a74970e2ba2/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/0add6f3e409a33c94b0da05f8891fe2e/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/0add6f3e409a33c94b0da05f8891fe2e/AndroidManifest.xml:9:5-20
+MERGED from [com.facebook.android:facebook-android-sdk:4.0.0] /home/alan/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.0.0.aar/603b9f46f9bbbca8a57e7546e705f58c/AndroidManifest.xml:28:5-20
+MERGED from [com.facebook.android:facebook-android-sdk:4.0.0] /home/alan/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.0.0.aar/603b9f46f9bbbca8a57e7546e705f58c/AndroidManifest.xml:28:5-20
+MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/transition-26.0.0-alpha1.aar/e6b02cc3eeba8ab87722194a6ada4bdb/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/transition-26.0.0-alpha1.aar/e6b02cc3eeba8ab87722194a6ada4bdb/AndroidManifest.xml:26:5-20
+MERGED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-base:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.4.aar/a373f43558ae95281f31395b17f5df24/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-base:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.4.aar/a373f43558ae95281f31395b17f5df24/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.0.4.aar/30699f55b25dabb95ac2001c16c9c6ca/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-tasks:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.0.4.aar/30699f55b25dabb95ac2001c16c9c6ca/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.4.aar/3448cc6284257b94944e714e1e77a757/AndroidManifest.xml:19:5-21:19
+MERGED from [com.google.android.gms:play-services-basement:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.4.aar/3448cc6284257b94944e714e1e77a757/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/eec0166130ce092f1b72f8ad30634ba6/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/eec0166130ce092f1b72f8ad30634ba6/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/cdb3a45e3e368f9265c5fe54e4b81cc0/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/cdb3a45e3e368f9265c5fe54e4b81cc0/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/3f4ff6c3ec855414cc425d1cd8ff319b/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/3f4ff6c3ec855414cc425d1cd8ff319b/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/ca2546300cd9d44f16f5441a76133c76/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/ca2546300cd9d44f16f5441a76133c76/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/dd9559dfe225645aa0064ce633e01c12/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/dd9559dfe225645aa0064ce633e01c12/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/a4bb5d86c35c941734c8bbb4513316cc/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/a4bb5d86c35c941734c8bbb4513316cc/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/0c83f2396b6c28d4cebcdfe030d7c1a9/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/0c83f2396b6c28d4cebcdfe030d7c1a9/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/b17fc41fb030e157c84aeae754f02a86/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/b17fc41fb030e157c84aeae754f02a86/AndroidManifest.xml:29:5-20
 	android:label
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:10:9-41
-	android:allowBackup
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:8:9-35
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:11:9-41
 	android:icon
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:9:9-43
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:10:9-43
+	android:allowBackup
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:9:9-35
 	android:theme
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:11:9-40
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:12:9-40
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:12:9-14:55
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:13:9-15:55
 	android:value
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:14:13-52
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:15:13-52
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:13:13-58
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:14:13-58
+meta-data#com.google.android.geo.API_KEY
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:16:9-18:55
+	android:value
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:18:13-52
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:17:13-58
 activity#fiuba.ubreapp.SplashScreen
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:16:9-24:20
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:20:9-28:20
 	android:label
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:18:13-65
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:22:13-65
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:17:13-41
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:21:13-41
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:19:13-23:29
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:23:13-27:29
 action#android.intent.action.MAIN
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:20:17-69
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:24:17-69
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:20:25-66
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:24:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:22:17-77
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:26:17-77
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:22:27-74
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:26:27-74
 activity#fiuba.ubreapp.LoginActivity
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:25:9-31:20
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:29:9-35:20
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:25:19-48
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:29:19-48
 intent-filter#android.intent.action.LOGINACTIVITY+android.intent.category.DEFAULT
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:26:13-30:29
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:30:13-34:29
 action#android.intent.action.LOGINACTIVITY
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:27:17-78
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:31:17-78
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:27:25-75
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:31:25-75
 category#android.intent.category.DEFAULT
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:29:17-76
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:33:17-76
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:29:27-73
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:33:27-73
 activity#com.facebook.FacebookActivity
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:32:9-36:75
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:36:9-40:75
 	android:label
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:35:13-45
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:39:13-45
 	android:configChanges
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:34:13-96
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:38:13-96
 	android:theme
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:36:13-72
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:40:13-72
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:33:13-57
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:37:13-57
 activity#fiuba.ubreapp.RegisterActivity
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:37:9-39:63
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:41:9-43:63
 	android:label
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:39:13-60
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:43:13-60
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:38:13-45
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:42:13-45
 activity#fiuba.ubreapp.RegisterPaymentData
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:40:9-42:76
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:44:9-46:76
 	android:label
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:42:13-73
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:46:13-73
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:41:13-48
-activity#fiuba.ubreapp.RegisterAsDriverActivity
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:43:9-45:73
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:45:13-48
+activity#fiuba.ubreapp.RegisterCarActivity
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:47:9-49:67
 	android:label
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:45:13-70
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:49:13-64
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:44:13-53
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:48:13-48
 activity#fiuba.ubreapp.MapActivity
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:46:9-49
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:50:9-52:59
+	android:theme
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:52:13-56
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:46:19-46
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:51:13-40
 activity#fiuba.ubreapp.ModifyProfile
-ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:47:9-50
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:53:9-55:44
+	android:label
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:55:13-41
 	android:name
-		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:47:19-48
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:54:13-42
+activity#fiuba.ubreapp.ViewProfile
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:56:9-58:39
+	android:label
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:58:13-36
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:57:13-40
+activity#fiuba.ubreapp.ChangePassword
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:59:9-61:47
+	android:label
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:61:13-44
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:60:13-43
+activity#fiuba.ubreapp.ViewCar
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:62:9-45
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:62:19-42
+activity#fiuba.ubreapp.ViewCard
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:63:9-46
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:63:19-43
+activity#fiuba.ubreapp.ModifyCar
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:64:9-47
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:64:19-44
+activity#fiuba.ubreapp.ModifyCard
+ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:65:9-57
+	android:name
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml:65:19-45
 uses-sdk
 INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.android/build-cache/e8c7079c594b12d1c4c003f3df3321368d718abf/output/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.android:facebook-android-sdk:4.0.0] /home/alan/.android/build-cache/0780abef763e656836cbf9737301e6b272c1dcf2/output/AndroidManifest.xml:24:5-26:41
-MERGED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/6e49fba540cda71f1cf244cb1e7db464af9aec28/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/cf9e40c275f57176b8f89251862b6751f7bba771/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /home/alan/.android/build-cache/590933f8b4790782ab85dfa56fe7c37a0f7fb359/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.android/build-cache/ac99d71699e4a29da14624c00e0a3e9084c8a7ca/output/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.android/build-cache/78cf313a7e53c7e4733f836c24cbbc8ac5e5d2af/output/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.android/build-cache/03b68aa1db64bb750c46c6a5997f0782dc02213c/output/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.android/build-cache/461bf0b17df2f095ae077a07da38bc55eb945c02/output/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.android/build-cache/b79834eea69011f6983e66ed1c73feecfb3d7b42/output/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.android/build-cache/4ecc5da52d6eea610fa2e569be82a95a1f0981a0/output/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.android/build-cache/d450480912f0a57aaf9de99635a437f7ae5239d5/output/AndroidManifest.xml:21:5-23:58
+INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/design-26.0.0-alpha1.aar/3e8a2741dbdd9a8280d025b49de27633/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:design:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/design-26.0.0-alpha1.aar/3e8a2741dbdd9a8280d025b49de27633/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/6fb35d0b1442f81be1130a74970e2ba2/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/6fb35d0b1442f81be1130a74970e2ba2/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/0add6f3e409a33c94b0da05f8891fe2e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/alan/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/0add6f3e409a33c94b0da05f8891fe2e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.0.0] /home/alan/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.0.0.aar/603b9f46f9bbbca8a57e7546e705f58c/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.0.0] /home/alan/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.0.0.aar/603b9f46f9bbbca8a57e7546e705f58c/AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/transition-26.0.0-alpha1.aar/e6b02cc3eeba8ab87722194a6ada4bdb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/transition-26.0.0-alpha1.aar/e6b02cc3eeba8ab87722194a6ada4bdb/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-base:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.4.aar/a373f43558ae95281f31395b17f5df24/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.4.aar/a373f43558ae95281f31395b17f5df24/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.0.4.aar/30699f55b25dabb95ac2001c16c9c6ca/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.0.4.aar/30699f55b25dabb95ac2001c16c9c6ca/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.4.aar/3448cc6284257b94944e714e1e77a757/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.4.aar/3448cc6284257b94944e714e1e77a757/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/eec0166130ce092f1b72f8ad30634ba6/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/eec0166130ce092f1b72f8ad30634ba6/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/cdb3a45e3e368f9265c5fe54e4b81cc0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/cdb3a45e3e368f9265c5fe54e4b81cc0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/3f4ff6c3ec855414cc425d1cd8ff319b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/3f4ff6c3ec855414cc425d1cd8ff319b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0-alpha1.aar/c814abae7f37e65076da3aa397fde4e1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0-alpha1.aar/c814abae7f37e65076da3aa397fde4e1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/ca2546300cd9d44f16f5441a76133c76/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/ca2546300cd9d44f16f5441a76133c76/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/dd9559dfe225645aa0064ce633e01c12/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/dd9559dfe225645aa0064ce633e01c12/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/a4bb5d86c35c941734c8bbb4513316cc/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/a4bb5d86c35c941734c8bbb4513316cc/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/0c83f2396b6c28d4cebcdfe030d7c1a9/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/0c83f2396b6c28d4cebcdfe030d7c1a9/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/b17fc41fb030e157c84aeae754f02a86/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/b17fc41fb030e157c84aeae754f02a86/AndroidManifest.xml:21:5-23:58
+INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
-		ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:23:9-59
+		ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/design-26.0.0-alpha1.aar/3e8a2741dbdd9a8280d025b49de27633/AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
+		ADDED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 		INJECTED from /home/alan/Documents/Taller 2/ClientApp/app/src/main/AndroidManifest.xml
 meta-data#android.support.VERSION
-ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/6e49fba540cda71f1cf244cb1e7db464af9aec28/output/AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.android/build-cache/cf9e40c275f57176b8f89251862b6751f7bba771/output/AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /home/alan/.android/build-cache/590933f8b4790782ab85dfa56fe7c37a0f7fb359/output/AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.android/build-cache/ac99d71699e4a29da14624c00e0a3e9084c8a7ca/output/AndroidManifest.xml:22:5-24:41
-MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.android/build-cache/78cf313a7e53c7e4733f836c24cbbc8ac5e5d2af/output/AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.android/build-cache/03b68aa1db64bb750c46c6a5997f0782dc02213c/output/AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.android/build-cache/461bf0b17df2f095ae077a07da38bc55eb945c02/output/AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.android/build-cache/b79834eea69011f6983e66ed1c73feecfb3d7b42/output/AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.android/build-cache/4ecc5da52d6eea610fa2e569be82a95a1f0981a0/output/AndroidManifest.xml:25:5-27:41
-MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.android/build-cache/d450480912f0a57aaf9de99635a437f7ae5239d5/output/AndroidManifest.xml:25:5-27:41
+ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/design-26.0.0-alpha1.aar/3e8a2741dbdd9a8280d025b49de27633/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/6fb35d0b1442f81be1130a74970e2ba2/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:appcompat-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0-alpha1.aar/6fb35d0b1442f81be1130a74970e2ba2/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/transition-26.0.0-alpha1.aar/e6b02cc3eeba8ab87722194a6ada4bdb/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:transition:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/transition-26.0.0-alpha1.aar/e6b02cc3eeba8ab87722194a6ada4bdb/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/eec0166130ce092f1b72f8ad30634ba6/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-v4:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0-alpha1.aar/eec0166130ce092f1b72f8ad30634ba6/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/cdb3a45e3e368f9265c5fe54e4b81cc0/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:animated-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0-alpha1.aar/cdb3a45e3e368f9265c5fe54e4b81cc0/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/3f4ff6c3ec855414cc425d1cd8ff319b/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-vector-drawable:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.0.0-alpha1.aar/3f4ff6c3ec855414cc425d1cd8ff319b/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0-alpha1.aar/c814abae7f37e65076da3aa397fde4e1/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:recyclerview-v7:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0-alpha1.aar/c814abae7f37e65076da3aa397fde4e1/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/ca2546300cd9d44f16f5441a76133c76/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-fragment:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0-alpha1.aar/ca2546300cd9d44f16f5441a76133c76/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/dd9559dfe225645aa0064ce633e01c12/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.0.0-alpha1.aar/dd9559dfe225645aa0064ce633e01c12/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/a4bb5d86c35c941734c8bbb4513316cc/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-media-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.0.0-alpha1.aar/a4bb5d86c35c941734c8bbb4513316cc/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/0c83f2396b6c28d4cebcdfe030d7c1a9/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.0.0-alpha1.aar/0c83f2396b6c28d4cebcdfe030d7c1a9/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/b17fc41fb030e157c84aeae754f02a86/AndroidManifest.xml:25:5-27:41
+MERGED from [com.android.support:support-compat:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0-alpha1.aar/b17fc41fb030e157c84aeae754f02a86/AndroidManifest.xml:25:5-27:41
 	android:value
-		ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:27:9-38
+		ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/design-26.0.0-alpha1.aar/3e8a2741dbdd9a8280d025b49de27633/AndroidManifest.xml:27:9-38
 	android:name
-		ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:design:26.0.0-alpha1] /home/alan/.gradle/caches/transforms-1/files-1.1/design-26.0.0-alpha1.aar/3e8a2741dbdd9a8280d025b49de27633/AndroidManifest.xml:26:9-47
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:19:22-76
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-maps-11.0.4.aar/c6fa240b6ecf7e5160f620ad0ff5bfea/AndroidManifest.xml:21:52-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.4.aar/a373f43558ae95281f31395b17f5df24/AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.4.aar/a373f43558ae95281f31395b17f5df24/AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.4.aar/a373f43558ae95281f31395b17f5df24/AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-base-11.0.4.aar/a373f43558ae95281f31395b17f5df24/AndroidManifest.xml:19:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.4.aar/3448cc6284257b94944e714e1e77a757/AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.4.aar/3448cc6284257b94944e714e1e77a757/AndroidManifest.xml:20:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:11.0.4] /home/alan/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.4.aar/3448cc6284257b94944e714e1e77a757/AndroidManifest.xml:20:20-65

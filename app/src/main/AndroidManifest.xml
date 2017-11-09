@@ -3,6 +3,7 @@
     package="fiuba.ubreapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,9 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
 
         <activity
             android:name=".SplashScreen"
@@ -41,10 +45,24 @@
             android:name=".RegisterPaymentData"
             android:label="@string/title_activity_register_payment_data" />
         <activity
-            android:name=".RegisterAsDriverActivity"
-            android:label="@string/title_activity_register_as_driver" />
-        <activity android:name=".MapActivity" />
-        <activity android:name=".ModifyProfile"/>
+            android:name=".RegisterCarActivity"
+            android:label="@string/title_activity_register_car" />
+        <activity
+            android:name=".MapActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ModifyProfile"
+            android:label="Edit Profile" />
+        <activity
+            android:name=".ViewProfile"
+            android:label="Profile" />
+        <activity
+            android:name=".ChangePassword"
+            android:label="Change Password" />
+        <activity android:name=".ViewCar" />
+        <activity android:name=".ViewCard" />
+        <activity android:name=".ModifyCar" />
+        <activity android:name=".ModifyCard"></activity>
     </application>
 
 </manifest>

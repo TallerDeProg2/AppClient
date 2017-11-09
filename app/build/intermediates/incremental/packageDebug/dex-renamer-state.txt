@@ -1,4 +1,7 @@
-#Wed Oct 11 23:29:57 ART 2017
-base.0=/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+#Wed Nov 08 20:23:46 ART 2017
+base.0=/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_232a988ad210d23634f9d50101d5f12ec33c403d
+renamed.1=classes2.dex
 renamed.0=classes.dex
-file.0=/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
+file.1=/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9fbd290947967c2e637e3ad258b801a6a548a2d3/classes.dex
+base.1=/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9fbd290947967c2e637e3ad258b801a6a548a2d3
+file.0=/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_232a988ad210d23634f9d50101d5f12ec33c403d/classes.dex

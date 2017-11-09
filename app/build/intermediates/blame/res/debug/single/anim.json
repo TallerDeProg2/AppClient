@@ -8,16 +8,8 @@
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/anim/abc_popup_enter.xml"
     },
     {
-        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_in.xml",
-        "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/anim/design_bottom_sheet_slide_in.xml"
-    },
-    {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
         "source": "/home/alan/.android/build-cache/19068e79ad649c822fa0b1a235a1e13a6f47a79c/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
-    },
-    {
-        "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_out.xml",
-        "source": "/home/alan/.android/build-cache/00111770e76882f597b65a9debfebd0f9bd13952/output/res/anim/design_bottom_sheet_slide_out.xml"
     },
     {
         "merged": "/home/alan/Documents/Taller 2/ClientApp/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",

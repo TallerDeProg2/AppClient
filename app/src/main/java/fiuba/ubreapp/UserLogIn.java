@@ -5,14 +5,14 @@ class UserLogIn {
 
     private String username;
     private String password;
-    private String token;
-    private Boolean loginbyface;
-    private Boolean loginasdriver;
+    private FbData fb;
 
-    UserLogIn(String username,String password,String token){
+    UserLogIn(String username,String password,String fbid,String fbtoken){
         this.username = username;
         this.password = password;
-        this.token = token;
+        this.fb = new FbData();
+        this.fb.setUserID(fbid);
+        this.fb.setAuthToken(fbtoken);
     }
 
     void SetUsername(String username){
@@ -21,8 +21,11 @@ class UserLogIn {
     void SetPassword(String password){
         this.password = password;
     }
-    void SetToken(String token){
-        this.token = token;
+    void SetFbID(String fbid){
+        this.fb.setUserID(fbid);
+    }
+    void SetFbToken(String token){
+        this.fb.setAuthToken(token);
     }
 
     String GetUsername(){
@@ -31,7 +34,10 @@ class UserLogIn {
     String GetPassword(){
         return this.password;
     }
-    String GetToken(){
-        return this.token;
+    String GetFbToken(){
+        return this.fb.getAuthToken();
+    }
+    String GetFbID(){
+        return this.fb.getUserID();
     }
 }

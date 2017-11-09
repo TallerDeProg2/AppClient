@@ -3,7 +3,7 @@
     package="fiuba.ubreapp.test" >
 
     <uses-sdk
-        android:minSdkVersion="19"
+        android:minSdkVersion="21"
         android:targetSdkVersion="26" />
 
     <instrumentation
@@ -13,7 +13,7 @@
         android:label="Tests for fiuba.ubreapp"
         android:targetPackage="fiuba.ubreapp" />
 
-    <application>
+    <application android:debuggable="true" >
         <uses-library android:name="android.test.runner" />
     </application>
 

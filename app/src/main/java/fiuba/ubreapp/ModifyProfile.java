@@ -1,12 +1,15 @@
 package fiuba.ubreapp;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.google.gson.Gson;
@@ -26,8 +29,8 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
     private PutRestApi put;
     private Intent intent;
 
-    private Passenger passenger;
-    private Driver driver;
+    DatePickerDialog datePickerDialog;
+    EditText date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +39,11 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
         setContentView(R.layout.activity_modify_profile);
 
         bundle = getIntent().getExtras();
-        asdriver = bundle.getBoolean("AsDriver");
 
-        if(!asdriver){
-            userjson = bundle.getString("Passenger");
-            passenger = gson.fromJson(userjson,Passenger.class);
-            user = passenger.getUser();
-        } else {
-            userjson = bundle.getString("Driver");
-            driver = gson.fromJson(userjson,Driver.class);
-            user = driver.getUser();
-        }
+        gson = new Gson();
+
+        userjson = bundle.getString("User");
+        user = gson.fromJson(userjson,User.class);
 
         Button changeButton = (Button) findViewById(R.id.button10);
         changeButton.setOnClickListener(this);
@@ -55,17 +52,45 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
         EditText lastname = (EditText) findViewById(R.id.editText5);
         EditText country = (EditText) findViewById(R.id.editText6);
         EditText email = (EditText) findViewById(R.id.editText24);
-        EditText date = (EditText) findViewById(R.id.editText25);
+        date = (EditText) findViewById(R.id.editText25);
 
-        gson = new Gson();
-
-        user = gson.fromJson(userjson,User.class);
-
-        name.setText(user.getName());
+        name.setText(user.getFirstname());
         lastname.setText(user.getLastName());
         country.setText(user.getCountry());
         email.setText(user.getEmail());
-//        date.getText(user.getBirthdate());
+        date.setText(user.getBirthdate());
+
+        if(user.getType() == "Passenger")
+            asdriver = false;
+        else
+            asdriver = true;
+
+
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // calender class's instance and get current date , month and year from calender
+                final Calendar c = Calendar.getInstance();
+                c.set(1990,Calendar.JANUARY,1);
+                int mYear = c.get(Calendar.YEAR); // current year
+                int mMonth = c.get(Calendar.MONTH); // current month
+                int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
+                // date picker dialog
+                datePickerDialog = new DatePickerDialog(ModifyProfile.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                // set day of month , month and year value in the edit text
+                                date.setText(dayOfMonth + "/"
+                                        + (monthOfYear + 1) + "/" + year);
+
+                            }
+                        }, mYear, mMonth, mDay);
+                datePickerDialog.show();
+            }
+        });
 
     }
 
@@ -83,13 +108,15 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
         slastname = lastname.getText().toString();
         scountry = country.getText().toString();
         semail = email.getText().toString();
+        sdate = date.getText().toString();
 
-        bname = sname.equals(user.getName());
+        bname = sname.equals(user.getFirstname());
         blastname = slastname.equals(user.getLastName());
         bcountry = scountry.equals(user.getCountry());
         bemail = semail.equals(user.getEmail());
+        bdate = sdate.equals(user.getBirthdate());
 
-        isempty = sname.isEmpty() && slastname.isEmpty() && scountry.isEmpty() && semail.isEmpty();
+        isempty = sname.isEmpty() || slastname.isEmpty() || scountry.isEmpty() || semail.isEmpty() || sdate.isEmpty();
 
         String url = "http://demo1144105.mockable.io";
         String parameters;
@@ -101,18 +128,19 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
 
         intent = new Intent(ModifyProfile.this, MapActivity.class);
 
-        if((!bname || !blastname || !bcountry || !bemail) && !isempty){
-            user.setName(sname);
+        if((!bname || !blastname || !bcountry || !bemail || !bdate) && !isempty){
+            user.setFirstname(sname);
             user.setLastname(slastname);
             user.setEmail(semail);
             user.setCountry(scountry);
+            user.setBirthdate(sdate);
 
             put = new PutRestApi();
 
             if(!asdriver)
-                parameters = "/Passenger/" +user.getId() + "/";
+                parameters = "/Passenger/" + user.getId() + "/";
             else
-                parameters = "/Driver/" +user.getId() + "/";
+                parameters = "/Driver/" + user.getId() + "/";
 
             urlinfo.setInfo(url+parameters);
             userinfo.setInfo(gson.toJson(user));
@@ -129,24 +157,6 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
 
             switch (status) {
                 case 200:
-                    bundlejson = useranswer.getInfo();
-                    user = gson.fromJson(bundlejson,User.class);
-                    if (!asdriver){
-                        passenger.setName(user.getName());
-                        passenger.setLastname(user.getLastName());
-                        passenger.setEmail(user.getEmail());
-                        passenger.setCountry(user.getCountry());
-                        bundlejson = gson.toJson(passenger);
-                        intent.putExtra("Passenger",bundlejson);
-                    } else {
-                        driver.setName(user.getName());
-                        driver.setLastname(user.getLastName());
-                        driver.setEmail(user.getEmail());
-                        driver.setCountry(user.getCountry());
-                        bundlejson = gson.toJson(driver);
-                        intent.putExtra("Driver",bundlejson);
-                    }
-                    intent.putExtra("AsDriver",asdriver);
                     Log.i(TAG,"Modification Success");
                     startActivity(intent);
                     break;
@@ -158,18 +168,17 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
                     break; //Unexpected Error
             }
 
-
-
         } else {
             if(isempty){
-
+                if(sname.isEmpty())
+                    name.setError("Name can't be blank");
+                if(slastname.isEmpty())
+                    lastname.setError("Lastname can't be blank");
+                if(scountry.isEmpty())
+                    country.setError("Country can't be blank");
+                if(semail.isEmpty())
+                    email.setError("Email can't be blank");
             } else {
-                if (!asdriver){
-                    intent.putExtra("Passenger",userjson);
-                } else {
-                    intent.putExtra("Driver",userjson);
-                }
-                intent.putExtra("AsDriver",asdriver);
                 Log.i(TAG,"No Changes");
                 startActivity(intent);
             }
