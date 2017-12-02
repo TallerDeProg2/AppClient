@@ -1,9 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="fiuba.ubreapp.ModifyCard">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="43dp"
+        android:layout_alignStart="@+id/editText8"
+        android:layout_marginTop="41dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cardnumber"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="127dp"
+        android:layout_below="@+id/editText8"
+        android:layout_alignStart="@+id/editText8"
+        android:layout_marginTop="21dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/expiredate"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="205dp"
+        android:layout_below="@+id/editText10"
+        android:layout_alignStart="@+id/editText10"
+        android:layout_marginTop="18dp" />
+
+    <EditText
+        android:id="@+id/editText8"
+        android:labelFor="@+id/editText8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="60dp"
+        android:layout_below="@+id/textView11"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editText10"
+        android:labelFor="@+id/editText10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="144dp"
+        android:layout_below="@+id/textView12"
+        android:layout_alignStart="@+id/textView12" />
+
+    <EditText
+        android:id="@+id/editText11"
+        android:layout_width="68dp"
+        android:layout_height="42dp"
+        android:layout_alignEnd="@+id/editText10"
+        android:layout_below="@+id/textView14"
+        android:layout_marginEnd="13dp"
+        android:ems="10"
+        android:inputType="number"
+        android:labelFor="@+id/editText11"
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="254dp" />
+
+    <EditText
+        android:id="@+id/editText12"
+        android:labelFor="@+id/editText12"
+        android:layout_width="68dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:inputType="number"
+        tools:layout_editor_absoluteY="255dp"
+        tools:layout_editor_absoluteX="72dp"
+        android:layout_below="@+id/textView14"
+        android:layout_alignStart="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/month"
+        tools:layout_editor_absoluteY="237dp"
+        tools:layout_editor_absoluteX="72dp"
+        android:layout_below="@+id/textView13"
+        android:layout_alignStart="@+id/textView13"
+        android:layout_marginTop="13dp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/year"
+        tools:layout_editor_absoluteY="237dp"
+        tools:layout_editor_absoluteX="157dp"
+        android:layout_above="@+id/editText11"
+        android:layout_alignStart="@+id/editText11" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_toEndOf="@+id/editText12"
+        android:text="@string/accept"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="425dp" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/editText11"
+        android:layout_alignStart="@+id/editText12"
+        android:id="@+id/radioGroup">
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/visa" />
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mastercard" />
+
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="167dp"
+            android:layout_height="wrap_content"
+            android:text="@string/americanexpress" />
+
+    </RadioGroup>
+
+</RelativeLayout>

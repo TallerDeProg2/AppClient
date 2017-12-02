@@ -46,6 +46,10 @@ class PutRestApi extends AsyncTask<Info,Integer,Boolean> {
 
             urlConnection.setRequestMethod(TAG);
 
+            if(params.length > 3){
+                urlConnection.setRequestProperty("token",params[3].getInfo());
+            }
+
             String data = params[1].getInfo();
 
             urlConnection.setFixedLengthStreamingMode(data.length());
@@ -62,16 +66,10 @@ class PutRestApi extends AsyncTask<Info,Integer,Boolean> {
 
             params[2].setStatus(statusCode);
 
-            if (statusCode ==  200) {
+            InputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());
 
-                InputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());
+            params[2].setInfo(convertStreamToString(inputStream));
 
-                params[2].setInfo(convertStreamToString(inputStream));
-
-            } else {
-                // Status code is not 200
-                // Do something to handle the error
-            }
 
         } catch (Exception e) {
             Log.d(TAG, e.getLocalizedMessage());

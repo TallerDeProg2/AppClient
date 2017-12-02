@@ -2,6 +2,7 @@ package fiuba.ubreapp;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Bundle;
@@ -26,6 +27,9 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
 
     DatePickerDialog datePickerDialog;
     EditText date;
+    String URL;
+    Context context;
+    ToastMessage tm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,10 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
         User user;
         String jtext;
         Bundle bundle;
+
+        bundle = getIntent().getExtras();
+
+        URL = bundle.getString("URL");
 
         Button nextButton = (Button) findViewById(R.id.button3);
         nextButton.setOnClickListener(this);
@@ -70,16 +78,17 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
                                 // set day of month , month and year value in the edit text
-                                date.setText(dayOfMonth + "/"
-                                        + (monthOfYear + 1) + "/" + year);
+                                    date.setText(year + "-" + (monthOfYear + 1) + "-"+ dayOfMonth + " 00:00:00 ART");
 
                             }
                         }, mYear, mMonth, mDay);
+
                 datePickerDialog.show();
             }
         });
 
-
+        context = getApplicationContext();
+        tm = new ToastMessage(context);
 
 //        if (getIntent().hasExtra("Card")){
 //            Log.i(TAG,"Bundle no vacio");
@@ -118,16 +127,15 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
         Intent intent;
         Gson gson;
         String userjson;
+        String url,endpoint;
 
         PostRestApi post = new PostRestApi();
-        String url = "http://demo1144105.mockable.io/Card/";
+//        String url = "http://demo1144105.mockable.io/Card/";
+
         Info urlinfo = new Info();
         Info userinfo = new Info();
         Info useranswer = new Info();
         int status;
-
-
-        urlinfo.setInfo(url);
 
         sname = name.getText().toString();
         slastname = lastname.getText().toString();
@@ -143,12 +151,17 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
         bequal = spassword.equals(spassword2);
 
         if(radioPassenger.isChecked()){
-            stype = "Passenger";
+            stype = "passenger";
             bpassenger = true;
         } else {
-            stype = "Driver";
+            stype = "driver";
             bpassenger = false;
         }
+
+        endpoint = "/users";
+        url = URL + endpoint;
+
+        urlinfo.setInfo(url);
 
         if(v.getId() == R.id.button3){
 
@@ -179,23 +192,30 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
 
                 status = useranswer.getStatus();
 
-                progressDialog.hide();
+                progressDialog.dismiss();
+
+                Log.i(TAG,"Status Post: "+status);
 
                 switch (status) {
-                    case 200:
+                    case 201:
                         if(bpassenger)
                             intent = new Intent(RegisterActivity.this, RegisterPaymentData.class);
                         else
-                            intent = new Intent(RegisterActivity.this, RegisterCarActivity.class);
+                            intent = new Intent(RegisterActivity.this, RegisterPaymentDataDriver.class);
+
+                        intent.putExtra("URL",URL);
 
                         Log.i(TAG,"User Registration as "+stype);
                         startActivity(intent);
                         break;
                     case 400:
+                        tm.show(useranswer.getInfo());
                         break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
                     case 401:
+                        tm.show(useranswer.getInfo());
                         break; //Unauthorized
                     case 500:
+                        tm.show(useranswer.getInfo());
                         break; //Unexpected Error
                 }
 

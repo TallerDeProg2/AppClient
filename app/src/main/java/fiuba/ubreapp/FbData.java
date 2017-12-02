@@ -3,16 +3,16 @@ package fiuba.ubreapp;
 /** Datos de Facebook */
 
 class FbData {
-    protected String userID;
+    protected String userId;
     protected String authToken;
 
     FbData(){
-        this.userID = "";
+        this.userId = "";
         this.authToken = "";
     }
 
     void setUserID(String userID){
-        this.userID = userID;
+        this.userId = userID;
     }
 
     void setAuthToken(String authToken){
@@ -20,7 +20,7 @@ class FbData {
     }
 
     String getUserID(){
-        return this.userID;
+        return this.userId;
     }
 
     String getAuthToken(){

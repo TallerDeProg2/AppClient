@@ -1,6 +1,7 @@
 package fiuba.ubreapp;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
@@ -23,11 +24,14 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
 
     private Bundle bundle;
     private User user;
-    private Boolean asdriver;
-    private String userjson,bundlejson;
+    private String typeuser;
+    private String userjson;
     private Gson gson;
     private PutRestApi put;
     private Intent intent;
+    private Context context;
+    private String URL;
+    private ToastMessage tm;
 
     DatePickerDialog datePickerDialog;
     EditText date;
@@ -45,6 +49,8 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
         userjson = bundle.getString("User");
         user = gson.fromJson(userjson,User.class);
 
+        URL = bundle.getString("URL");
+
         Button changeButton = (Button) findViewById(R.id.button10);
         changeButton.setOnClickListener(this);
 
@@ -60,11 +66,7 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
         email.setText(user.getEmail());
         date.setText(user.getBirthdate());
 
-        if(user.getType() == "Passenger")
-            asdriver = false;
-        else
-            asdriver = true;
-
+        typeuser = user.getType();
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,8 +85,7 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
                                 // set day of month , month and year value in the edit text
-                                date.setText(dayOfMonth + "/"
-                                        + (monthOfYear + 1) + "/" + year);
+                                date.setText(year + "-" + (monthOfYear + 1) + "-"+ dayOfMonth + " 00:00:00 ART");
 
                             }
                         }, mYear, mMonth, mDay);
@@ -92,6 +93,8 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
             }
         });
 
+        context = getApplicationContext();
+        tm = new ToastMessage(context);
     }
 
     public void onClick (View v) {
@@ -118,11 +121,12 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
 
         isempty = sname.isEmpty() || slastname.isEmpty() || scountry.isEmpty() || semail.isEmpty() || sdate.isEmpty();
 
-        String url = "http://demo1144105.mockable.io";
-        String parameters;
+        String url;
+        String endpoint;
         Info urlinfo = new Info();
         Info userinfo = new Info();
         Info useranswer = new Info();
+        Info usertoken = new Info();
 
         int status;
 
@@ -137,16 +141,19 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
 
             put = new PutRestApi();
 
-            if(!asdriver)
-                parameters = "/Passenger/" + user.getId() + "/";
+            if(typeuser.equals("passenger"))
+                endpoint = "/passengers/" + user.getId();
             else
-                parameters = "/Driver/" + user.getId() + "/";
+                endpoint = "/drivers/" + user.getId();
 
-            urlinfo.setInfo(url+parameters);
+            url = URL + endpoint;
+
+            urlinfo.setInfo(url);
             userinfo.setInfo(gson.toJson(user));
+            usertoken.setInfo(user.getToken());
 
             try {
-                put.execute(urlinfo,userinfo,useranswer).get();
+                put.execute(urlinfo,userinfo,useranswer,usertoken).get();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
@@ -154,18 +161,26 @@ public class ModifyProfile extends AppCompatActivity implements OnClickListener{
             }
 
             status = useranswer.getStatus();
-
+            Log.i(TAG, "Status: " + String.valueOf(status));
             switch (status) {
                 case 200:
+                    intent.putExtra("Type",typeuser);
+                    intent.putExtra("User", useranswer.getInfo());
                     Log.i(TAG,"Modification Success");
                     startActivity(intent);
                     break;
                 case 400:
+                    tm.show(useranswer.getInfo());
                     break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
                 case 404:
+                    tm.show(useranswer.getInfo());
                     break; //No existe recurso solicitado
                 case 500:
+                    tm.show(useranswer.getInfo());
                     break; //Unexpected Error
+                default:
+                    tm.show(useranswer.getInfo());
+                    break;
             }
 
         } else {

@@ -4,6 +4,9 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/trip"
+            android:title="Trip" />
+        <item
             android:id="@+id/profile"
             android:title="Profile" />
         <item

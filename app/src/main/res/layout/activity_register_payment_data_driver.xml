@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fiuba.ubreapp.RegisterPaymentDataDriver">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/editText8"
+        android:layout_marginTop="11dp"
+        android:text="@string/name"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="43dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/editText8"
+        android:layout_below="@+id/editText8"
+        android:layout_marginTop="12dp"
+        android:text="@string/cardnumber"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="127dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView14"
+        android:layout_alignStart="@+id/editText10"
+        android:text="@string/expiredate"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="205dp" />
+
+    <EditText
+        android:id="@+id/editText8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView11"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:labelFor="@+id/editText8"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="60dp" />
+
+    <EditText
+        android:id="@+id/editText10"
+        android:labelFor="@+id/editText10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="144dp"
+        android:layout_below="@+id/textView12"
+        android:layout_alignStart="@+id/textView12" />
+
+    <EditText
+        android:id="@+id/editText11"
+        android:layout_width="68dp"
+        android:layout_height="42dp"
+        android:layout_alignBaseline="@+id/editText12"
+        android:layout_alignBottom="@+id/editText12"
+        android:layout_alignEnd="@+id/editText10"
+        android:ems="10"
+        android:inputType="number"
+        android:labelFor="@+id/editText11"
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="254dp" />
+
+    <EditText
+        android:id="@+id/editText12"
+        android:layout_width="68dp"
+        android:layout_height="41dp"
+        android:layout_above="@+id/radioGroup"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:inputType="number"
+        android:labelFor="@+id/editText12"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="255dp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView15"
+        android:layout_alignBottom="@+id/textView15"
+        android:layout_alignStart="@+id/textView13"
+        android:text="@string/month"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="237dp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/year"
+        tools:layout_editor_absoluteY="237dp"
+        tools:layout_editor_absoluteX="157dp"
+        android:layout_above="@+id/editText11"
+        android:layout_alignStart="@+id/editText11" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/next"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="425dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button4"
+        android:layout_alignStart="@+id/editText12"
+        android:layout_marginBottom="17dp">
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/visa" />
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mastercard" />
+
+        <RadioButton
+            android:id="@+id/radioButton6"
+            android:layout_width="167dp"
+            android:layout_height="wrap_content"
+            android:text="@string/americanexpress" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editText34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView30"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/editText10"
+        android:layout_below="@+id/editText10"
+        android:layout_marginTop="11dp"
+        android:text="CCVV" />
+
+
+</RelativeLayout>

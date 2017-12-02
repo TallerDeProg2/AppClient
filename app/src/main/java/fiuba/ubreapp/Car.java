@@ -9,7 +9,7 @@ class Car{
     private String plate;
     private String year;
     private String state;
-    private String music;
+    private String radio;
     private Boolean airconditioner;
 
     Car(){
@@ -19,7 +19,7 @@ class Car{
         this.plate = "";
         this.year = "";
         this.state = "";
-        this.music = "";
+        this.radio = "";
         this.airconditioner = false;
     }
 
@@ -45,8 +45,8 @@ class Car{
         this.state = state;
     }
 
-    void setMusic(String music){
-        this.music = music;
+    void setRadio(String radio){
+        this.radio = radio;
     }
 
     void setAirconditioner(Boolean airconditioner){
@@ -75,8 +75,8 @@ class Car{
         return this.state;
     }
 
-    String getMusic(){
-        return this.music;
+    String getRadio(){
+        return this.radio;
     }
 
     Boolean getAirconditioner(){

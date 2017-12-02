@@ -7,6 +7,7 @@ class Card {
     private String type;
     private String expiremonth;
     private String expireyear;
+    private String ccvv;
 
     Card(){
         this.name = "";
@@ -14,6 +15,7 @@ class Card {
         this.type = "";
         this.expiremonth = "";
         this.expireyear = "";
+        this.ccvv = "";
     }
 
     void setName(String name){
@@ -36,6 +38,8 @@ class Card {
         this.expireyear = expireyear;
     }
 
+    void setCcvv(String ccvv) { this.ccvv = ccvv; }
+
     String getName(){
         return this.name;
     }
@@ -55,4 +59,6 @@ class Card {
     String getExpireYearCard(){
         return this.expireyear;
     }
+
+    String getCcvv() { return this.ccvv; }
 }

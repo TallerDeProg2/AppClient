@@ -24,69 +24,65 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
     private Gson gson;
     private Intent intent;
     private String bundletext;
+    private String URL;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_payment_data);
 
-        Button acceptButton = (Button) findViewById(R.id.button4);
+        Button acceptButton = findViewById(R.id.button4);
         acceptButton.setOnClickListener(this);
 
-        Button skipButton = (Button) findViewById(R.id.button6);
+        Button skipButton = findViewById(R.id.button6);
         skipButton.setOnClickListener(this);
 
-        RadioButton radioVisa = (RadioButton) findViewById(R.id.radioButton4);
+        RadioButton radioVisa = findViewById(R.id.radioButton4);
 
         radioVisa.toggle();
 
         Bundle bundle = getIntent().getExtras();
         bundletext=bundle.getString("User");
+        URL = bundle.getString("URL");
         gson = new Gson();
         user = gson.fromJson(bundletext,User.class);
+        card = new Card();
     }
 
     @Override
     public void onClick (View v) {
 
-        EditText name = (EditText) findViewById(R.id.editText8);
-        EditText cardnumber = (EditText) findViewById(R.id.editText10);
-        EditText month = (EditText) findViewById(R.id.editText12);
-        EditText year = (EditText) findViewById(R.id.editText11);
+        EditText name = findViewById(R.id.editText8);
+        EditText cardnumber = findViewById(R.id.editText10);
+        EditText month = findViewById(R.id.editText12);
+        EditText year = findViewById(R.id.editText11);
+        EditText ccvv = findViewById(R.id.editText34);
 
-        RadioButton radioVisa = (RadioButton) findViewById(R.id.radioButton4);
-        RadioButton radioMastercard = (RadioButton) findViewById(R.id.radioButton5);
-        RadioButton radioAmericanExpress = (RadioButton) findViewById(R.id.radioButton6);
+        RadioButton radioVisa = findViewById(R.id.radioButton4);
+        RadioButton radioMastercard = findViewById(R.id.radioButton5);
+        RadioButton radioAmericanExpress = findViewById(R.id.radioButton6);
 
-        String sname,scardnumber,smonth,syear;
-        Boolean bname,bcardnumber,bmonth,byear;
-
-        String userjson;
-
-        PostRestApi post = new PostRestApi();
-        String url = "http://demo1144105.mockable.io/Card/";
-        Info urlinfo = new Info();
-        Info userinfo = new Info();
-        Info useranswer = new Info();
-        int status;
-
-        urlinfo.setInfo(url);
+        String sname,scardnumber,smonth,syear,sccvv;
+        Boolean bname,bcardnumber,bmonth,byear,bccvv;
 
         sname = name.getText().toString();
         scardnumber = cardnumber.getText().toString();
         smonth = month.getText().toString();
         syear = year.getText().toString();
+        sccvv = ccvv.getText().toString();
 
         bname = sname.isEmpty();
         bcardnumber = scardnumber.isEmpty();
         bmonth = smonth.isEmpty();
         byear = syear.isEmpty();
+        bccvv = sccvv.isEmpty();
 
         if(v.getId() == R.id.button4){
 
-            if(!bname && !bcardnumber && !bmonth && !byear){
+            if(!bname && !bcardnumber && !bmonth && !byear && !bccvv){
 
-                final ProgressDialog progressDialog = new ProgressDialog(RegisterPaymentData.this,
+                progressDialog = new ProgressDialog(RegisterPaymentData.this,
                         R.style.Theme_AppCompat_DayNight_Dialog);
                 progressDialog.setIndeterminate(true);
                 progressDialog.setMessage("Registering Card...");
@@ -96,6 +92,7 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
                 card.setNumber(scardnumber);
                 card.setExpireMonth(smonth);
                 card.setExpireYear(syear);
+                card.setCcvv(sccvv);
 
                 if(radioVisa.isChecked())
                     card.setType(radioVisa.getText().toString());
@@ -105,35 +102,8 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
                     else
                         card.setType(radioAmericanExpress.getText().toString());
 
-                userjson = gson.toJson(card);
+                sendInformation(gson.toJson(card));
 
-                userinfo.setInfo(userjson);
-
-                try {
-                    post.execute(urlinfo,userinfo,useranswer).get();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }
-
-                status = useranswer.getStatus();
-
-                progressDialog.hide();
-
-                switch (status) {
-                    case 200:
-                        intent = new Intent(RegisterPaymentData.this, LoginActivity.class);
-                        Log.i(TAG,"Card Registration");
-                        startActivity(intent);
-                        break;
-                    case 400:
-                        break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
-                    case 401:
-                        break; //Unauthorized
-                    case 500:
-                        break; //Unexpected Error
-                }
             } else {
                 if(bname)
                     name.setError("Name can't be blank");
@@ -143,14 +113,59 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
                     month.setError("Month can't be blank");
                 if(byear)
                     year.setError("Year can't be blank");
+                if(bccvv)
+                    ccvv.setError("CCVV can't be blank");
                 Log.e(TAG,"Error in Register Payment Data.");
             }
         }
 
         if (v.getId() == R.id.button6) {
-            intent = new Intent(RegisterPaymentData.this, LoginActivity.class);
-            Log.i(TAG,"Skip Card Registration.");
-            startActivity(intent);
+            sendInformation(gson.toJson(card));
+        }
+
+    }
+
+    private void sendInformation(String info){
+        PostRestApi post = new PostRestApi();
+        Info urlinfo = new Info();
+        Info cardinfo = new Info();
+        Info answerinfo = new Info();
+        Info tokeninfo = new Info();
+        int status;
+        String endpoint;
+
+        endpoint = "";
+        urlinfo.setInfo(URL + endpoint);
+        cardinfo.setInfo(info);
+        tokeninfo.setInfo(user.getToken());
+
+        try {
+            post.execute(urlinfo,cardinfo,answerinfo,tokeninfo).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        status = cardinfo.getStatus();
+
+        progressDialog.dismiss();
+
+        switch (status) {
+            case 201:
+                intent = new Intent(RegisterPaymentData.this, LoginActivity.class);
+                intent.putExtra("URL",URL);
+                Log.i(TAG,"Card Registration");
+                startActivity(intent);
+                break;
+            case 400:
+                break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
+            case 401:
+                break; //Unauthorized
+            case 500:
+                break; //Unexpected Error
+            default:
+                break;
         }
 
     }

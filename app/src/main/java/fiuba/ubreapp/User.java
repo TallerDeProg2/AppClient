@@ -11,7 +11,8 @@ class User {
     protected String email;
     protected String birthdate;
     protected String type;
-    protected String id;
+    protected int id;
+    protected String token;
 
     User(String username,String name,String lastname,String password, String type){
         this.username = username;
@@ -20,11 +21,13 @@ class User {
         this.firstname = name;
         this.lastname = lastname;
         this.type = type;
-        this.id = "";
+        this.id = 0;
         this.email = "";
         this.country = "";
         this.birthdate = "";
+        this.token = "";
     }
+
     void setUsername(String username) { this.username = username; }
 
     void setPassword(String password) { this.password = password; }
@@ -53,9 +56,11 @@ class User {
         this.birthdate = birthdate;
     }
 
-    void setId(String id) { this.id = id; }
+    void setId(int id) { this.id = id; }
 
     void setType(String type){ this.type = type; }
+
+    void setToken(String token){ this.token = token; }
 
     String getUsername(){ return this.username;}
     String getFirstname(){ return this.firstname;}
@@ -64,7 +69,7 @@ class User {
     String getPassword(){ return this.password;}
     String getCountry(){ return this.country;}
     String getBirthdate(){ return this.birthdate;}
-    String getId(){ return this.id; }
+    String getId(){ return String.valueOf(this.id); }
     String getType(){ return this.type; }
     String getfbuserID(){
         return this.fb.getUserID();
@@ -72,7 +77,7 @@ class User {
     String getfbauthToken(){
         return this.fb.getAuthToken();
     }
-
+    String getToken() { return this.token; }
 }
 
 

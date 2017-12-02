@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -62,7 +64,19 @@
         <activity android:name=".ViewCar" />
         <activity android:name=".ViewCard" />
         <activity android:name=".ModifyCar" />
-        <activity android:name=".ModifyCard"></activity>
+        <activity
+            android:name=".ModifyCard"
+            android:label="Card" />
+        <activity android:name=".TripSearchActivity" />
+        <activity android:name=".AvailableTripActivity" />
+        <activity
+            android:name=".MapTripActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".TripCostActivity" />
+        <activity android:name=".MapDoTripActivity" />
+        <activity android:name=".ListDirectionsActivity" />
+        <activity android:name=".PayTripActivity" />
+        <activity android:name=".RegisterPaymentDataDriver"></activity>
     </application>
 
 </manifest>

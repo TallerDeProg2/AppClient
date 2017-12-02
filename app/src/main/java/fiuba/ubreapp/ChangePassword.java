@@ -19,6 +19,7 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
     Gson gson;
     User user;
     String password;
+    String URL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,8 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
 
         user = gson.fromJson(jtext,User.class);
         password = user.getPassword();
+
+        URL = bundle.getString("URL");
     }
 
     @Override
@@ -50,7 +53,7 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
         Boolean bap,bnp,brp,bequal;
 
         PutRestApi put = new PutRestApi();
-        String url = "http://demo1144105.mockable.io/Card/";
+        String url,endpoint; //= "http://demo1144105.mockable.io/Card/";
         Info urlinfo = new Info();
         Info userinfo = new Info();
         Info useranswer = new Info();
@@ -67,6 +70,9 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
         brp = srp.isEmpty();
 
         bequal = snp.equals(srp);
+
+        endpoint = "";
+        url = URL + endpoint;
 
         if(v.getId() == R.id.button5){
             if(!bap && !bnp && !brp){

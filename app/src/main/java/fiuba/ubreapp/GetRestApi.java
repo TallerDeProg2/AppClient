@@ -39,6 +39,11 @@ class GetRestApi extends AsyncTask<Info,Integer,Boolean> {
 
             urlConnection.setRequestMethod(TAG);
 
+//            Para agregar Header.
+            if(params.length > 2){
+                urlConnection.setRequestProperty("token",params[2].getInfo());
+            }
+            
             int statusCode = urlConnection.getResponseCode();
 
             InputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());

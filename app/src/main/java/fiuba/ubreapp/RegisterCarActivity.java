@@ -24,6 +24,7 @@ public class RegisterCarActivity extends AppCompatActivity implements OnClickLis
     private Gson gson;
     private Intent intent;
     private String bundletext;
+    private String URL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class RegisterCarActivity extends AppCompatActivity implements OnClickLis
 
         Bundle bundle = getIntent().getExtras();
         bundletext=bundle.getString("User");
+        URL = bundle.getString("URL");
         gson = new Gson();
         user = gson.fromJson(bundletext,User.class);
     }
@@ -58,13 +60,17 @@ public class RegisterCarActivity extends AppCompatActivity implements OnClickLis
         Boolean bbrand,bmodel,bcolour,bplate,byear,bstate,bradio;
 
         String userjson;
-
+        String url,endpoint;
         PostRestApi post = new PostRestApi();
-        String url = "http://demo1144105.mockable.io/Car/";
+
+//        String url = "http://demo1144105.mockable.io/Car/";
         Info urlinfo = new Info();
         Info userinfo = new Info();
         Info useranswer = new Info();
         int status;
+
+        endpoint = "";
+        url = URL + endpoint;
 
         urlinfo.setInfo(url);
 
@@ -103,7 +109,7 @@ public class RegisterCarActivity extends AppCompatActivity implements OnClickLis
                 car.setPlate(splate);
                 car.setYear(syear);
                 car.setState(sstate);
-                car.setMusic(sradio);
+                car.setRadio(sradio);
 
                 if(radioYes.isChecked())
                     car.setAirconditioner(true);
@@ -129,6 +135,7 @@ public class RegisterCarActivity extends AppCompatActivity implements OnClickLis
                 switch (status) {
                     case 200:
                         intent = new Intent(RegisterCarActivity.this, LoginActivity.class);
+                        intent.putExtra("URL",URL);
                         Log.i(TAG,"Car Registration");
                         startActivity(intent);
                         break;

@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -37,15 +36,17 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
     private PostRestApi post;
     private GetRestApi get;
-    private Info url,loginjson,userjson;
+    private Info url,loginjson,userjson,tokeninfo;
     private UserLogIn userlogin;
 
-    private String URL = "http://demo1144105.mockable.io";
+    private String URL = "https://ubre-app.herokuapp.com";
     private String parameters;
 
     private User user;
     private Card card;
     private Car car;
+
+    ProgressDialog progressDialog;
 
     int status;
 
@@ -66,7 +67,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         url = new Info();
         loginjson = new Info();
         userjson = new Info();
-
+        tokeninfo = new Info();
+        progressDialog = new ProgressDialog(LoginActivity.this,
+                R.style.Theme_AppCompat_DayNight_Dialog);
         callbackManager = CallbackManager.Factory.create();
 
         addLoginButton();
@@ -84,10 +87,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
             //Success Log In Facebook
             @Override
             public void onSuccess(LoginResult loginResult) {
-                intent = new Intent(LoginActivity.this, MapActivity.class);
+                String token,extradata;
 
-                parameters = "/Card/";
-                typeuser = "Card";
+                intent = new Intent(LoginActivity.this, MapActivity.class);
 
                 userlogin = new UserLogIn("","",loginResult.getAccessToken().getUserId(),
                         loginResult.getAccessToken().getToken());
@@ -95,6 +97,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                 loginjson.setInfo(gson.toJson(userlogin));
 
                 url.setInfo(URL + parameters);
+
                 try {
                     post.execute(url,loginjson, userjson).get();
                 } catch (InterruptedException e) {
@@ -107,10 +110,27 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
                 switch (status) {
                     case 200:
-                        intent.putExtra("AsDriver", false);
-                        intent.putExtra(typeuser, userjson.getInfo());
+                        user = gson.fromJson(userjson.getInfo(),User.class);
+                        typeuser = user.getType();
+
+                        url.setInfo(URL+user.getId());
+                        token = user.getToken();
+                        tokeninfo.setInfo(token);
+
+                        extradata = obtainExtraData(url,userjson);
+
+                        intent.putExtra("Type", typeuser);
+
+//                        String data = "{'username':'alanrinaldi','password':'1234','fb':{'userID':'rinaldia118','authToken':'12345'},'firstname':'Alan','lastname':'Rinaldi','country':'Argentina','email':'alan.rinaldi@live.com','birthdate':'30/01/1992','type':'Passenger','id':'1'}";
+//                        intent.putExtra("Type", "Passenger");
+                        intent.putExtra("User", userjson.getInfo());
+                        intent.putExtra("URL",URL);
+                        if(typeuser.equals("Passenger"))
+                            intent.putExtra("Card",extradata);
+                        else
+                            intent.putExtra("Car",extradata);
                         Log.i(TAG, "LogIn As " + typeuser + ".");
-                        Log.i(TAG, userjson.getInfo());
+                        progressDialog.dismiss();
                         startActivity(intent);
                         break;
                     case 400:
@@ -158,13 +178,11 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         EditText username = (EditText) findViewById(R.id.editText);
         EditText password = (EditText) findViewById(R.id.editText2);
 
-        String susername, spassword;
+        String susername, spassword, extradata,token;
         Boolean busername, bpassword;
 
         if (v.getId() == R.id.button2) {
 
-            final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
-                    R.style.Theme_AppCompat_DayNight_Dialog);
             progressDialog.setIndeterminate(true);
             progressDialog.setMessage("Authenticating...");
             progressDialog.show();
@@ -181,51 +199,61 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                 userlogin = new UserLogIn(susername,spassword,"","");
                 loginjson.setInfo(gson.toJson(userlogin));
 
-//                url.setInfo(URL + parameters);
-//                try {
-//                    post.execute(url,loginjson, userjson).get();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                } catch (ExecutionException e) {
-//                    e.printStackTrace();
-//                }
+                parameters = "/validate";
 
-//                status = userjson.getStatus();
+                url.setInfo(URL + parameters);
+                try {
+//                    get.execute(url,userjson).get();
+                    post.execute(url,loginjson, userjson).get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
 
-                status = 200;
+                status = userjson.getStatus();
+
+//                status = 200;
 
                 switch (status) {
                     case 200:
-//                        user = gson.fromJson(userjson.getInfo(),User.class);
-//                        typeuser = user.getType();
+                        user = gson.fromJson(userjson.getInfo(),User.class);
+                        typeuser = user.getType();
 
-//                        try {
-//                            //corregir
-//                            post.execute(url,loginjson, userjson).get();
-//                        } catch (InterruptedException e) {
-//                            e.printStackTrace();
-//                        } catch (ExecutionException e) {
-//                            e.printStackTrace();
-//                        }
+                        url.setInfo(URL+"/"+user.getId());
+                        token = user.getToken();
+                        tokeninfo.setInfo(token);
 
-//                        intent.putExtra(typeuser, user.getType());
+                        extradata = obtainExtraData(url,userjson);
+                        Log.i(TAG,typeuser);
+                        intent.putExtra("Type", typeuser);
 
-                        String data = "{'username':'alanrinaldi','password':'1234','fb':{'userID':'rinaldia118','authToken':'12345'},'firstname':'Alan','lastname':'Rinaldi','country':'Argentina','email':'alan.rinaldi@live.com','birthdate':'30/01/1992','type':'Passenger','id':'1'}";
-                        intent.putExtra("Type", "Passenger");
-                        intent.putExtra("User", data);
-//                        Log.i(TAG, "LogIn As " + typeuser + ".");
+//                        String data = "{'type': 'passenger','username': 'sofiapiolas','firstname': 'sofia','lastname': 'morseletto','country': 'PERU','email': 'sofi@gmail.com','birthdate': '2017-11-20T16:06:16.000Z','password':'1234','fb':{'userID':'rinaldia118','authToken':'12345'},'id':'14'}";
+//                        intent.putExtra("Type", "passenger");
+//                        intent.putExtra("User", data);
+                        intent.putExtra("User", userjson.getInfo());
+                        intent.putExtra("URL",URL);
+//                        if(typeuser.equals("Passenger"))
+//                            intent.putExtra("Card",extradata);
+//                        else
+//                            intent.putExtra("Car",extradata);
+                        Log.i(TAG, "LogIn As " + typeuser + ".");
                         progressDialog.hide();
                         startActivity(intent);
                         break;
                     case 400:
                         break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
-                    case 401:
+                    case 403:
+                        password.setError("Incorrect password");
                         break; //Unauthorized
+                    case 404:
+                        username.setError("Non-existent user");
+                        break;
                     case 500:
                         break; //Unexpected Error
                 }
             } else {
-                progressDialog.hide();
+                progressDialog.dismiss();
                 if(busername){
                     username.setError("User can't be blank");
                 } else {
@@ -238,9 +266,33 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
         if (v.getId() == R.id.textView){
             intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            intent.putExtra("URL",URL);
             Log.i(TAG,"Go to Register");
             startActivity(intent);
         }
     }
 
+    private String obtainExtraData(Info url, Info userjson){
+
+        try {
+            get.execute(url, userjson).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        status = userjson.getStatus();
+
+        switch (status) {
+            case 200:
+                return userjson.getInfo();
+            case 404:
+                return null;
+            case 500:
+                return null;
+            default:
+                return null;
+        }
+    }
 }
