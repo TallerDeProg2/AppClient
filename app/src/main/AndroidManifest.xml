@@ -19,6 +19,12 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".SplashScreen"
             android:label="@string/title_activity_splash_screen">
@@ -61,11 +67,9 @@
         <activity
             android:name=".ChangePassword"
             android:label="Change Password" />
-        <activity android:name=".ViewCar" />
-        <activity android:name=".ViewCard" />
-        <activity android:name=".ModifyCar" />
+        <activity android:name=".DataCar" />
         <activity
-            android:name=".ModifyCard"
+            android:name=".DataCard"
             android:label="Card" />
         <activity android:name=".TripSearchActivity" />
         <activity android:name=".AvailableTripActivity" />
@@ -76,7 +80,11 @@
         <activity android:name=".MapDoTripActivity" />
         <activity android:name=".ListDirectionsActivity" />
         <activity android:name=".PayTripActivity" />
-        <activity android:name=".RegisterPaymentDataDriver"></activity>
+        <activity android:name=".RegisterPaymentDataDriver" />
+        <activity android:name=".HistorialActivity" />
+        <activity android:name=".TripInfoActivity" />
+        <activity android:name=".EndTripActivity" />
+        <activity android:name=".InfoHistorialActivity"></activity>
     </application>
 
 </manifest>

@@ -2,24 +2,20 @@ package fiuba.ubreapp;
 
 /**Datos de la tarjeta de credito.*/
 class Card {
-    private String name;
     private String number;
     private String type;
-    private String expiremonth;
-    private String expireyear;
+    private String expiration_month;
+    private String expiration_year;
     private String ccvv;
+    private String method;
 
     Card(){
-        this.name = "";
         this.number = "";
         this.type = "";
-        this.expiremonth = "";
-        this.expireyear = "";
+        this.expiration_month = "";
+        this.expiration_year = "";
         this.ccvv = "";
-    }
-
-    void setName(String name){
-        this.name = name;
+        this.method = "card";
     }
 
     void setNumber(String number){
@@ -31,18 +27,14 @@ class Card {
     }
 
     void setExpireMonth(String expiremonth){
-        this.expiremonth = expiremonth;
+        this.expiration_month = expiremonth;
     }
 
     void setExpireYear(String expireyear){
-        this.expireyear = expireyear;
+        this.expiration_year = expireyear;
     }
 
     void setCcvv(String ccvv) { this.ccvv = ccvv; }
-
-    String getName(){
-        return this.name;
-    }
 
     String getNumber(){
         return this.number;
@@ -53,11 +45,11 @@ class Card {
     }
 
     String getExpireMonthCard(){
-        return this.expiremonth;
+        return this.expiration_month;
     }
 
     String getExpireYearCard(){
-        return this.expireyear;
+        return this.expiration_year;
     }
 
     String getCcvv() { return this.ccvv; }

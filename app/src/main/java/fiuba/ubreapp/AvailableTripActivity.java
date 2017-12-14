@@ -19,19 +19,23 @@ public class AvailableTripActivity extends AppCompatActivity {
     private static String TAG = "AvailableTrip";
     private ListView listview;
     private Gson gson;
-    private TripList triplist;
-    private List<Trip> trips;
     private ArrayAdapter<String> array;
+    private ParserTrips parser;
+    private ParserDirections pd;
     private Bundle bundle;
     private String userjson,URL,carjson,addressjson,tripsjson,type;
     private Intent intent;
-    private User user;
+    private User user,passenger;
+    private List<String> passengers,trips,ids;
+    private String resumen;
     int i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_available_trip);
+
+        listview = findViewById(android.R.id.list);
 
         gson = new Gson();
 
@@ -45,36 +49,56 @@ public class AvailableTripActivity extends AppCompatActivity {
 
         user = gson.fromJson(userjson,User.class);
 
-        triplist = gson.fromJson(tripsjson,TripList.class);
+        parser = new ParserTrips(tripsjson);
 
-        trips = triplist.getTrips();
+        passengers = parser.getPassengers();
+        trips = parser.getTrips();
+        ids = parser.getIds();
 
         array = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
 
         for(i = 0; i < trips.size(); i++){
-//            array.add(trips.get(i).);
+            passenger = gson.fromJson(passengers.get(i),User.class);
+            pd = new ParserDirections("{\"routes\":["+trips.get(i)+"]}");
+            resumen = "Passenger: " + passenger.getFirstname() + " " + passenger.getLastName() +".\n";
+            resumen = resumen + "Origin: " + pd.getStartAddress(0) +".\n";
+            resumen = resumen + "Destination: " + pd.getEndAddress(0) + ".\n";
+            array.add(resumen);
         }
 
-        listview.setAdapter(array);
 
-        listview.setClickable(true);
+        if(trips.size() == 0){
+            intent = new Intent(AvailableTripActivity.this,MapActivity.class);
+            intent.putExtra("User",userjson);
+            intent.putExtra("Car",carjson);
+            intent.putExtra("URL",URL);
+            intent.putExtra("Type",type);
+            startActivity(intent);
+        } else {
+            listview.setAdapter(array);
 
-        intent = new Intent(AvailableTripActivity.this,MapDoTripActivity.class);
+            listview.setClickable(true);
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapter, View view,
-                                    int position, long arg) {
+            intent = new Intent(AvailableTripActivity.this,TripInfoActivity.class);
 
-                setProgressBarIndeterminateVisibility(true);
+            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapter, View view,
+                                        int position, long arg) {
 
-                intent.putExtra("User",userjson);
-                intent.putExtra("Car",carjson);
-                intent.putExtra("URL",URL);
-                intent.putExtra("Type",type);
-                intent.putExtra("Route",tripsjson);
-                startActivity(intent);
-            }
-        });
+                    setProgressBarIndeterminateVisibility(true);
+
+                    intent.putExtra("User",userjson);
+                    intent.putExtra("Car",carjson);
+                    intent.putExtra("URL",URL);
+                    intent.putExtra("Type",type);
+                    intent.putExtra("Route",tripsjson);
+                    intent.putExtra("Passenger",passengers.get(position));
+                    intent.putExtra("Trip",trips.get(position));
+                    intent.putExtra("idtrip",ids.get(position));
+                    startActivity(intent);
+                }
+            });
+        }
     }
 }

@@ -60,7 +60,6 @@ public class TripSearchActivity extends AppCompatActivity implements View.OnClic
         type = bundle.getString("Type");
 
         cash = findViewById(R.id.radioButton13);
-        RadioButton card = findViewById(R.id.radioButton14);
 
         cash.toggle();
 

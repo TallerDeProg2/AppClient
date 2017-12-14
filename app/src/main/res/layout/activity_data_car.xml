@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fiuba.ubreapp.ViewCar">
+    tools:context="fiuba.ubreapp.DataCar">
 
     <TextView
         android:id="@+id/textView16"
@@ -67,20 +67,23 @@
         tools:layout_editor_absoluteY="310dp" />
 
     <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/airconditioner"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="374dp"
+        android:layout_above="@+id/radioGroup2"
+        android:layout_alignStart="@+id/editText17"
+        android:layout_marginStart="22dp" />
+
+    <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/radio"
         android:layout_above="@+id/editText26"
         android:layout_alignStart="@+id/editText26" />
-
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText30"
-        android:layout_alignStart="@+id/editText30"
-        android:text="@string/airconditioner" />
 
     <EditText
         android:id="@+id/editText9"
@@ -97,14 +100,14 @@
 
     <EditText
         android:id="@+id/editText13"
+        android:labelFor="@+id/editText13"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/textView17"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="18dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:labelFor="@+id/editText13"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="91dp" />
 
@@ -123,14 +126,14 @@
 
     <EditText
         android:id="@+id/editText15"
+        android:labelFor="@+id/editText15"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView21"
-        android:layout_alignStart="@+id/textView21"
-        android:layout_marginBottom="61dp"
+        android:layout_alignStart="@+id/editText13"
+        android:layout_marginBottom="50dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:labelFor="@+id/editText15"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="210dp" />
 
@@ -149,35 +152,67 @@
 
     <EditText
         android:id="@+id/editText17"
+        android:labelFor="@+id/editText17"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView9"
-        android:layout_alignEnd="@+id/editText30"
-        android:layout_marginBottom="43dp"
+        android:layout_above="@+id/textView22"
+        android:layout_alignStart="@+id/editText15"
+        android:layout_marginBottom="40dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:labelFor="@+id/editText17"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="327dp" />
 
     <EditText
         android:id="@+id/editText26"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/editText30"
-        android:layout_alignBottom="@+id/editText30"
-        android:layout_alignStart="@+id/editText9"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_below="@+id/textView22"
+        android:layout_alignStart="@+id/editText16"
+        android:layout_alignEnd="@+id/editText16" />
 
-    <EditText
-        android:id="@+id/editText30"
-        android:layout_width="150dp"
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText13"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="74dp"
-        android:ems="10"
-        android:inputType="textPersonName"/>
+        android:layout_alignStart="@+id/textView22"
+        android:layout_marginBottom="29dp"
+        android:text="Edit" />
+
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button7"
+        android:layout_alignBottom="@+id/button7"
+        android:layout_toEndOf="@+id/textView20"
+        android:text="Back" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="391dp"
+        android:layout_marginBottom="36dp"
+        android:id="@+id/radioGroup2"
+        android:layout_above="@+id/button7"
+        android:layout_toEndOf="@+id/textView21">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:text="@string/yes" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:text="@string/no" />
+
+    </RadioGroup>
 
 </RelativeLayout>

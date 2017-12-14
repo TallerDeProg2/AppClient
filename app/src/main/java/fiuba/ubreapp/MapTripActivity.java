@@ -4,6 +4,8 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.net.http.RequestQueue;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +14,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,9 +33,21 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.gson.Gson;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class MapTripActivity extends AppCompatActivity implements View.OnClickListener,OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener,
@@ -57,9 +76,11 @@ public class MapTripActivity extends AppCompatActivity implements View.OnClickLi
     List<List<LatLng>> routes;
     List<Polyline> polylines;
     Polyline polyline;
+    String info;
     int i,routeselected;
     ToastMessage tm;
     Context context;
+    public Info infoanswer,inforoute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +88,10 @@ public class MapTripActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_map_trip);
 
         SupportMapFragment mapFragment =
-                (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map2);
+                (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        infoanswer = new Info();
 
         gson = new Gson();
 
@@ -91,6 +114,9 @@ public class MapTripActivity extends AppCompatActivity implements View.OnClickLi
 
         parser = new ParserDirections(roadsjson);
         routes = parser.getListroutes();
+        Log.i(TAG,"Size routes: " + String.valueOf(routes.size()));
+        for(int j = 0; j < routes.size(); j++)
+            Log.i(TAG,"Size locations: " + String.valueOf(routes.get(j).size()));
 
         polylines = new ArrayList<>();
 
@@ -100,11 +126,8 @@ public class MapTripActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        String cost,route,endpoint;
-        Info inforoute,url,infoanswer,infotoken;
-        PostRestApi post;
-        int status;
-        PaymentRoute pr;
+        String endpoint;
+        Info url,infotoken;
 
         endpoint = "/trips/estimate";
 
@@ -119,56 +142,31 @@ public class MapTripActivity extends AppCompatActivity implements View.OnClickLi
 
         if(view.getId() == R.id.button8){
 
-            infoanswer = new Info();
             inforoute = new Info();
             url = new Info();
             infotoken = new Info();
-            post = new PostRestApi();
 
-            route = parser.getSelectedRoute(routeselected);
+            JSONObject o = parser.getSelectedRoute(routeselected);
 
-            pr = new PaymentRoute(payment,route);
+            JSONObject jsonObj = new JSONObject();
 
-            inforoute.setInfo(gson.toJson(pr));
+            try {
+                jsonObj.put("paymethod",payment);
+                jsonObj.put("trip",o);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            info = jsonObj.toString();
+
+
+            Log.e(TAG,info);
+
+            inforoute.setInfo(info);
 
             url.setInfo(URL + endpoint);
             infotoken.setInfo(user.getToken());
 
-            try {
-                post.execute(url,inforoute,infoanswer,infotoken).get();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }
-
-            status = infoanswer.getStatus();
-
-            Log.i(TAG,"Status Post: "+status);
-
-            switch (status) {
-                case 201:
-                    cost = infoanswer.getInfo();
-                    intent = new Intent(MapTripActivity.this,TripCostActivity.class);
-                    intent.putExtra("User",userjson);
-                    intent.putExtra("Card",cardjson);
-                    intent.putExtra("Type",type);
-                    intent.putExtra("Cost",cost);
-                    intent.putExtra("Route",route);
-                    intent.putExtra("PR",inforoute.getInfo());
-                    startActivity(intent);
-                    break;
-                case 400:
-                    tm.show(infoanswer.getInfo());
-                    break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
-                case 401:
-                    tm.show(infoanswer.getInfo());
-                    break; //Unauthorized
-                case 500:
-                    tm.show(infoanswer.getInfo());
-                    break; //Unexpected Error
-            }
-
+            Request(URL+endpoint,jsonObj,user.getToken());
 
         }
 
@@ -187,16 +185,13 @@ public class MapTripActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onPolylineClick(Polyline polyline) {
 
-        if (polyline.getPattern().contains(DOT)){
-            routeselected = (int) polyline.getTag();
-            for(Polyline pol:polylines){
-                if((int)pol.getTag() != routeselected)
-                    pol.setPattern(PATTERN_POLYLINE_DOTTED);
-                else
-                    pol.setPattern(null);
-            }
+        routeselected = (int) polyline.getTag();
+        for(Polyline pol:polylines) {
+            if ((int) pol.getTag() != routeselected)
+                pol.setPattern(PATTERN_POLYLINE_DOTTED);
+            else
+                pol.setPattern(null);
         }
-
     }
 
     @Override
@@ -205,34 +200,29 @@ public class MapTripActivity extends AppCompatActivity implements View.OnClickLi
         mMap.setOnMyLocationButtonClickListener(this);
         enableMyLocation();
 
-        polyline = mMap.addPolyline(new PolylineOptions()
-                .clickable(true));
-
         i = 0;
         for(List<LatLng> route:routes){
-            polylines.add(mMap.addPolyline(new PolylineOptions()
-                    .clickable(true)));
-//            polyline = mMap.addPolyline(new PolylineOptions()
-//                    .clickable(true));
+
+            polylines.add(googleMap.addPolyline(new PolylineOptions()
+                    .clickable(true).visible(true)));
             polylines.get(i).setPoints(route);
             polylines.get(i).setPattern(PATTERN_POLYLINE_DOTTED);
-//            polylines.add(polyline);
             polylines.get(i).setTag(i);
             i++;
         }
 
         routeselected = 0;
         polylines.get(routeselected).setPattern(null);
+
+        googleMap.setOnPolylineClickListener(this);
     }
 
     private void enableMyLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            // Permission to access the location is missing.
             PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
                     Manifest.permission.ACCESS_FINE_LOCATION, true);
         } else if (mMap != null) {
-            // Access to the location has been granted to the app.
             mMap.setMyLocationEnabled(true);
         }
     }
@@ -241,4 +231,66 @@ public class MapTripActivity extends AppCompatActivity implements View.OnClickLi
     public boolean onMyLocationButtonClick() {
         return false;
     }
+
+
+    private void Request(String url,final JSONObject mRequestBody,final String token){
+
+        com.android.volley.RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, url,mRequestBody,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        startAct(response.toString(),201,mRequestBody);
+                        Log.d("Response", response.toString());
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // error
+                        Log.d("Error.Response", error.getMessage());
+                    }
+                }
+        )
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("token", token);
+
+                return params;
+            }
+        };
+        queue.add(postRequest);
+    }
+
+    private void startAct(String cost,int status,JSONObject mR){
+        switch (status) {
+            case 201:
+                intent = new Intent(MapTripActivity.this,TripCostActivity.class);
+                intent.putExtra("URL",URL);
+                intent.putExtra("User",userjson);
+                intent.putExtra("Card",cardjson);
+                intent.putExtra("Type",type);
+                intent.putExtra("Cost",cost);
+//                intent.putExtra("Route",info);
+                intent.putExtra("PR",mR.toString());
+                startActivity(intent);
+                break;
+            case 400:
+                tm.show(infoanswer.getInfo());
+                break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
+            case 401:
+                tm.show(infoanswer.getInfo());
+                break; //Unauthorized
+            case 500:
+                tm.show(infoanswer.getInfo());
+                break; //Unexpected Error
+        }
+
+
+
+    }
+
+
 }

@@ -4,11 +4,8 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -25,18 +22,31 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 /**Mapa con la ubicacion. Opciones para ver perfil y editarlo.*/
@@ -56,27 +66,17 @@ public class MapActivity extends AppCompatActivity
     private String bundlejson, cardjson, carjson;
     private String type;
     private Intent intent;
-    private String URL;
-    private DriversPosition driverspositions;
+    private String URL,driverspositions;
     private ToastMessage tm;
     private Context context;
-    DriversPosition dp;
     Geocoder geocoder;
     GoogleApiClient mGoogleApiClient;
     Location mylocation;
+    Boolean sendloc;
+    Thread timerTread;
 
-
-    /**
-     * Request code for location permission request.
-     *
-     * @see #onRequestPermissionsResult(int, String[], int[])
-     */
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
-    /**
-     * Flag indicating whether a requested permission has been denied after returning in
-     * {@link #onRequestPermissionsResult(int, String[], int[])}.
-     */
     private boolean mPermissionDenied = false;
 
     private GoogleMap mMap;
@@ -95,47 +95,41 @@ public class MapActivity extends AppCompatActivity
         gson = new Gson();
 
         user = gson.fromJson(bundlejson, User.class);
+        type = user.getType();
 
-//        if(type == "Passenger"){
-//            cardjson = bundle.getString("Card");
-//            card = gson.fromJson(bundlejson,Card.class);
-//        } else {
-//            carjson = bundle.getString("Car");
-//            car = gson.fromJson(bundlejson,Car.class);
-//        }
+        cardjson = bundle.getString("Card");
+
+        if(type.equals("driver"))
+            carjson = bundle.getString("Car");
 
         URL = bundle.getString("URL");
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         View headerView = navigationView.getHeaderView(0);
 
-        TextView username = (TextView) headerView.findViewById(R.id.textViewUsername);
-        TextView email = (TextView) headerView.findViewById(R.id.textViewEmail);
+        TextView username = headerView.findViewById(R.id.textViewUsername);
+        TextView email = headerView.findViewById(R.id.textViewEmail);
 
         username.setText(user.getUsername());
         email.setText(user.getEmail());
 
         Menu menu = navigationView.getMenu();
 
-        MenuItem typedata = menu.findItem(R.id.view_type_data);
-        MenuItem changedata = menu.findItem(R.id.change_type_data);
+        MenuItem changecar = menu.findItem(R.id.change_car);
         MenuItem trip = menu.findItem(R.id.trip);
 
-        if (user.getType().equals("passenger")) {
-            typedata.setTitle("View Card Data");
-            changedata.setTitle("Change Card Data");
+        if (type.equals("passenger")) {
+            changecar.setVisible(false);
             trip.setTitle("Make a trip");
         } else {
-            typedata.setTitle("View Car Data");
-            changedata.setTitle("Change Car Data");
             trip.setTitle("Available trips");
         }
 
@@ -148,20 +142,14 @@ public class MapActivity extends AppCompatActivity
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        sendloc = true;
 
-
-//        mGoogleApiClient = new GoogleApiClient.Builder(this)
-//                .addConnectionCallbacks(this)
-//                .addOnConnectionFailedListener(this)
-//                .addApi(LocationServices.API).build();
-//
-//        mGoogleApiClient.connect();
-
+        FirebaseMessaging.getInstance().subscribeToTopic(user.getId());
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -172,25 +160,38 @@ public class MapActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        String trips = "";
         if (id == R.id.trip){
-            if(user.getType().equals("passenger"))
+            if(type.equals("passenger")){
                 intent = new Intent(MapActivity.this, TripSearchActivity.class);
-            else
+                intent.putExtra("User", bundlejson);
+                intent.putExtra("URL",URL);
+                intent.putExtra("Type",type);
+                intent.putExtra("Card",cardjson);
+                startActivity(intent);
+            } else {
+//                startTrip();
                 intent = new Intent(MapActivity.this, AvailableTripActivity.class);
-            bundlejson = gson.toJson(user);
-            intent.putExtra("User", bundlejson);
-            intent.putExtra("URL",URL);
-            intent.putExtra("Type",type);
-            startActivity(intent);
+                String endpoint;
+                endpoint = "/drivers/"+user.getId()+"/trips";
+                requestAvailableTrips(URL+endpoint,user.getToken());
+            }
+
         }
 
+        if (id == R.id.historial){
+            intent = new Intent(MapActivity.this, HistorialActivity.class);
+            String endpoint;
+            if(type.equals("passenger"))
+                endpoint ="/passenger/"+ user.getId() + "/trips/history";
+            else
+                endpoint ="/drivers/"+ user.getId() + "/trips/history";
+            requestHistorial(URL+endpoint,user.getToken());
+        }
 
         if (id == R.id.profile) {
             intent = new Intent(MapActivity.this, ViewProfile.class);
-            bundlejson = gson.toJson(user);
             intent.putExtra("User", bundlejson);
             intent.putExtra("URL",URL);
             intent.putExtra("Type",type);
@@ -201,52 +202,49 @@ public class MapActivity extends AppCompatActivity
 
         if (id == R.id.change_data) {
             intent = new Intent(MapActivity.this, ModifyProfile.class);
-            bundlejson = gson.toJson(user);
             intent.putExtra("User", bundlejson);
             intent.putExtra("URL",URL);
             intent.putExtra("Type",type);
+            intent.putExtra("Card",cardjson);
+            if(type.equals("driver"))
+                intent.putExtra("Car",carjson);
             Log.i(TAG,"Modify Profile");
             startActivity(intent);
 
         }
 
-        if (id == R.id.view_type_data) {
-            if(user.getType().equals("passenger")){
-                intent = new Intent(MapActivity.this, ViewCard.class);
-                intent.putExtra("Card",cardjson);
-            } else{
-                intent = new Intent(MapActivity.this, ViewCar.class);
-                intent.putExtra("Car",carjson);
-            }
-
-            bundlejson = gson.toJson(user);
+        if (id == R.id.change_card) {
+            intent = new Intent(MapActivity.this, DataCard.class);
+            intent.putExtra("Card",cardjson);
             intent.putExtra("User", bundlejson);
             intent.putExtra("URL",URL);
             intent.putExtra("Type",type);
-            Log.i(TAG,"View Information");
-            startActivity(intent);
+            if(type.equals("driver"))
+                intent.putExtra("Car",carjson);
+            Log.i(TAG,"View Card Information");
+            timerTread.interrupt();
+            try {
+                timerTread.join();
 
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            startActivity(intent);
         }
 
-        if (id == R.id.change_type_data) {
-            if(user.getType().equals("passenger")){
-                intent = new Intent(MapActivity.this, ModifyCard.class);
-                intent.putExtra("Card",cardjson);
-            } else{
-                intent = new Intent(MapActivity.this, ModifyCar.class);
-                intent.putExtra("Car",carjson);
-            }
-            bundlejson = gson.toJson(user);
+        if (id == R.id.change_car) {
+            intent = new Intent(MapActivity.this, DataCar.class);
+            intent.putExtra("Card",cardjson);
             intent.putExtra("User", bundlejson);
             intent.putExtra("URL",URL);
             intent.putExtra("Type",type);
-            Log.i(TAG,"Change Information");
+            intent.putExtra("Car",carjson);
+            Log.i(TAG,"View Car Information");
             startActivity(intent);
         }
 
         if (id == R.id.change_password) {
             intent = new Intent(MapActivity.this, ChangePassword.class);
-            bundlejson = gson.toJson(user);
             intent.putExtra("User", bundlejson);
             intent.putExtra("URL",URL);
             intent.putExtra("Type",type);
@@ -254,7 +252,13 @@ public class MapActivity extends AppCompatActivity
             startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (id == R.id.logout) {
+            intent = new Intent(MapActivity.this, LoginActivity.class);
+            Log.i(TAG,"Log Out");
+            startActivity(intent);
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -263,63 +267,62 @@ public class MapActivity extends AppCompatActivity
     @Override
     public void onMapReady(GoogleMap map) {
         mMap = map;
-        List<LatLong> positions;
         mMap.setOnMyLocationButtonClickListener(this);
-//        mMap.setOnMyLocationClickListener(this);
         enableMyLocation();
-//
     }
 
-    /**
-     * Enables the My Location layer if the fine location permission has been granted.
-     */
     private void enableMyLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            // Permission to access the location is missing.
             PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
                     Manifest.permission.ACCESS_FINE_LOCATION, true);
         } else if (mMap != null) {
-            // Access to the location has been granted to the app.
             mMap.setMyLocationEnabled(true);
 
-//            location = mMap.getMyLocation();
-
-
-
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                return;
-            }
-            mFusedLocationClient.getLastLocation()
-                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-                        @Override
-                        public void onSuccess(Location location) {
-                            // Got last known location. In some rare situations this can be null.
-                            if (location != null) {
-                                sendLocation(location);
-                                Log.i(TAG,"Latitude: "+String.valueOf(location.getLatitude()));
-                                Log.i(TAG,"Longitud: "+String.valueOf(location.getLongitude()));
-                                // Logic to handle location object
-                            }
+            timerTread = new Thread(){
+                public void run(){
+                    try{
+                        if (ActivityCompat.checkSelfPermission(MapActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(MapActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                            return;
                         }
-                    });
 
+                        while(sendloc){
+                            mFusedLocationClient.getLastLocation()
+                                    .addOnSuccessListener(MapActivity.this, new OnSuccessListener<Location>() {
+                                        @Override
+                                        public void onSuccess(Location location) {
+                                            if (location != null) {
+                                                sendLocation(location);
+                                                try {
+                                                    sleep(1000);
+                                                } catch (InterruptedException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                if(type.equals("passenger")){
+                                                    String endpoint = "/passengers/" + user.getId() + "/drivers";
+                                                    requestDrivers(URL+endpoint,user.getToken());
+                                                }
+                                            }
+                                        }
+                                    });
+                            sleep(15000);
+                        }
 
+                    }
+                    catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            timerTread.start();
         }
     }
 
     @Override
     public boolean onMyLocationButtonClick() {
         Toast.makeText(this, "MyLocation button clicked", Toast.LENGTH_SHORT).show();
-        // Return false so that we don't consume the event and the default behavior still occurs
-        // (the camera animates to the user's current position).
         return false;
     }
-
-//    @Override
-//    public void onMyLocationClick(@NonNull Location location) {
-//        Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
-//    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
@@ -330,10 +333,8 @@ public class MapActivity extends AppCompatActivity
 
         if (PermissionUtils.isPermissionGranted(permissions, grantResults,
                 Manifest.permission.ACCESS_FINE_LOCATION)) {
-            // Enable the my location layer if the permission has been granted.
             enableMyLocation();
         } else {
-            // Display the missing permission error dialog when the fragments resume.
             mPermissionDenied = true;
         }
     }
@@ -342,15 +343,11 @@ public class MapActivity extends AppCompatActivity
     protected void onResumeFragments() {
         super.onResumeFragments();
         if (mPermissionDenied) {
-            // Permission was not granted, display error dialog.
             showMissingPermissionError();
             mPermissionDenied = false;
         }
     }
 
-    /**
-     * Displays a dialog with error message explaining that the location permission is missing.
-     */
     private void showMissingPermissionError() {
         PermissionUtils.PermissionDeniedDialog
                 .newInstance(true).show(getSupportFragmentManager(), "dialog");
@@ -390,7 +387,7 @@ public class MapActivity extends AppCompatActivity
         }
 
         status = infoanswer.getStatus();
-        Log.i(TAG, "Status: " + String.valueOf(status));
+        Log.i(TAG, "Status Send Location: " + String.valueOf(status));
         switch (status) {
             case 200:
                 break;
@@ -407,58 +404,200 @@ public class MapActivity extends AppCompatActivity
                 tm.show(infoanswer.getInfo());
                 break;
         }
-
     }
 
-    private void receiveLocationDrivers(){
-        Info url, infoanswer, infotoken;
-        String endpoint;
-        int status;
-        GetRestApi get;
+    private void requestDrivers(String url, final String token){
+        com.android.volley.RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
-        url = new Info();
-        infoanswer = new Info();
-        infotoken = new Info();
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        addDrivers(response.toString());
+                    }
+                }, new Response.ErrorListener() {
 
-        get = new GetRestApi();
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i(TAG,error.getMessage());
 
-        endpoint = "/passengers/" + user.getId() + "/drivers";
 
-        url.setInfo(URL+endpoint);
-        infotoken.setInfo(user.getToken());
+                    }
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("token", token);
 
-        try {
-            get.execute(url,infoanswer,infotoken).get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+                return params;
+            }
 
-        status = infoanswer.getStatus();
-        Log.i(TAG, "Status: " + String.valueOf(status));
-        switch (status) {
-            case 200:
-                driverspositions = gson.fromJson(infoanswer.getInfo(),DriversPosition.class);
-                break;
-            case 400:
-                tm.show(infoanswer.getInfo());
-                break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
-            case 404:
-                tm.show(infoanswer.getInfo());
-                break; //No existe recurso solicitado
-            case 500:
-                tm.show(infoanswer.getInfo());
-                break; //Unexpected Error
-            default:
-                tm.show(infoanswer.getInfo());
-                break;
-        }
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                Log.i(TAG,"Status code: "+response.statusCode);
+                return super.parseNetworkResponse(response);
+            }
+
+        };
+        queue.add(jsObjRequest);
     }
 
+    private void addDrivers(String driverspositions){
+        ParserDrivers pd = new ParserDrivers(driverspositions);
+        List<LatLng> pos = pd.getListlocation();
+        List<String> drivers = pd.getListdriver();
+        User driver;
+        int i;
+        if (pos != null){
+            mMap.clear();
+            for(i = 0; i < pos.size(); i++){
+                driver = gson.fromJson(drivers.get(i),User.class);
+                mMap.addMarker(new MarkerOptions().position(pos.get(i)).title("Driver").snippet(driver.getUsername()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+            }
+        }
+    }
 
     @Override
     public void onMyLocationClick(@NonNull Location location) {
 
     }
+
+    private void requestAvailableTrips(String url, final String token){
+        final Info info = new Info();
+        com.android.volley.RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.i(TAG,response.toString());
+                        startActAvailable(info.getInfo(),info.getStatus());
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Log.i(TAG,error.getMessage());
+
+                    }
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("token", token);
+
+                return params;
+            }
+
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                Log.i(TAG,"Status code: "+response.statusCode);
+                info.setStatus(response.statusCode);
+                info.setInfo(new String(response.data));
+                return super.parseNetworkResponse(response);
+            }
+
+        };
+        queue.add(jsObjRequest);
+    }
+
+    private void startActAvailable(String request,int status){
+
+        switch (status) {
+            case 200:
+                intent.putExtra("Trips",request);
+                intent.putExtra("User", bundlejson);
+                intent.putExtra("URL",URL);
+                intent.putExtra("Type",type);
+                intent.putExtra("Card",cardjson);
+                intent.putExtra("Car",carjson);
+
+                startActivity(intent);
+                break;
+            case 400:
+//                tm.show(infoanswer.getInfo());
+                break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
+            case 404:
+//                tm.show(infoanswer.getInfo());
+                break; //No existe recurso solicitado
+            case 500:
+//                tm.show(infoanswer.getInfo());
+                break; //Unexpected Error
+            default:
+//                tm.show(infoanswer.getInfo());
+                break;
+        }
+    }
+
+    private void requestHistorial(String url, final String token){
+        final Info info = new Info();
+        com.android.volley.RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.i(TAG,response.toString());
+                        startHistorial(info.getInfo(),info.getStatus());
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Log.i(TAG,error.getMessage());
+
+                    }
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("token", token);
+
+                return params;
+            }
+
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                Log.i(TAG,"Status code: "+response.statusCode);
+                info.setStatus(response.statusCode);
+                info.setInfo(new String(response.data));
+                return super.parseNetworkResponse(response);
+            }
+
+        };
+        queue.add(jsObjRequest);
+    }
+
+    private void startHistorial(String request,int status){
+
+        switch (status) {
+            case 200:
+                intent.putExtra("Trips",request);
+                intent.putExtra("User", bundlejson);
+                intent.putExtra("URL",URL);
+                intent.putExtra("Type",type);
+                intent.putExtra("Card",cardjson);
+                intent.putExtra("Car",carjson);
+
+                startActivity(intent);
+                break;
+            case 400:
+//                tm.show(infoanswer.getInfo());
+                break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
+            case 404:
+//                tm.show(infoanswer.getInfo());
+                break; //No existe recurso solicitado
+            case 500:
+//                tm.show(infoanswer.getInfo());
+                break; //Unexpected Error
+            default:
+//                tm.show(infoanswer.getInfo());
+                break;
+        }
+    }
+
+
+
 }

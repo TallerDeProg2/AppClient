@@ -5,20 +5,20 @@ class Car{
 
     private String brand;
     private String model;
-    private String colour;
+    private String color;
     private String plate;
     private String year;
-    private String state;
+    private String status;
     private String radio;
     private Boolean airconditioner;
 
     Car(){
         this.brand = "";
         this.model = "";
-        this.colour = "";
+        this.color = "";
         this.plate = "";
         this.year = "";
-        this.state = "";
+        this.status = "";
         this.radio = "";
         this.airconditioner = false;
     }
@@ -29,8 +29,8 @@ class Car{
         this.model = model;
     }
 
-    void setColour(String colour){
-        this.colour = colour;
+    void setColor(String color){
+        this.color = color;
     }
 
     void setPlate(String plate){
@@ -41,8 +41,8 @@ class Car{
         this.year = year;
     }
 
-    void setState(String state){
-        this.state = state;
+    void setStatus(String status){
+        this.status = status;
     }
 
     void setRadio(String radio){
@@ -59,8 +59,8 @@ class Car{
         return this.model;
     }
 
-    String getColour(){
-        return this.colour;
+    String getColor(){
+        return this.color;
     }
 
     String getPlate(){
@@ -71,8 +71,8 @@ class Car{
         return this.year;
     }
 
-    String getState(){
-        return this.state;
+    String getStatus(){
+        return this.status;
     }
 
     String getRadio(){

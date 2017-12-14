@@ -115,13 +115,14 @@ public class ListDirectionsActivity extends ListActivity {
         Log.i(TAG,String.valueOf(status));
 
         switch (status) {
-            case 200:
+            case 201:
                 intent = new Intent(ListDirectionsActivity.this,MapTripActivity.class);
                 intent.putExtra("User",userjson);
                 intent.putExtra("Card",cardjson);
                 intent.putExtra("URL",URL);
                 intent.putExtra("Routes",answer.getInfo());
                 intent.putExtra("Payment",payment);
+                intent.putExtra("Type",type);
                 Log.i(TAG,"Direction OK");
                 startActivity(intent);
                 break;

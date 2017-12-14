@@ -7,20 +7,27 @@
             android:id="@+id/trip"
             android:title="Trip" />
         <item
+            android:id="@+id/historial"
+            android:title="Travel History" />
+        <item
             android:id="@+id/profile"
             android:title="Profile" />
         <item
             android:id="@+id/change_data"
             android:title="Change User Data" />
         <item
-            android:id="@+id/view_type_data"
-            android:title="Extra Information" />
+            android:id="@+id/change_card"
+            android:title="Change Card" />
         <item
-            android:id="@+id/change_type_data"
-            android:title="Change Extra Information" />
+            android:id="@+id/change_car"
+            android:title="Change Car" />
         <item
             android:id="@+id/change_password"
             android:title="Change Password" />
+        <item
+            android:id="@+id/logout"
+            android:title="Log Out" />
+
     </group>
 
 </menu>

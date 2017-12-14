@@ -11,6 +11,13 @@ import android.widget.EditText;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -19,7 +26,11 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.gson.Gson;
 
+import org.json.JSONObject;
+
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 /**Screen para loguearse o realizar un registro nuevo.*/
@@ -36,11 +47,13 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
     private PostRestApi post;
     private GetRestApi get;
-    private Info url,loginjson,userjson,tokeninfo;
+    private Info url,loginjson,userjson,tokeninfo,answerinfo;
     private UserLogIn userlogin;
 
     private String URL = "https://ubre-app.herokuapp.com";
-    private String parameters;
+    private String endpoint;
+
+    private String cardjson,carjson;
 
     private User user;
     private Card card;
@@ -55,10 +68,10 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button acceptButton = (Button) findViewById(R.id.button2);
+        Button acceptButton = findViewById(R.id.button2);
         acceptButton.setOnClickListener(this);
 
-        TextView textView = (TextView) findViewById(R.id.textView);
+        TextView textView = findViewById(R.id.textView);
 
         textView.setOnClickListener(this);
 
@@ -68,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         loginjson = new Info();
         userjson = new Info();
         tokeninfo = new Info();
+        answerinfo = new Info();
         progressDialog = new ProgressDialog(LoginActivity.this,
                 R.style.Theme_AppCompat_DayNight_Dialog);
         callbackManager = CallbackManager.Factory.create();
@@ -96,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
                 loginjson.setInfo(gson.toJson(userlogin));
 
-                url.setInfo(URL + parameters);
+                url.setInfo(URL + endpoint);
 
                 try {
                     post.execute(url,loginjson, userjson).get();
@@ -117,18 +131,16 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                         token = user.getToken();
                         tokeninfo.setInfo(token);
 
-                        extradata = obtainExtraData(url,userjson);
+//                        obtainData(url,answerinfo);
 
                         intent.putExtra("Type", typeuser);
 
-//                        String data = "{'username':'alanrinaldi','password':'1234','fb':{'userID':'rinaldia118','authToken':'12345'},'firstname':'Alan','lastname':'Rinaldi','country':'Argentina','email':'alan.rinaldi@live.com','birthdate':'30/01/1992','type':'Passenger','id':'1'}";
-//                        intent.putExtra("Type", "Passenger");
                         intent.putExtra("User", userjson.getInfo());
                         intent.putExtra("URL",URL);
-                        if(typeuser.equals("Passenger"))
-                            intent.putExtra("Card",extradata);
-                        else
-                            intent.putExtra("Car",extradata);
+//                        if(typeuser.equals("Passenger"))
+//                            intent.putExtra("Card",extradata);
+//                        else
+//                            intent.putExtra("Car",extradata);
                         Log.i(TAG, "LogIn As " + typeuser + ".");
                         progressDialog.dismiss();
                         startActivity(intent);
@@ -175,8 +187,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
     @Override
     public void onClick (View v) {
 
-        EditText username = (EditText) findViewById(R.id.editText);
-        EditText password = (EditText) findViewById(R.id.editText2);
+        EditText username = findViewById(R.id.editText);
+        EditText password = findViewById(R.id.editText2);
 
         String susername, spassword, extradata,token;
         Boolean busername, bpassword;
@@ -199,11 +211,10 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                 userlogin = new UserLogIn(susername,spassword,"","");
                 loginjson.setInfo(gson.toJson(userlogin));
 
-                parameters = "/validate";
+                endpoint = "/validate";
 
-                url.setInfo(URL + parameters);
+                url.setInfo(URL + endpoint);
                 try {
-//                    get.execute(url,userjson).get();
                     post.execute(url,loginjson, userjson).get();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -213,30 +224,22 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
 
                 status = userjson.getStatus();
 
-//                status = 200;
-
                 switch (status) {
-                    case 200:
+                    case 201:
                         user = gson.fromJson(userjson.getInfo(),User.class);
                         typeuser = user.getType();
 
-                        url.setInfo(URL+"/"+user.getId());
-                        token = user.getToken();
-                        tokeninfo.setInfo(token);
+                        if(typeuser.equals("passenger"))
+                            endpoint = "/passengers/"+user.getId()+"/card";
+                        else
+                            endpoint = "/drivers/"+user.getId()+"/card";
 
-                        extradata = obtainExtraData(url,userjson);
-                        Log.i(TAG,typeuser);
                         intent.putExtra("Type", typeuser);
-
-//                        String data = "{'type': 'passenger','username': 'sofiapiolas','firstname': 'sofia','lastname': 'morseletto','country': 'PERU','email': 'sofi@gmail.com','birthdate': '2017-11-20T16:06:16.000Z','password':'1234','fb':{'userID':'rinaldia118','authToken':'12345'},'id':'14'}";
-//                        intent.putExtra("Type", "passenger");
-//                        intent.putExtra("User", data);
                         intent.putExtra("User", userjson.getInfo());
                         intent.putExtra("URL",URL);
-//                        if(typeuser.equals("Passenger"))
-//                            intent.putExtra("Card",extradata);
-//                        else
-//                            intent.putExtra("Car",extradata);
+
+                        requestCard(URL+endpoint,user.getToken(),user.getId());
+
                         Log.i(TAG, "LogIn As " + typeuser + ".");
                         progressDialog.hide();
                         startActivity(intent);
@@ -251,7 +254,10 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
                         break;
                     case 500:
                         break; //Unexpected Error
+                    default:
+                        break;
                 }
+                progressDialog.dismiss();
             } else {
                 progressDialog.dismiss();
                 if(busername){
@@ -272,27 +278,131 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
         }
     }
 
-    private String obtainExtraData(Info url, Info userjson){
+    private void requestCard(String url, final String token, final String id){
+        final Info info = new Info();
+        com.android.volley.RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
-        try {
-            get.execute(url, userjson).get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        switch (info.getStatus()){
+                            case 200:
+                                intent.putExtra("Card",info.getInfo());
+                                if(typeuser.equals("passenger")){
+                                    Log.i(TAG, "LogIn As " + typeuser + ".");
+                                    progressDialog.hide();
+                                    startActivity(intent);
+                                } else {
+                                    requestCar(URL,token,id);
+                                }
+                                break;
+                            case 400:
+                                Log.i(TAG,"Error Card: " + String.valueOf(info.getStatus()));
+                                break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
+                            case 403:
+                                Log.i(TAG,"Error Card: " + String.valueOf(info.getStatus()));
+                                break; //Unauthorized
+                            case 404:
+                                Log.i(TAG,"Error Card: " + String.valueOf(info.getStatus()));
+                                break;
+                            case 500:
+                                Log.i(TAG,"Error Card: " + String.valueOf(info.getStatus()));
+                                break; //Unexpected Error
+                            default:
+                                Log.i(TAG,"Error Card: " + String.valueOf(info.getStatus()));
+                                break;
+                        }
+                    }
+                }, new Response.ErrorListener() {
 
-        status = userjson.getStatus();
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Log.i(TAG,error.getMessage());
 
-        switch (status) {
-            case 200:
-                return userjson.getInfo();
-            case 404:
-                return null;
-            case 500:
-                return null;
-            default:
-                return null;
-        }
+                    }
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("token", token);
+
+                return params;
+            }
+
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                info.setStatus(response.statusCode);
+                info.setInfo(new String(response.data));
+                return super.parseNetworkResponse(response);
+            }
+
+        };
+        queue.add(jsObjRequest);
     }
+
+    private void requestCar(String url, final String token,final String id){
+        final Info info = new Info();
+        String endpoint = "/drivers/"+id+"/cars";
+        com.android.volley.RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url+endpoint, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        switch (info.getStatus()){
+                            case 200:
+                            intent.putExtra("Car",info.getInfo());
+                                Log.i(TAG, "LogIn As " + typeuser + ".");
+                                progressDialog.hide();
+                                startActivity(intent);
+                                break;
+                            case 400:
+                                Log.i(TAG,"Error Car: " + String.valueOf(info.getStatus()));
+                                break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
+                            case 403:
+                                Log.i(TAG,"Error Car: " + String.valueOf(info.getStatus()));
+                                break; //Unauthorized
+                            case 404:
+                                Log.i(TAG,"Error Car: " + String.valueOf(info.getStatus()));
+                                break;
+                            case 500:
+                                Log.i(TAG,"Error Car: " + String.valueOf(info.getStatus()));
+                                break; //Unexpected Error
+                            default:
+                                Log.i(TAG,"Error Car: " + String.valueOf(info.getStatus()));
+                                break;
+                        }
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Log.i(TAG,error.getMessage());
+
+                    }
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("token", token);
+
+                return params;
+            }
+
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                info.setStatus(response.statusCode);
+                info.setInfo(new String(response.data));
+                return super.parseNetworkResponse(response);
+            }
+
+        };
+        queue.add(jsObjRequest);
+    }
+
+
+
 }

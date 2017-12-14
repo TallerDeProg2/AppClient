@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
+import java.util.Map;
 
 /**Clase encargada de realizar un POST a una determinada REST API.*/
 class PostRestApi extends AsyncTask<Info,Integer,Boolean> {
@@ -44,6 +46,7 @@ class PostRestApi extends AsyncTask<Info,Integer,Boolean> {
 
             urlConnection.setRequestProperty("Content-Type", "application/json");
 
+
             urlConnection.setRequestMethod(TAG);
 
             if(params.length > 3){
@@ -52,8 +55,13 @@ class PostRestApi extends AsyncTask<Info,Integer,Boolean> {
 
             String data = params[1].getInfo();
 
-            urlConnection.setFixedLengthStreamingMode(data.length());
+            Log.i(TAG,"size: "+ data.length());
 
+            urlConnection.setFixedLengthStreamingMode(data.length());
+//            if (data.length() > 1000)
+//                urlConnection.setFixedLengthStreamingMode(data.length()+1);
+//            else
+//                urlConnection.setFixedLengthStreamingMode(data.length());
             // Send the post body
             if (data != null) {
                 OutputStreamWriter writer = new OutputStreamWriter(urlConnection.getOutputStream());
@@ -69,10 +77,8 @@ class PostRestApi extends AsyncTask<Info,Integer,Boolean> {
             InputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());
 
             data = convertStreamToString(inputStream);
-            Log.i(TAG,data);
 
             params[2].setInfo(data);
-
 
         } catch (Exception e) {
             Log.d(TAG, e.getLocalizedMessage());

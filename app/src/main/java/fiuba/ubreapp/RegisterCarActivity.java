@@ -69,7 +69,7 @@ public class RegisterCarActivity extends AppCompatActivity implements OnClickLis
         Info useranswer = new Info();
         int status;
 
-        endpoint = "";
+        endpoint = "/drivers/"+user.getId()+"/cars";
         url = URL + endpoint;
 
         urlinfo.setInfo(url);
@@ -105,10 +105,10 @@ public class RegisterCarActivity extends AppCompatActivity implements OnClickLis
 
                 car.setBrand(sbrand);
                 car.setModel(smodel);
-                car.setColour(scolour);
+                car.setColor(scolour);
                 car.setPlate(splate);
                 car.setYear(syear);
-                car.setState(sstate);
+                car.setStatus(sstate);
                 car.setRadio(sradio);
 
                 if(radioYes.isChecked())
@@ -133,7 +133,7 @@ public class RegisterCarActivity extends AppCompatActivity implements OnClickLis
                 progressDialog.hide();
 
                 switch (status) {
-                    case 200:
+                    case 201:
                         intent = new Intent(RegisterCarActivity.this, LoginActivity.class);
                         intent.putExtra("URL",URL);
                         Log.i(TAG,"Car Registration");

@@ -82,13 +82,12 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
 
             if(!bname && !bcardnumber && !bmonth && !byear && !bccvv){
 
-                progressDialog = new ProgressDialog(RegisterPaymentData.this,
-                        R.style.Theme_AppCompat_DayNight_Dialog);
-                progressDialog.setIndeterminate(true);
-                progressDialog.setMessage("Registering Card...");
-                progressDialog.show();
+//                progressDialog = new ProgressDialog(RegisterPaymentData.this,
+//                        R.style.Theme_AppCompat_DayNight_Dialog);
+//                progressDialog.setIndeterminate(true);
+//                progressDialog.setMessage("Registering Card...");
+//                progressDialog.show();
 
-                card.setName(sname);
                 card.setNumber(scardnumber);
                 card.setExpireMonth(smonth);
                 card.setExpireYear(syear);
@@ -120,7 +119,10 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
         }
 
         if (v.getId() == R.id.button6) {
-            sendInformation(gson.toJson(card));
+            intent = new Intent(RegisterPaymentData.this, LoginActivity.class);
+            intent.putExtra("URL",URL);
+            Log.i(TAG,"Card Registration");
+            startActivity(intent);
         }
 
     }
@@ -134,22 +136,22 @@ public class RegisterPaymentData extends AppCompatActivity implements OnClickLis
         int status;
         String endpoint;
 
-        endpoint = "";
+        endpoint = "/passengers/"+user.getId()+"/card";
         urlinfo.setInfo(URL + endpoint);
         cardinfo.setInfo(info);
-        tokeninfo.setInfo(user.getToken());
+//        tokeninfo.setInfo(user.getToken());
 
         try {
-            post.execute(urlinfo,cardinfo,answerinfo,tokeninfo).get();
+            post.execute(urlinfo,cardinfo,answerinfo).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
-        status = cardinfo.getStatus();
-
-        progressDialog.dismiss();
+        status = answerinfo.getStatus();
+        Log.i(TAG,"Status: " + String.valueOf(status));
+//        progressDialog.dismiss();
 
         switch (status) {
             case 201:

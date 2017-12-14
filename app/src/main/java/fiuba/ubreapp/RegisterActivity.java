@@ -16,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 
+import com.firebase.client.Firebase;
 import com.google.gson.Gson;
 
 import java.util.concurrent.ExecutionException;
@@ -35,6 +36,8 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        Firebase.setAndroidContext(this);
 
         EditText name;
         EditText lastname;
@@ -90,20 +93,6 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
         context = getApplicationContext();
         tm = new ToastMessage(context);
 
-//        if (getIntent().hasExtra("Card")){
-//            Log.i(TAG,"Bundle no vacio");
-//            gson = new Gson();
-//            bundle = getIntent().getExtras();
-//            jtext = bundle.getString("Card");
-//            passenger = gson.fromJson(jtext,Card.class);
-//
-//            name.setText(passenger.getName());
-//            lastname.setText(passenger.getLastName());
-//            username.setText(passenger.getUsername());
-//        } else {
-//            Log.i(TAG,"Bundle vacio");
-//        }
-
     }
 
     @Override
@@ -130,7 +119,6 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
         String url,endpoint;
 
         PostRestApi post = new PostRestApi();
-//        String url = "http://demo1144105.mockable.io/Card/";
 
         Info urlinfo = new Info();
         Info userinfo = new Info();
@@ -198,11 +186,16 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
 
                 switch (status) {
                     case 201:
-                        if(bpassenger)
+                        if(bpassenger){
+                            RegisterInFirebase(susername,spassword);
                             intent = new Intent(RegisterActivity.this, RegisterPaymentData.class);
-                        else
+                            intent.putExtra("Type","passenger");
+                        } else {
                             intent = new Intent(RegisterActivity.this, RegisterPaymentDataDriver.class);
+                            intent.putExtra("Type","driver");
+                        }
 
+                        intent.putExtra("User",useranswer.getInfo());
                         intent.putExtra("URL",URL);
 
                         Log.i(TAG,"User Registration as "+stype);
@@ -236,6 +229,11 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
             }
         }
 
+    }
+
+    public void RegisterInFirebase(String user,String password){
+        Firebase reference = new Firebase("https://ubre-7bd12.firebaseio.com/users");
+        reference.child(user).child("password").setValue(password);
     }
 
 }

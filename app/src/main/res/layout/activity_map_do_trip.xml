@@ -9,11 +9,12 @@
     tools:openDrawer="start">
 
     <RelativeLayout
+        android:id="@+id/RL"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <fragment
-            android:id="@+id/map3"
+            android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -27,6 +28,13 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="66dp"
             android:text="Button" />
+
+        <Button
+            android:id="@+id/button21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="66dp"
+            android:text="Chat" />
 
     </RelativeLayout>
 

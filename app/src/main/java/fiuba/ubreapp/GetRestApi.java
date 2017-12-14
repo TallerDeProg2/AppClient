@@ -34,16 +34,18 @@ class GetRestApi extends AsyncTask<Info,Integer,Boolean> {
 
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
-
             urlConnection.setDoInput(true);
+//            urlConnection.setDoOutput(true);
 
+            urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setRequestMethod(TAG);
 
 //            Para agregar Header.
             if(params.length > 2){
                 urlConnection.setRequestProperty("token",params[2].getInfo());
             }
-            
+            urlConnection.connect();
+
             int statusCode = urlConnection.getResponseCode();
 
             InputStream inputStream = new BufferedInputStream(urlConnection.getInputStream());

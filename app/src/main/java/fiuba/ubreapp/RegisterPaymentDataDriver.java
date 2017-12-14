@@ -84,7 +84,6 @@ public class RegisterPaymentDataDriver extends AppCompatActivity implements OnCl
                 progressDialog.setMessage("Registering Card...");
                 progressDialog.show();
 
-                card.setName(sname);
                 card.setNumber(scardnumber);
                 card.setExpireMonth(smonth);
                 card.setExpireYear(syear);
@@ -125,27 +124,30 @@ public class RegisterPaymentDataDriver extends AppCompatActivity implements OnCl
         int status;
         String endpoint;
 
-        endpoint = "";
+        endpoint = "/drivers/"+user.getId()+"/card";
         urlinfo.setInfo(URL + endpoint);
         cardinfo.setInfo(info);
-        tokeninfo.setInfo(user.getToken());
+//        tokeninfo.setInfo(user.getToken());
 
         try {
-            post.execute(urlinfo,cardinfo,answerinfo,tokeninfo).get();
+            post.execute(urlinfo,cardinfo,answerinfo).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
-        status = cardinfo.getStatus();
+        status = answerinfo.getStatus();
 
         progressDialog.dismiss();
+
+        Log.i(TAG,"Status: "+String.valueOf(status));
 
         switch (status) {
             case 201:
                 intent = new Intent(RegisterPaymentDataDriver.this, RegisterCarActivity.class);
                 intent.putExtra("URL",URL);
+                intent.putExtra("User",bundletext);
                 Log.i(TAG,"Card Registration");
                 startActivity(intent);
                 break;
