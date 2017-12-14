@@ -38,7 +38,7 @@ public class Chat extends AppCompatActivity {
 
         bundle = getIntent().getExtras();
 
-        usersend = bundle.getString("");
+        usersend = bundle.getString("User");
         userreceive = bundle.getString("OtherUser");
 
         layout = (LinearLayout) findViewById(R.id.layout1);

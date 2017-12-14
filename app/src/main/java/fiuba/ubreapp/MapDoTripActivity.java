@@ -102,6 +102,9 @@ public class MapDoTripActivity extends AppCompatActivity implements View.OnClick
         accept.setOnClickListener(this);
 
 //        chat = findViewById(R.id.button21);
+        fab = findViewById(R.id.floatingActionButton);
+
+        fab.setOnClickListener(this);
 
         accept.setText("Start");
 
@@ -150,6 +153,14 @@ public class MapDoTripActivity extends AppCompatActivity implements View.OnClick
 //                endTrip();
 //            }
         }
+
+        if(view.getId() == R.id.floatingActionButton){
+            intent = new Intent(MapDoTripActivity.this,Chat.class);
+            intent.putExtra("User",user.getUsername());
+            intent.putExtra("OtherUser",otheruser);
+            startActivity(intent);
+        }
+
     }
 
     @Override
