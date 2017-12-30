@@ -21,34 +21,35 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        Log.e(TAG, "Notification Received.");
+
         singleton = Singleton.getInstance();
 
         type = singleton.getType();
 
-        str = remoteMessage.getNotification().getBody();
-        str = str.substring(41);
+        Log.e(TAG, "Notification Received.");
+        Log.e(TAG, remoteMessage.getNotification().getBody());
+        Log.e(TAG, "Type: "+ type);
 
         if(type.equals("passenger")){
+            str = remoteMessage.getNotification().getBody();
+            str = str.substring(41);
             intent = new Intent(MyFirebaseMessagingService.this,MapDoTripActivity.class);
-            intent.putExtra("User",singleton.getUser());
-            intent.putExtra("Card",singleton.getCard());
-            intent.putExtra("Type",type);
             intent.putExtra("idtrip",singleton.getIdtrip());
-            intent.putExtra("URL",singleton.getUrl());
             intent.putExtra("Route",singleton.getRoute());
             intent.putExtra("OtherUser",str);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
         } else {
             intent = new Intent(MyFirebaseMessagingService.this,MapActivity.class);
-            intent.putExtra("User",singleton.getUser());
-            intent.putExtra("Card",singleton.getCard());
             intent.putExtra("Car",singleton.getCar());
-            intent.putExtra("Type",type);
-            intent.putExtra("URL",singleton.getUrl());
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
 
+        intent.putExtra("User",singleton.getUser());
+        intent.putExtra("Card",singleton.getCard());
+        intent.putExtra("Type",type);
+        intent.putExtra("URL",singleton.getUrl());
+
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
 
     }

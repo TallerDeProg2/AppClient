@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fiuba.ubreapp.RegisterActivity">
+    tools:context="fiuba.ubreapp.RegisterActivity"
+    android:background="@drawable/images">
 
     <Button
         android:id="@+id/button3"
@@ -23,8 +24,9 @@
         android:layout_marginStart="19dp"
         android:layout_marginTop="45dp"
         android:ems="10"
+        android:inputType="textPersonName"
         android:text="@string/empty"
-        android:inputType="textPersonName" />
+        android:textColor="@color/colorAccent" />
 
     <EditText
         android:id="@+id/editText7"
@@ -106,7 +108,10 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/editText7"
         android:layout_alignStart="@+id/editText3"
-        android:text="Username" />
+        android:text="Usuario"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView5"
@@ -114,7 +119,10 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/editText7"
         android:layout_alignTop="@+id/textView4"
-        android:text="Email" />
+        android:text="Email"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView6"
@@ -122,7 +130,10 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/editText19"
         android:layout_alignStart="@+id/editText18"
-        android:text="Name" />
+        android:text="Nombre"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView7"
@@ -130,7 +141,10 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/editText19"
         android:layout_alignTop="@+id/textView6"
-        android:text="Lastname" />
+        android:text="Apellido"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView8"
@@ -138,7 +152,10 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/editText21"
         android:layout_alignStart="@+id/editText20"
-        android:text="Country" />
+        android:text="Pais"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView33"
@@ -146,7 +163,10 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/editText21"
         android:layout_alignTop="@+id/textView8"
-        android:text="Birthdate" />
+        android:text="Fecha de nacimiento"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView34"
@@ -154,7 +174,10 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/editText23"
         android:layout_alignStart="@+id/editText22"
-        android:text="Password" />
+        android:text="Contraseña"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView35"
@@ -162,7 +185,10 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/editText23"
         android:layout_alignTop="@+id/textView34"
-        android:text="Repeat Password" />
+        android:text="Repetir contraseña"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -177,14 +203,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Register As Passenger" />
+            android:text="Registrarse como pasajero"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold|italic" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Register As Driver" />
+            android:text="Registrarse como chofer"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold|italic" />
     </RadioGroup>
 
 </RelativeLayout>

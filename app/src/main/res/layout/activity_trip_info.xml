@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fiuba.ubreapp.TripInfoActivity">
+    tools:context="fiuba.ubreapp.TripInfoActivity"
+    android:background="@drawable/images">
 
     <EditText
         android:id="@+id/editText33"
@@ -12,9 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="138dp"
+        android:layout_marginTop="63dp"
         android:ems="10"
         android:inputType="textMultiLine"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="80dp" />
 
@@ -25,7 +29,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="73dp"
-        android:text="Button"
+        android:text="Aceptar viaje"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="405dp" />
 </RelativeLayout>

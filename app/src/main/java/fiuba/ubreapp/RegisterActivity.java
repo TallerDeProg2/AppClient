@@ -39,30 +39,20 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
 
         Firebase.setAndroidContext(this);
 
-        EditText name;
-        EditText lastname;
-        EditText username;
-
-        Gson gson;
-        User user;
-        String jtext;
         Bundle bundle;
 
         bundle = getIntent().getExtras();
 
         URL = bundle.getString("URL");
 
-        Button nextButton = (Button) findViewById(R.id.button3);
+        Button nextButton = findViewById(R.id.button3);
         nextButton.setOnClickListener(this);
 
-        RadioButton radioPassenger = (RadioButton) findViewById(R.id.radioButton7);
+        RadioButton radioPassenger = findViewById(R.id.radioButton7);
 
         radioPassenger.toggle();
 
-        name = (EditText) findViewById(R.id.editText18);
-        lastname = (EditText) findViewById(R.id.editText19);
-        username = (EditText) findViewById(R.id.editText3);
-        date = (EditText) findViewById(R.id.editText21);
+        date = findViewById(R.id.editText21);
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,16 +88,16 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
     @Override
     public void onClick (View v) {
 
-        EditText username = (EditText) findViewById(R.id.editText3);
-        EditText email = (EditText) findViewById(R.id.editText7);
-        EditText name = (EditText) findViewById(R.id.editText18);
-        EditText lastname = (EditText) findViewById(R.id.editText19);
-        EditText country = (EditText) findViewById(R.id.editText20);
-        EditText birthdate = (EditText) findViewById(R.id.editText21);
-        EditText password = (EditText) findViewById(R.id.editText22);
-        EditText password2 = (EditText) findViewById(R.id.editText23);
+        EditText username = findViewById(R.id.editText3);
+        EditText email = findViewById(R.id.editText7);
+        EditText name = findViewById(R.id.editText18);
+        EditText lastname = findViewById(R.id.editText19);
+        EditText country = findViewById(R.id.editText20);
+        EditText birthdate = findViewById(R.id.editText21);
+        EditText password = findViewById(R.id.editText22);
+        EditText password2 = findViewById(R.id.editText23);
 
-        RadioButton radioPassenger = (RadioButton) findViewById(R.id.radioButton7);
+        RadioButton radioPassenger = findViewById(R.id.radioButton7);
 
         String sname,slastname,susername,spassword,spassword2,stype;
         Boolean bname,blastname,busername,bpassword,bpassword2,bequal,bpassenger;
@@ -187,7 +177,7 @@ public class RegisterActivity extends AppCompatActivity implements OnClickListen
                 switch (status) {
                     case 201:
                         if(bpassenger){
-                            RegisterInFirebase(susername,spassword);
+                            RegisterInFirebase(susername,spassword);    
                             intent = new Intent(RegisterActivity.this, RegisterPaymentData.class);
                             intent.putExtra("Type","passenger");
                         } else {

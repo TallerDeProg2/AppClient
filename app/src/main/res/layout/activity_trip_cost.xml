@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fiuba.ubreapp.TripCostActivity">
+    tools:context="fiuba.ubreapp.TripCostActivity"
+    android:background="@drawable/images">
 
     <Button
         android:id="@+id/button12"
@@ -13,7 +14,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/editText32"
         android:layout_marginBottom="52dp"
-        android:text="@string/cancel" />
+        android:text="@string/cancel"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/button13"
@@ -22,16 +24,21 @@
         android:layout_alignBaseline="@+id/button12"
         android:layout_alignBottom="@+id/button12"
         android:layout_alignEnd="@+id/editText32"
-        android:text="@string/accept" />
+        android:text="@string/accept"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:text="TextView" />
+        android:layout_above="@+id/textView29"
+        android:layout_alignStart="@+id/textView29"
+        android:layout_marginBottom="42dp"
+        android:text="El viaje tiene el siguiente \n       costo aproximado. \n Si desea realizar el viaje \n         presione aceptar."
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView29"
@@ -39,7 +46,11 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/editText32"
         android:layout_alignStart="@+id/editText32"
-        android:text="Cost:" />
+        android:text="Costo:"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
 
     <EditText
         android:id="@+id/editText32"
@@ -49,5 +60,8 @@
         android:layout_centerVertical="true"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="" />
+        android:text=""
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 </RelativeLayout>

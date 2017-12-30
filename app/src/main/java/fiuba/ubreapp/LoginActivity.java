@@ -24,6 +24,7 @@ import com.facebook.FacebookException;
 import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -66,6 +67,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseMessaging.getInstance().subscribeToTopic("MiAplicacion");
         setContentView(R.layout.activity_login);
 
         Button acceptButton = findViewById(R.id.button2);

@@ -48,14 +48,18 @@
 
         <activity
             android:name="fiuba.ubreapp.SplashScreen"
-            android:label="@string/title_activity_splash_screen" >
+            android:label="@string/title_activity_splash_screen"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="fiuba.ubreapp.LoginActivity" >
+        <activity
+            android:name="fiuba.ubreapp.LoginActivity"
+            android:label="Log In"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.LOGINACTIVITY" />
 
@@ -69,43 +73,88 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="fiuba.ubreapp.RegisterActivity"
-            android:label="@string/title_activity_register" />
+            android:label="@string/title_activity_register"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
             android:name="fiuba.ubreapp.RegisterPaymentData"
-            android:label="@string/title_activity_register_payment_data" />
+            android:label="@string/title_activity_register_payment_data"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
             android:name="fiuba.ubreapp.RegisterCarActivity"
-            android:label="@string/title_activity_register_car" />
+            android:label="@string/title_activity_register_car"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
             android:name="fiuba.ubreapp.MapActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="fiuba.ubreapp.ModifyProfile"
-            android:label="Edit Profile" />
+            android:label="@string/editprofile"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
             android:name="fiuba.ubreapp.ViewProfile"
-            android:label="Profile" />
+            android:label="@string/profile"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
             android:name="fiuba.ubreapp.ChangePassword"
-            android:label="Change Password" />
-        <activity android:name="fiuba.ubreapp.DataCar" />
+            android:label="@string/changepassword"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.DataCar"
+            android:label="@string/cardata"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
             android:name="fiuba.ubreapp.DataCard"
-            android:label="Card" />
-        <activity android:name="fiuba.ubreapp.TripSearchActivity" />
-        <activity android:name="fiuba.ubreapp.AvailableTripActivity" />
+            android:label="@string/carddata"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.TripSearchActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.AvailableTripActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="fiuba.ubreapp.MapTripActivity"
+            android:label="Seleccion de camino"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.TripCostActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="fiuba.ubreapp.TripCostActivity" />
-        <activity android:name="fiuba.ubreapp.MapDoTripActivity" />
-        <activity android:name="fiuba.ubreapp.ListDirectionsActivity" />
-        <activity android:name="fiuba.ubreapp.PayTripActivity" />
-        <activity android:name="fiuba.ubreapp.RegisterPaymentDataDriver" />
-        <activity android:name="fiuba.ubreapp.HistorialActivity" />
-        <activity android:name="fiuba.ubreapp.TripInfoActivity" />
-        <activity android:name="fiuba.ubreapp.EndTripActivity" />
-        <activity android:name="fiuba.ubreapp.InfoHistorialActivity" />
+        <activity
+            android:name="fiuba.ubreapp.MapDoTripActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.ListDirectionsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.PayTripActivity"
+            android:label="@string/pay_trip"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.RegisterPaymentDataDriver"
+            android:label="@string/carddata"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.HistorialActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.TripInfoActivity"
+            android:label="@string/info_trip"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.EndTripActivity"
+            android:label="@string/end_trip"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.Chat"
+            android:label="@string/chat"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.InfoHistorialActivity"
+            android:label="@string/historial"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity
+            android:name="fiuba.ubreapp.PayMethodSelectActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="android.support.VERSION"

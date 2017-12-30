@@ -20,7 +20,8 @@ tools:openDrawer="start">
             android:layout_alignBottom="@+id/button8"
             android:layout_marginEnd="48dp"
             android:layout_toStartOf="@+id/button8"
-            android:text="Cancel" />
+            android:text="Cancelar"
+            android:textStyle="bold|italic" />
 
         <Button
             android:id="@+id/button8"
@@ -29,8 +30,9 @@ tools:openDrawer="start">
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="71dp"
-            android:layout_marginEnd="78dp"
-            android:text="Accept" />
+            android:layout_marginEnd="72dp"
+            android:text="Aceptar"
+            android:textStyle="bold|italic" />
 
         <fragment
             android:id="@+id/map"

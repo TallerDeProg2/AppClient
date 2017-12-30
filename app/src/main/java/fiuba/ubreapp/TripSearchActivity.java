@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 
 import com.google.gson.Gson;
@@ -24,8 +25,7 @@ public class TripSearchActivity extends AppCompatActivity implements View.OnClic
     private static String TAG = "Search";
 
     Button button;
-    AutoCompleteTextView in;
-    static ArrayAdapter<String> places;
+    EditText in;
     static Geocoder geocoder;
     String URL,type;
     Bundle bundle;
@@ -33,7 +33,6 @@ public class TripSearchActivity extends AppCompatActivity implements View.OnClic
     Card card;
     String userjson,cardjson;
     Gson gson;
-    RadioButton cash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,7 @@ public class TripSearchActivity extends AppCompatActivity implements View.OnClic
         geocoder = new Geocoder(this.getApplicationContext(), Locale.getDefault());
 
         button = findViewById(R.id.button11);
-        in = findViewById(R.id.autoCompleteTextView);
+        in = findViewById(R.id.editText31);
 
         button.setOnClickListener(this);
 
@@ -58,10 +57,6 @@ public class TripSearchActivity extends AppCompatActivity implements View.OnClic
 
         URL = bundle.getString("URL");
         type = bundle.getString("Type");
-
-        cash = findViewById(R.id.radioButton13);
-
-        cash.toggle();
 
     }
 
@@ -90,11 +85,6 @@ public class TripSearchActivity extends AppCompatActivity implements View.OnClic
                 intent.putExtra("User",userjson);
                 intent.putExtra("Card",cardjson);
                 intent.putExtra("Type",type);
-                if(cash.isChecked())
-                    intent.putExtra("Payment","cash");
-                else
-                    intent.putExtra("Payment","card");
-
                 startActivity(intent);
             }
 

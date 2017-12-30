@@ -60,9 +60,9 @@ public class AvailableTripActivity extends AppCompatActivity {
         for(i = 0; i < trips.size(); i++){
             passenger = gson.fromJson(passengers.get(i),User.class);
             pd = new ParserDirections("{\"routes\":["+trips.get(i)+"]}");
-            resumen = "Passenger: " + passenger.getFirstname() + " " + passenger.getLastName() +".\n";
-            resumen = resumen + "Origin: " + pd.getStartAddress(0) +".\n";
-            resumen = resumen + "Destination: " + pd.getEndAddress(0) + ".\n";
+            resumen = "Pasajero: " + passenger.getFirstname() + " " + passenger.getLastName() +".\n";
+            resumen = resumen + "Origen: " + pd.getStartAddress(0) +".\n";
+            resumen = resumen + "Destino: " + pd.getEndAddress(0) + ".\n";
             array.add(resumen);
         }
 

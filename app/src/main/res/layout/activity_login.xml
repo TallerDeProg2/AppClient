@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:background="@android:color/darker_gray"
+    android:background="@drawable/images"
     tools:context="fiuba.ubreapp.LoginActivity"
     >
 
@@ -31,51 +31,58 @@
 
     <EditText
         android:id="@+id/editText"
-        android:labelFor="@id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="19dp"
-        android:background="@android:color/white"
         android:ems="10"
         android:inputType="textPersonName"
+        android:labelFor="@id/editText"
         android:selectAllOnFocus="false"
-        android:text="@string/empty"/>
+        android:text="@string/empty"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <EditText
         android:id="@+id/editText2"
-        android:labelFor="@id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/editText"
         android:layout_below="@+id/editText"
         android:layout_marginTop="28dp"
-        android:background="@android:color/white"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="" />
+        android:labelFor="@id/editText2"
+        android:text=""
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/editText2"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="49dp"
         android:text="@string/login"
-        android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
         android:text="@string/newcustomer"
         android:textAlignment="center"
-        android:textColor="@color/com_facebook_blue"
-        android:textStyle="italic"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true" />
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView2"
@@ -83,7 +90,9 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/editText"
         android:layout_marginTop="27dp"
-        android:text="Username:"
+        android:text="Usuario:"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
         android:textSize="16sp"
         android:textStyle="bold|italic" />
 
@@ -95,6 +104,8 @@
         android:layout_below="@+id/editText"
         android:layout_marginTop="9dp"
         android:text="@string/password"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
         android:textSize="16sp"
         android:textStyle="bold|italic" />
 

@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fiuba.ubreapp.InfoHistorialActivity">
+    tools:context="fiuba.ubreapp.InfoHistorialActivity"
+    android:background="@drawable/images">
 
-    <EditText
-        android:id="@+id/editText30"
+    <TextView
+        android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="97dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:textAppearance="@color/cardview_dark_background"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="80dp" />
+        android:layout_marginTop="122dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
+
 </RelativeLayout>

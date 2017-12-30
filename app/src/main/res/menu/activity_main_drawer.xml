@@ -5,29 +5,28 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/trip"
-            android:title="Trip" />
+            android:title="@string/empty" />
         <item
             android:id="@+id/historial"
-            android:title="Travel History" />
+            android:title="@string/historial" />
         <item
             android:id="@+id/profile"
-            android:title="Profile" />
+            android:title="@string/profile" />
         <item
             android:id="@+id/change_data"
-            android:title="Change User Data" />
+            android:title="@string/editprofile" />
         <item
             android:id="@+id/change_card"
-            android:title="Change Card" />
+            android:title="@string/carddata" />
         <item
             android:id="@+id/change_car"
-            android:title="Change Car" />
+            android:title="@string/cardata" />
         <item
             android:id="@+id/change_password"
-            android:title="Change Password" />
+            android:title="@string/changepassword" />
         <item
             android:id="@+id/logout"
-            android:title="Log Out" />
-
+            android:title="@string/logout" />
     </group>
 
 </menu>

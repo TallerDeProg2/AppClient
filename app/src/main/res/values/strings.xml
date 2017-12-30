@@ -1,61 +1,66 @@
 <resources>
     <string name="app_name">UbreApp</string>
     <string name="title_activity_splash_screen">Ubre</string>
-    <string name="title_activity_login_screen">LoginActivity</string>
+    <string name="title_activity_login_screen">Sign In</string>
     <string name="facebook_app_id">872175969629975</string>
-    <string name="title_activity_register">New Register</string>
-    <string name="title_activity_register_payment_data">Register Payment Data</string>
-    <string name="title_activity_register_car">Register Car</string>
-    <string name="title_activity_result2">ResultActivity2</string>
+    <string name="title_activity_register">Nuevo registro</string>
+    <string name="title_activity_register_payment_data">Registrar tarjeta</string>
+    <string name="title_activity_register_car">Registrar automovil</string>
 
-    <string name="cancel">Cancel</string>
-    <string name="accept">Accept</string>
-    <string name="next">Next</string>
-    <string name="skip">Skip</string>
+    <string name="cancel">Cancelar</string>
+    <string name="accept">Aceptar</string>
+    <string name="next">Siguiente</string>
+    <string name="skip">Omitir</string>
 
     <string name="login">Log In</string>
     <string name="email">Email:</string>
-    <string name="password">Password:</string>
-    <string name="newcustomer">New Customer? Start Here</string>
+    <string name="password">Contraseña:</string>
+    <string name="newcustomer">¿Nuevo usuario? Registrese aqui</string>
 
-    <string name="name">Name:</string>
-    <string name="lastname">LastName:</string>
-    <string name="repeatpassword">Repeat Password:</string>
-    <string name="registerpaymentdata">Register Payment Data</string>
-    <string name="registercar">Register Car</string>
+    <string name="name">Nombre:</string>
+    <string name="lastname">Apellido:</string>
+    <string name="repeatpassword">Repetir contraseña:</string>
 
-    <string name="cardnumber">Card Number:</string>
-    <string name="expiredate">Expire Date</string>
-    <string name="month">Month:</string>
-    <string name="year">Year:</string>
+    <string name="cardnumber">Numero de tarjeta:</string>
+    <string name="expiredate">Fecha de expiracion</string>
+    <string name="month">Mes:</string>
+    <string name="year">Año:</string>
     <string name="visa">Visa</string>
     <string name="mastercard">Mastercard</string>
     <string name="americanexpress">American Express</string>
 
-    <string name="brand">Brand:</string>
-    <string name="model">Model:</string>
-    <string name="colour">Colour:</string>
-    <string name="plate">Plate:</string>
-    <string name="state">State:</string>
+    <string name="brand">Marca:</string>
+    <string name="model">Modelo:</string>
+    <string name="colour">Color:</string>
+    <string name="plate">Patente:</string>
+    <string name="state">Estado:</string>
     <string name="radio">Radio:</string>
-    <string name="airconditioner">Air Conditioner</string>
-    <string name="yes">Yes</string>
+    <string name="airconditioner">Aire acondicionado</string>
+    <string name="yes">Si</string>
     <string name="no">No</string>
+
+    <string name="historial">Historial</string>
+    <string name="profile">Perfil</string>
+    <string name="editprofile">Editar perfil</string>
+    <string name="cardata">Datos del auto</string>
+    <string name="carddata">Datos de la tarjeta</string>
+    <string name="logout">Logout</string>
+
+    <string name="pay_trip">Pago de viaje</string>
+    <string name="info_trip">Informacion del viaje</string>
+    <string name="end_trip">Viaje finalizado</string>
+    <string name="chat">Chat</string>
 
     <string name="empty"> </string>
 
     <string name="info">Info</string>
-    <string name="changepassword">Change Password</string>
+    <string name="changepassword">Cambiar contraseña</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
-
-
     <string name="location_permission_denied">Location Permission Denied</string>
     <string name="permission_required_toast">Permission Required Toast</string>
     <string name="permission_rationale_location">Permission Rationale Location</string>
-    <string name="title_activity_maps2">Map</string>
 
 </resources>

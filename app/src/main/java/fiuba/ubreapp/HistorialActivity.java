@@ -91,17 +91,17 @@ public class HistorialActivity extends AppCompatActivity {
 
                 intent = new Intent(HistorialActivity.this,InfoHistorialActivity.class);
 
-                aux = "Start: " + start.get(position) + "\n";
-                aux = aux + "End: " + end.get(position) + "\n";
-                aux = "Cost: " + cost.get(position) + "\n";
+                aux = "Comienzo: " + start.get(position) + "\n";
+                aux = aux + "Fin: " + end.get(position) + "\n";
+                aux = aux + "Costo: " + cost.get(position) + "\n";
                 if (type.equals("passenger"))
-                    aux = aux + "Driver ID: " + otheruser.get(position) + "\n";
+                    aux = aux + "ID Chofer: " + otheruser.get(position) + "\n";
                 else
-                    aux = aux + "Passenger ID: " + otheruser.get(position) + "\n";
-                aux = "Start Time: " + starttime.get(position) + "\n";
-                aux = aux + "Travel Time: " + traveltime.get(position) + "\n";
-                aux = "Wait Time: " + waittime.get(position) + "\n";
-                aux = aux + "Total Time: " + totaltime.get(position);
+                    aux = aux + "ID Pasajero: " + otheruser.get(position) + "\n";
+                aux = aux + "Hora comienzo: " + starttime.get(position) + "\n";
+                aux = aux + "Tiempo de viaje: " + traveltime.get(position) + "\n";
+                aux = aux + "Tiempo de espera: " + waittime.get(position) + "\n";
+                aux = aux + "Tiempo total: " + totaltime.get(position);
 
                 intent.putExtra("Data",aux);
 

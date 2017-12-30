@@ -4,44 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fiuba.ubreapp.PayTripActivity"
+    tools:context="fiuba.ubreapp.PayMethodSelectActivity"
     android:background="@drawable/images">
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/radioGroup4"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="110dp"
-        android:text="Seleccione metodo de pago"
-        android:textAlignment="center"
+        android:layout_marginBottom="64dp"
+        android:text="Seleccione metodo de pago \n         para poder estimar \n            costo del viaje."
         android:textAllCaps="true"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/button18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="55dp"
-        android:text="Pagar"
+        android:layout_marginBottom="67dp"
+        android:text="Aceptar"
         android:textStyle="bold|italic" />
 
     <RadioGroup
-        android:id="@+id/radioGroup5"
+        android:id="@+id/radioGroup4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
-        >
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="229dp"
+        android:layout_marginStart="135dp">
 
         <RadioButton
-            android:id="@+id/radioButton10"
+            android:id="@+id/radioButton8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -52,7 +51,7 @@
             android:textStyle="bold|italic" />
 
         <RadioButton
-            android:id="@+id/radioButton11"
+            android:id="@+id/radioButton9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -62,5 +61,4 @@
             android:textSize="18sp"
             android:textStyle="bold|italic" />
     </RadioGroup>
-
 </RelativeLayout>

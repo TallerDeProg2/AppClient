@@ -49,7 +49,7 @@ public class ListDirectionsActivity extends ListActivity {
         cardjson = bundle.getString("Card");
         URL = bundle.getString("URL");
         type = bundle.getString("Type");
-        payment = bundle.getString("Payment");
+//        payment = bundle.getString("Payment");
         user = gson.fromJson(userjson,User.class);
 
         Log.i(TAG,addressjson);
@@ -58,7 +58,7 @@ public class ListDirectionsActivity extends ListActivity {
 
         addresses = adds.getAddresses();
 
-        array = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
+        array = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
 
         for(Address address: addresses){
             array.add(address.getAddressLine(0));
@@ -73,16 +73,9 @@ public class ListDirectionsActivity extends ListActivity {
             public void onItemClick(AdapterView<?> adapter, View view,
                                     int position, long arg) {
 
-                // Sets the visibility of the indeterminate progress bar in the
-                // title
                 setProgressBarIndeterminateVisibility(true);
 
                 sendTripPosition(addresses.get(position).getLatitude(),addresses.get(position).getLongitude());
-
-//                Log.i(TAG,String.valueOf(addresses.get(position).getLatitude()));
-//                intent.putExtra("Lat",addresses.get(position).getLatitude());
-//                intent.putExtra("Long",addresses.get(position).getLongitude());
-//                startActivity(intent);
             }
         });
     }
@@ -116,12 +109,13 @@ public class ListDirectionsActivity extends ListActivity {
 
         switch (status) {
             case 201:
-                intent = new Intent(ListDirectionsActivity.this,MapTripActivity.class);
+//                intent = new Intent(ListDirectionsActivity.this,MapTripActivity.class);
+                intent = new Intent(ListDirectionsActivity.this,PayMethodSelectActivity.class);
                 intent.putExtra("User",userjson);
                 intent.putExtra("Card",cardjson);
                 intent.putExtra("URL",URL);
                 intent.putExtra("Routes",answer.getInfo());
-                intent.putExtra("Payment",payment);
+//                intent.putExtra("Payment",payment);
                 intent.putExtra("Type",type);
                 Log.i(TAG,"Direction OK");
                 startActivity(intent);
@@ -135,7 +129,5 @@ public class ListDirectionsActivity extends ListActivity {
             default:
                 break;
         }
-
     }
-
 }

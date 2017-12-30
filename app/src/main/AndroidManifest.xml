@@ -27,6 +27,7 @@
 
         <activity
             android:name=".SplashScreen"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:label="@string/title_activity_splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".LoginActivity"
+            android:label="Log In"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.LOGINACTIVITY" />
 
@@ -48,43 +52,87 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/title_activity_register" />
+            android:label="@string/title_activity_register"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity
             android:name=".RegisterPaymentData"
-            android:label="@string/title_activity_register_payment_data" />
+            android:label="@string/title_activity_register_payment_data"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity
             android:name=".RegisterCarActivity"
-            android:label="@string/title_activity_register_car" />
+            android:label="@string/title_activity_register_car"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity
             android:name=".MapActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ModifyProfile"
-            android:label="Edit Profile" />
+            android:label="@string/editprofile"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity
             android:name=".ViewProfile"
-            android:label="Profile" />
+            android:label="@string/profile" android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity
             android:name=".ChangePassword"
-            android:label="Change Password" />
-        <activity android:name=".DataCar" />
+            android:label="@string/changepassword"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".DataCar"
+            android:label="@string/cardata"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity
             android:name=".DataCard"
-            android:label="Card" />
-        <activity android:name=".TripSearchActivity" />
-        <activity android:name=".AvailableTripActivity" />
+            android:label="@string/carddata"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".TripSearchActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AvailableTripActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MapTripActivity"
+            android:label="Seleccion de camino"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".TripCostActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".TripCostActivity" />
-        <activity android:name=".MapDoTripActivity" />
-        <activity android:name=".ListDirectionsActivity" />
-        <activity android:name=".PayTripActivity" />
-        <activity android:name=".RegisterPaymentDataDriver" />
-        <activity android:name=".HistorialActivity" />
-        <activity android:name=".TripInfoActivity" />
-        <activity android:name=".EndTripActivity" />
-        <activity android:name=".InfoHistorialActivity"></activity>
+        <activity
+            android:name=".MapDoTripActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ListDirectionsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PayTripActivity"
+            android:label="@string/pay_trip"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".RegisterPaymentDataDriver"
+            android:label="@string/carddata"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".HistorialActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TripInfoActivity"
+            android:label="@string/info_trip"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".EndTripActivity"
+            android:label="@string/end_trip"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".Chat"
+            android:label="@string/chat"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".InfoHistorialActivity"
+            android:label="@string/historial"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity
+            android:name=".PayMethodSelectActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

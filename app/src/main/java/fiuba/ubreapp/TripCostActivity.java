@@ -59,15 +59,12 @@ public class TripCostActivity extends AppCompatActivity implements View.OnClickL
 
         user = gson.fromJson(userjson,User.class);
 
-        TextView text = findViewById(R.id.textView27);
         EditText editcost = findViewById(R.id.editText32);
         Button accept = findViewById(R.id.button13);
         Button cancel = findViewById(R.id.button12);
 
         accept.setOnClickListener(this);
         cancel.setOnClickListener(this);
-
-        text.setText("Would you like to realize this trip?");
 
         try {
             JSONObject obj = new JSONObject(cost);
@@ -89,10 +86,8 @@ public class TripCostActivity extends AppCompatActivity implements View.OnClickL
 
         Info url,infojson,infoanswer,infotoken;
         String endpoint;
-//        int status;
 
         url = new Info();
-        infoanswer = new Info();
         infojson = new Info();
         infotoken = new Info();
 
@@ -171,25 +166,17 @@ public class TripCostActivity extends AppCompatActivity implements View.OnClickL
                 singleton.setType(type);
                 singleton.setIdtrip(idtrip);
 
-//                intent = new Intent(TripCostActivity.this,MapDoTripActivity.class);
-//                intent.putExtra("User",userjson);
-//                intent.putExtra("Card",cardjson);
-//                intent.putExtra("Type",type);
-//                intent.putExtra("idtrip",idtrip);
-//                intent.putExtra("URL",URL);
                 try {
                     aux = mR.getJSONObject("trip").toString();
-//                    intent.putExtra("Route",aux);
                     singleton.setRoute(aux);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
                 progressDialog.setIndeterminate(true);
-                progressDialog.setMessage("Waiting for driver...");
+                progressDialog.setMessage("Esperando por chofer...");
                 progressDialog.show();
 
-//                startActivity(intent);
                 break;
             case 400:
                 tm.show("Error 400");

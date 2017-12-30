@@ -53,12 +53,12 @@ public class TripInfoActivity extends AppCompatActivity implements View.OnClickL
 
         button.setOnClickListener(this);
 
-        text = "Username: " + passenger.getUsername() + ".\n";
-        text = text + "Name: " + passenger.getFirstname() + ".\n";
-        text = text + "Lastname: " + passenger.getLastName() + ".\n";
-        text = text + "Origin: " + parser.getStartAddress(0) + ".\n";
-        text = text + "Destination: " + parser.getEndAddress(0) + ".\n";
-        text = text + "Time: " + parser.getSelectedTime(0) + ".\n";
+        text = "Usuario: " + passenger.getUsername() + ".\n";
+        text = text + "Nombre: " + passenger.getFirstname() + ".\n";
+        text = text + "Apellido: " + passenger.getLastName() + ".\n";
+        text = text + "Origen: " + parser.getStartAddress(0) + ".\n";
+        text = text + "Destino: " + parser.getEndAddress(0) + ".\n";
+        text = text + "Tiempo: " + parser.getSelectedTime(0) + ".\n";
 
         edittext.setText(text);
         edittext.setFocusable(false);

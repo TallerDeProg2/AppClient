@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -28,6 +29,7 @@ import com.google.android.gms.maps.model.PatternItem;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -96,28 +98,26 @@ public class MapDoTripActivity extends AppCompatActivity implements View.OnClick
 
         otheruser = bundle.getString("OtherUser");
 
-//        fab = findViewById(R.id.floatingActionButton);
         accept = findViewById(R.id.button14);
 
-        accept.setOnClickListener(this);
+        if(type.equals("driver")){
+            accept.setBackgroundColor(Color.TRANSPARENT);
+            accept.setText("");
+            accept.setEnabled(false);
+        } else {
+            accept.setText("Comenzar");
+            accept.setOnClickListener(this);
+            FirebaseMessaging.getInstance().unsubscribeFromTopic(user.getId());
+        }
 
-//        chat = findViewById(R.id.button21);
         fab = findViewById(R.id.floatingActionButton);
 
         fab.setOnClickListener(this);
-
-        accept.setText("Start");
-
-        if(type.equals("drivers")){
-            accept.setEnabled(false);
-        }
 
         routejson = "{\"routes\":["+routejson+"]}";
 
         parser = new ParserDirections(routejson);
         routes = parser.getListroutes();
-        Log.i(TAG,routejson);
-        Log.i(TAG,"size routes: "+routes.size());
 
         context = getApplicationContext();
         tm = new ToastMessage(context);
@@ -144,14 +144,6 @@ public class MapDoTripActivity extends AppCompatActivity implements View.OnClick
             } else {
                 sendEndTrip();
             }
-
-//            if(type.equals("passenger"))
-//
-//            else{
-//                confirmTrip();
-//                accept.setText("END");
-//                endTrip();
-//            }
         }
 
         if(view.getId() == R.id.floatingActionButton){
@@ -251,7 +243,7 @@ public class MapDoTripActivity extends AppCompatActivity implements View.OnClick
 
         switch (status) {
             case 201:
-                accept.setText("End");
+                accept.setText("Finalizar");
                 start = true;
                 break;
             case 400:
@@ -271,66 +263,4 @@ public class MapDoTripActivity extends AppCompatActivity implements View.OnClick
         intent.putExtra("idtrip",idtrip);
         startActivity(intent);
     }
-
-//    private void confirmTrip() {
-//        String endpoint;
-//        Info url, info, answer, token;
-//        PostRestApi post;
-//        int status;
-//
-//        url = new Info();
-//        info = new Info();
-//        answer = new Info();
-//        token = new Info();
-//        post = new PostRestApi();
-//
-//        endpoint = "/drivers/" + user.getId() + "/trip/confirmation";
-//
-//        url.setInfo(URL + endpoint);
-//        info.setInfo("{\"trip_id\":" + idtrip + "}");
-//
-//        Log.i(TAG,info.getInfo());
-//
-//        token.setInfo(user.getToken());
-//
-//        try {
-//            post.execute(url, info, answer, token).get();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        }
-//
-//        status = answer.getStatus();
-//        Log.i(TAG, "Status: " + String.valueOf(status));
-//        Log.i(TAG, "Mensaje: " + answer.getInfo());
-//        switch (status) {
-//            case 201:
-//
-//                break;
-//            case 400:
-//                tm.show(answer.getInfo());
-//                break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
-//            case 404:
-//                tm.show(answer.getInfo());
-//                break; //No existe recurso solicitado
-//            case 500:
-//                tm.show(answer.getInfo());
-//                break; //Unexpected Error
-//            default:
-//                tm.show(answer.getInfo());
-//                break;
-//        }
-//    }
-//
-//    private void endTrip(){
-//        intent = new Intent(MapDoTripActivity.this,MapActivity.class);
-//        intent.putExtra("User",userjson);
-//        intent.putExtra("Type",type);
-//        intent.putExtra("URL",URL);
-//        intent.putExtra("Card",cardjson);
-//        startActivity(intent);
-//    }
-
-
 }

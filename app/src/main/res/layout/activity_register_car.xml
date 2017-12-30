@@ -3,18 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fiuba.ubreapp.RegisterCarActivity">
+    tools:context="fiuba.ubreapp.RegisterCarActivity"
+    android:background="@drawable/images">
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/brand"
-        tools:layout_editor_absoluteX="72dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:layout_marginTop="36dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/editText9" />
+        android:layout_alignStart="@+id/editText9"
+        android:layout_marginTop="36dp"
+        android:text="@string/brand"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/textView17"
@@ -23,6 +27,9 @@
         android:layout_above="@+id/editText9"
         android:layout_alignStart="@+id/editText13"
         android:text="@string/model"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="74dp" />
 
@@ -33,6 +40,9 @@
         android:layout_above="@+id/editText14"
         android:layout_alignStart="@+id/editText14"
         android:text="@string/colour"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="132dp" />
 
@@ -43,6 +53,9 @@
         android:layout_above="@+id/editText15"
         android:layout_alignStart="@+id/editText15"
         android:text="@string/plate"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="193dp" />
 
@@ -53,6 +66,9 @@
         android:layout_above="@+id/editText16"
         android:layout_alignStart="@+id/editText16"
         android:text="@string/year"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="251dp" />
 
@@ -63,6 +79,9 @@
         android:layout_above="@+id/editText17"
         android:layout_alignStart="@+id/editText17"
         android:text="@string/state"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="72dp"
         tools:layout_editor_absoluteY="310dp" />
 
@@ -70,24 +89,29 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/airconditioner"
-        tools:layout_editor_absoluteX="72dp"
-        tools:layout_editor_absoluteY="374dp"
         android:layout_above="@+id/radioGroup2"
         android:layout_alignStart="@+id/editText17"
-        android:layout_marginStart="22dp" />
+        android:layout_marginStart="22dp"
+        android:text="@string/airconditioner"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="374dp" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/radio"
         android:layout_above="@+id/editText26"
-        android:layout_alignStart="@+id/editText26" />
+        android:layout_alignStart="@+id/editText26"
+        android:text="@string/radio"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <EditText
         android:id="@+id/editText9"
-        android:labelFor="@+id/editText9"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -95,12 +119,15 @@
         android:layout_marginStart="20dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:labelFor="@+id/editText9"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="33dp" />
 
     <EditText
         android:id="@+id/editText13"
-        android:labelFor="@+id/editText13"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -108,12 +135,15 @@
         android:layout_marginEnd="18dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:labelFor="@+id/editText13"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="91dp" />
 
     <EditText
         android:id="@+id/editText14"
-        android:labelFor="@+id/editText14"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/editText15"
@@ -121,12 +151,15 @@
         android:layout_alignStart="@+id/editText9"
         android:ems="10"
         android:inputType="textPersonName"
+        android:labelFor="@+id/editText14"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="150dp" />
 
     <EditText
         android:id="@+id/editText15"
-        android:labelFor="@+id/editText15"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView21"
@@ -134,12 +167,15 @@
         android:layout_marginBottom="50dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:labelFor="@+id/editText15"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="210dp" />
 
     <EditText
         android:id="@+id/editText16"
-        android:labelFor="@+id/editText16"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/editText17"
@@ -147,12 +183,15 @@
         android:layout_alignStart="@+id/editText14"
         android:ems="10"
         android:inputType="textPersonName"
+        android:labelFor="@+id/editText16"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="268dp" />
 
     <EditText
         android:id="@+id/editText17"
-        android:labelFor="@+id/editText17"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView22"
@@ -160,6 +199,10 @@
         android:layout_marginBottom="40dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:labelFor="@+id/editText17"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
         tools:layout_editor_absoluteX="73dp"
         tools:layout_editor_absoluteY="327dp" />
 
@@ -167,11 +210,14 @@
         android:id="@+id/editText26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/editText16"
+        android:layout_alignStart="@+id/editText16"
+        android:layout_below="@+id/textView22"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_below="@+id/textView22"
-        android:layout_alignStart="@+id/editText16"
-        android:layout_alignEnd="@+id/editText16" />
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/button7"
@@ -180,7 +226,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="29dp"
-        android:text="@string/accept" />
+        android:text="@string/accept"
+        android:textStyle="bold|italic" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -196,13 +243,19 @@
             android:id="@+id/radioButton"
             android:layout_width="wrap_content"
             android:layout_height="23dp"
-            android:text="@string/yes" />
+            android:text="@string/yes"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold|italic" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
             android:layout_height="21dp"
-            android:text="@string/no" />
+            android:text="@string/no"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold|italic" />
 
     </RadioGroup>
 

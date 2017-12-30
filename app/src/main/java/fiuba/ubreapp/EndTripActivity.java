@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -23,7 +24,7 @@ public class EndTripActivity extends AppCompatActivity implements View.OnClickLi
     ToastMessage tm;
     Context context;
     Button accept;
-    TextView text;
+    EditText text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +52,11 @@ public class EndTripActivity extends AppCompatActivity implements View.OnClickLi
         tm = new ToastMessage(context);
 
         accept = findViewById(R.id.button17);
-        text = findViewById(R.id.textView36);
+        text = findViewById(R.id.editText30);
 
         accept.setOnClickListener(this);
 
-        text.setText("El viaje te salio: $"+cost);
+        text.setText(cost);
     }
 
     @Override

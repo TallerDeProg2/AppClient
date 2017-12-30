@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fiuba.ubreapp.ModifyProfile">
+    tools:context="fiuba.ubreapp.ModifyProfile"
+    android:background="@drawable/images">
 
     <EditText
         android:id="@+id/editText4"
@@ -13,8 +14,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="44dp"
         android:ems="10"
+        android:inputType="textPersonName"
         android:text="@string/empty"
-        android:inputType="textPersonName" />
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <EditText
         android:id="@+id/editText5"
@@ -24,8 +28,11 @@
         android:layout_below="@+id/editText4"
         android:layout_marginTop="29dp"
         android:ems="10"
+        android:inputType="textPersonName"
         android:text="@string/empty"
-        android:inputType="textPersonName" />
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <EditText
         android:id="@+id/editText6"
@@ -34,29 +41,38 @@
         android:layout_alignStart="@+id/editText5"
         android:layout_below="@+id/textView45"
         android:ems="10"
+        android:inputType="textPersonName"
         android:text="@string/empty"
-        android:inputType="textPersonName" />
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <EditText
         android:id="@+id/editText24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:text="@string/empty"
-        android:inputType="textEmailAddress"
+        android:layout_alignStart="@+id/editText6"
         android:layout_below="@+id/textView46"
-        android:layout_alignStart="@+id/editText6" />
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="@string/empty"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <EditText
         android:id="@+id/editText25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/editText24"
+        android:layout_below="@+id/editText24"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:text="@string/empty"
         android:inputType="date"
-        android:layout_below="@+id/editText24"
-        android:layout_alignStart="@+id/editText24" />
+        android:text="@string/empty"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/button10"
@@ -65,7 +81,8 @@
         android:layout_below="@+id/editText25"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:text="Change" />
+        android:text="Cambiar"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView43"
@@ -74,7 +91,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/editText4"
         android:layout_marginTop="23dp"
-        android:text="Name:" />
+        android:text="Nombre:"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView44"
@@ -83,7 +103,10 @@
         android:layout_alignStart="@+id/editText5"
         android:layout_below="@+id/editText4"
         android:layout_marginTop="10dp"
-        android:text="Lastname:" />
+        android:text="Apellido:"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView45"
@@ -92,7 +115,10 @@
         android:layout_alignStart="@+id/editText6"
         android:layout_below="@+id/editText5"
         android:layout_marginTop="18dp"
-        android:text="Country:" />
+        android:text="Pais:"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView46"
@@ -100,7 +126,10 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/editText24"
         android:layout_centerVertical="true"
-        android:text="Email:" />
+        android:text="Email:"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textView47"
@@ -109,5 +138,8 @@
         android:layout_alignStart="@+id/editText25"
         android:layout_below="@+id/editText24"
         android:layout_marginTop="10dp"
-        android:text="Date:" />
+        android:text="Fecha de nacimiento:"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic" />
 </RelativeLayout>

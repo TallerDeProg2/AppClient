@@ -3,11 +3,12 @@ package fiuba.ubreapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class InfoHistorialActivity extends AppCompatActivity {
 
     Bundle bundle;
-    EditText text;
+    TextView text;
     String info;
 
     @Override
@@ -19,7 +20,7 @@ public class InfoHistorialActivity extends AppCompatActivity {
 
         info = bundle.getString("Data");
 
-        text = findViewById(R.id.editText30);
+        text = findViewById(R.id.textView25);
 
         text.setFocusable(false);
 

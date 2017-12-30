@@ -95,7 +95,6 @@ public class MapActivity extends AppCompatActivity
         gson = new Gson();
 
         user = gson.fromJson(bundlejson, User.class);
-        type = user.getType();
 
         cardjson = bundle.getString("Card");
 
@@ -126,11 +125,14 @@ public class MapActivity extends AppCompatActivity
         MenuItem changecar = menu.findItem(R.id.change_car);
         MenuItem trip = menu.findItem(R.id.trip);
 
+
+
         if (type.equals("passenger")) {
             changecar.setVisible(false);
-            trip.setTitle("Make a trip");
+            trip.setTitle("Realizar viaje");
         } else {
-            trip.setTitle("Available trips");
+            trip.setTitle("Viajes disponibles");
+
         }
 
         SupportMapFragment mapFragment =
@@ -144,7 +146,10 @@ public class MapActivity extends AppCompatActivity
 
         sendloc = true;
 
+
+
         FirebaseMessaging.getInstance().subscribeToTopic(user.getId());
+        Log.i(TAG,user.getId());
     }
 
     @Override
@@ -171,7 +176,6 @@ public class MapActivity extends AppCompatActivity
                 intent.putExtra("Card",cardjson);
                 startActivity(intent);
             } else {
-//                startTrip();
                 intent = new Intent(MapActivity.this, AvailableTripActivity.class);
                 String endpoint;
                 endpoint = "/drivers/"+user.getId()+"/trips";
@@ -184,7 +188,7 @@ public class MapActivity extends AppCompatActivity
             intent = new Intent(MapActivity.this, HistorialActivity.class);
             String endpoint;
             if(type.equals("passenger"))
-                endpoint ="/passenger/"+ user.getId() + "/trips/history";
+                endpoint ="/passengers/"+ user.getId() + "/trips/history";
             else
                 endpoint ="/drivers/"+ user.getId() + "/trips/history";
             requestHistorial(URL+endpoint,user.getToken());
@@ -253,9 +257,22 @@ public class MapActivity extends AppCompatActivity
         }
 
         if (id == R.id.logout) {
+            FirebaseMessaging.getInstance().unsubscribeFromTopic(user.getId());
+            String endpoint = "/users/"+user.getId()+"/logout";
             intent = new Intent(MapActivity.this, LoginActivity.class);
-            Log.i(TAG,"Log Out");
-            startActivity(intent);
+            sendloc = false;
+            if(type.equals("passenger")){
+                Log.i(TAG,"Log Out");
+                startActivity(intent);
+            } else {
+                try {
+                    timerTread.join();
+                    logout(URL+endpoint,user.getToken());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -581,6 +598,67 @@ public class MapActivity extends AppCompatActivity
                 intent.putExtra("Card",cardjson);
                 intent.putExtra("Car",carjson);
 
+                startActivity(intent);
+                break;
+            case 400:
+//                tm.show(infoanswer.getInfo());
+                break; //Incumplimiento de precondiciones (parámetros faltantes) o validación fallida
+            case 404:
+//                tm.show(infoanswer.getInfo());
+                break; //No existe recurso solicitado
+            case 500:
+//                tm.show(infoanswer.getInfo());
+                break; //Unexpected Error
+            default:
+//                tm.show(infoanswer.getInfo());
+                break;
+        }
+    }
+
+    private void logout(String url,final String token){
+        final Info info = new Info();
+        com.android.volley.RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+//                        startLogOut(info.getStatus());
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // TODO Auto-generated method stub
+                        Log.i(TAG,error.getMessage());
+
+                    }
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("token", token);
+
+                return params;
+            }
+
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                Log.i(TAG,"Status code LogOut: "+response.statusCode);
+                info.setStatus(response.statusCode);
+                startLogOut(info.getStatus());
+                return super.parseNetworkResponse(response);
+            }
+
+        };
+        queue.add(jsObjRequest);
+    }
+
+    private void startLogOut(int status){
+
+        switch (status) {
+            case 201:
+                Log.i(TAG,"LogOut");
                 startActivity(intent);
                 break;
             case 400:
